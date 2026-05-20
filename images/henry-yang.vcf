@@ -2,9 +2,6 @@ BEGIN:VCARD
 VERSION:3.0
 FN:Henry Yang
 N:Yang;Henry;;;
-NICKNAME:Henry
-TITLE:Product builder · AI agents · Second brains
-NOTE:Obsessed with tools that make humans 10x. ex-Microsoft. Kellogg MMM '28.
 EMAIL;TYPE=INTERNET,PREF:henry87927@gmail.com
 TEL;TYPE=CELL,VOICE:+852 60930260
 URL:https://henryyanghy.github.io/namecard/
