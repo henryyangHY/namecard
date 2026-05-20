@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Now Page — 4 Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/v2.css" />
+  <style>
+    body {
+      background: #f4ecde;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .lab {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .lab__title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #002045;
+      margin: 0 0 6px;
+      text-align: center;
+    }
+    .lab__subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5a4d3a;
+      text-align: center;
+      margin: 0 0 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+    .mock {
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 12px 32px rgba(0, 32, 69, 0.08);
+    }
+    .mock__label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #002045;
+      margin: 0 0 4px;
+    }
+    .mock__desc {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #5a4d3a;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+    }
+    .mock__notes {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      color: #5a4d3a;
+      margin: 18px 0 0;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(0, 32, 69, 0.15);
+      line-height: 1.6;
+    }
+    .mock__notes strong { color: #002045; font-weight: 600; }
+    /* Mini namecard preview */
+    .preview {
+      background: linear-gradient(180deg, #002045 0%, #002045 55%, #E4D5B4 55%);
+      border-radius: 18px;
+      padding: 16px 14px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .preview__rail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: rgba(253, 237, 212, 0.55);
+      text-transform: uppercase;
+    }
+    .preview__rail::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(253, 237, 212, 0.15);
+    }
+    .preview__rail .right {
+      flex: none;
+    }
+    .preview__avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff5c00, #002045);
+      margin: 12px auto 8px;
+      border: 2px solid rgba(253, 237, 212, 0.3);
+    }
+    .preview__name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: #fdedd4;
+      text-align: center;
+      margin: 0 0 6px;
+    }
+    .preview__quote {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-style: italic;
+      color: rgba(253, 237, 212, 0.7);
+      text-align: center;
+      margin: 0 0 10px;
+    }
+    .preview__pills {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      flex-wrap: nowrap;
+      margin: 0 0 12px;
+    }
+    .preview__pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: rgba(253, 237, 212, 0.75);
+      border: 1px solid rgba(253, 237, 212, 0.25);
+      text-transform: uppercase;
+    }
+    .preview__lower {
+      background: #E4D5B4;
+      margin: 0 -14px;
+      padding: 14px;
+    }
+    .preview__divider {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: #5a4d3a;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 10px;
+      position: relative;
+    }
+    .preview__divider::before,
+    .preview__divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background: rgba(0, 32, 69, 0.15);
+    }
+    .preview__divider::before { left: 0; }
+    .preview__divider::after { right: 0; }
+    .preview__links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+    .preview__link {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 32, 69, 0.12);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      color: #002045;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .preview__link::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      background: #002045;
+      border-radius: 3px;
+      flex: none;
+    }
+
+    /* ---------- Option 1: inline pill ---------- */
+    .now-inline {
+      margin: 0 0 12px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(0, 32, 69, 0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      color: #002045;
+      cursor: pointer;
+    }
+    .now-inline__label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ff5c00;
+      padding: 2px 6px;
+      background: rgba(255, 92, 0, 0.1);
+      border-radius: 4px;
+      flex: none;
+    }
+    .now-inline__text { flex: 1; line-height: 1.35; }
+    .now-inline__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #43b049;
+      flex: none;
+      box-shadow: 0 0 0 3px rgba(67, 176, 73, 0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(67, 176, 73, 0.2); }
+      50% { box-shadow: 0 0 0 5px rgba(67, 176, 73, 0.1); }
+    }
+
+    /* ---------- Option 2: rail button ---------- */
+    .preview__rail .now-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      color: #ff5c00;
+      background: rgba(255, 92, 0, 0.1);
+      border: 1px solid rgba(255, 92, 0, 0.3);
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .preview__rail .now-btn .live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #43b049;
+      animation: pulse 2s infinite;
+    }
+    .modal-hint {
+      position: absolute;
+      top: 38px;
+      right: 14px;
+      width: 180px;
+      background: #fdedd4;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      color: #002045;
+      z-index: 10;
+    }
+    .modal-hint__title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: #5a4d3a;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .modal-hint__entry {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(0, 32, 69, 0.15);
+      line-height: 1.4;
+    }
+    .modal-hint__entry:last-child { border-bottom: none; }
+    .modal-hint__date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      color: #ff5c00;
+      margin-bottom: 2px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ---------- Option 3: subpage link ---------- */
+    .now-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 12px auto 0;
+      padding: 8px 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      color: #002045;
+      background: transparent;
+      border: 1px solid rgba(0, 32, 69, 0.25);
+      border-radius: 999px;
+      text-decoration: none;
+    }
+    .now-link__arrow { color: #ff5c00; }
+    .subpage-preview {
+      background: #fdedd4;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .subpage-preview__h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #002045;
+      margin: 0 0 4px;
+    }
+    .subpage-preview__sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #5a4d3a;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .subpage-preview__entry {
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(0, 32, 69, 0.15);
+      font-size: 12px;
+      color: #002045;
+      line-height: 1.5;
+    }
+    .subpage-preview__entry:last-child { border-bottom: none; }
+    .subpage-preview__date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: #ff5c00;
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+    }
+    .subpage-preview__tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      padding: 1px 6px;
+      background: rgba(0, 32, 69, 0.08);
+      border-radius: 4px;
+      color: #002045;
+      margin-left: 6px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ---------- Option 4: Combo ---------- */
+    .now-combo {
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, rgba(255, 92, 0, 0.08), rgba(253, 237, 212, 0.4));
+      border: 1px solid rgba(255, 92, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .now-combo__header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .now-combo__label { color: #ff5c00; }
+    .now-combo__date { color: rgba(0, 32, 69, 0.5); margin-left: auto; }
+    .now-combo__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #43b049;
+      animation: pulse 2s infinite;
+    }
+    .now-combo__text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      color: #002045;
+      line-height: 1.4;
+    }
+    .now-combo__more {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8px;
+      color: #002045;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-top: 1px dashed rgba(0, 32, 69, 0.15);
+      padding-top: 5px;
+      text-align: right;
+    }
+    .now-combo__more::after { content: ' →'; color: #ff5c00; }
+  </style>
+</head>
+<body>
+
+<div class="lab">
+  <h1 class="lab__title">Now Page — Four Layout Mockups</h1>
+  <p class="lab__subtitle">Pick the placement that feels right · same content, four UIs</p>
+
+  <div class="grid">
+
+    <!-- ============ OPTION 1: INLINE PILL ============ -->
+    <div class="mock">
+      <h2 class="mock__label">① Inline pill</h2>
+      <p class="mock__desc">always visible · minimal · in lower section</p>
+
+      <div class="preview">
+        <div class="preview__rail">
+          <span>HY</span>
+          <span class="right">▦ QR  ·  2026</span>
+        </div>
+        <div class="preview__avatar"></div>
+        <div class="preview__name">Henry Yang</div>
+        <div class="preview__quote">"Obsessed with tools that make humans 10×."</div>
+        <div class="preview__pills">
+          <span class="preview__pill">Builder</span>
+          <span class="preview__pill">Productivity</span>
+          <span class="preview__pill">AI</span>
+        </div>
+        <div class="preview__lower">
+          <div class="now-inline">
+            <span class="now-inline__dot"></span>
+            <span class="now-inline__label">Now</span>
+            <span class="now-inline__text">Building an AI-native virtual namecard for Kellogg MBA recruiting.</span>
+          </div>
+          <div class="preview__divider">Reach out</div>
+          <div class="preview__links">
+            <div class="preview__link">LinkedIn</div>
+            <div class="preview__link">Email</div>
+            <div class="preview__link">Instagram</div>
+            <div class="preview__link">GitHub</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mock__notes">
+        <strong>+ Pros:</strong> 一眼就看到「他正在做什麼」，零點擊。最有「活躍」感。<br>
+        <strong>− Cons:</strong> 只能露一句；歷史看不到（除非點開展開）。會佔一行空間。
+      </p>
+    </div>
+
+    <!-- ============ OPTION 2: MODAL BUTTON ============ -->
+    <div class="mock">
+      <h2 class="mock__label">② Modal button (rail)</h2>
+      <p class="mock__desc">on-demand · doesn't crowd card · shows full list</p>
+
+      <div class="preview">
+        <div class="preview__rail">
+          <span>HY</span>
+          <span class="right">▦ QR  ·  <span class="now-btn"><span class="live-dot"></span>Now</span>  ·  2026</span>
+        </div>
+        <div class="modal-hint">
+          <div class="modal-hint__title">▦ Now · Henry</div>
+          <div class="modal-hint__entry">
+            <div class="modal-hint__date">MAY 20</div>
+            Building AI-native namecard.
+          </div>
+          <div class="modal-hint__entry">
+            <div class="modal-hint__date">MAY 15</div>
+            Learning agentic workflow design.
+          </div>
+          <div class="modal-hint__entry">
+            <div class="modal-hint__date">MAY 8</div>
+            Reading "Working Backwards" (Amazon).
+          </div>
+        </div>
+        <div class="preview__avatar"></div>
+        <div class="preview__name">Henry Yang</div>
+        <div class="preview__quote">"Obsessed with tools that make humans 10×."</div>
+        <div class="preview__pills">
+          <span class="preview__pill">Builder</span>
+          <span class="preview__pill">Productivity</span>
+          <span class="preview__pill">AI</span>
+        </div>
+        <div class="preview__lower">
+          <div class="preview__divider">Reach out</div>
+          <div class="preview__links">
+            <div class="preview__link">LinkedIn</div>
+            <div class="preview__link">Email</div>
+            <div class="preview__link">Instagram</div>
+            <div class="preview__link">GitHub</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mock__notes">
+        <strong>+ Pros:</strong> 名片本身不變、保持輕量。彈窗可放 5-10 筆歷史。對好奇的人才會點。<br>
+        <strong>− Cons:</strong> 多一個點擊。Now 按鈕跟 QR 並列可能 rail 變擁擠。
+      </p>
+    </div>
+
+    <!-- ============ OPTION 3: SUBPAGE LINK ============ -->
+    <div class="mock">
+      <h2 class="mock__label">③ Subpage (/now)</h2>
+      <p class="mock__desc">classic now-page convention · full timeline</p>
+
+      <div class="preview">
+        <div class="preview__rail">
+          <span>HY</span>
+          <span class="right">▦ QR  ·  2026</span>
+        </div>
+        <div class="preview__avatar"></div>
+        <div class="preview__name">Henry Yang</div>
+        <div class="preview__quote">"Obsessed with tools that make humans 10×."</div>
+        <div class="preview__pills">
+          <span class="preview__pill">Builder</span>
+          <span class="preview__pill">Productivity</span>
+          <span class="preview__pill">AI</span>
+        </div>
+        <div class="preview__lower">
+          <div class="preview__divider">Reach out</div>
+          <div class="preview__links">
+            <div class="preview__link">LinkedIn</div>
+            <div class="preview__link">Email</div>
+            <div class="preview__link">Instagram</div>
+            <div class="preview__link">GitHub</div>
+          </div>
+          <div style="text-align:center">
+            <a class="now-link">
+              <span style="width:6px;height:6px;border-radius:50%;background:#43b049"></span>
+              What I'm doing now
+              <span class="now-link__arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpage-preview">
+        <div class="subpage-preview__h1">Now · Henry Yang</div>
+        <div class="subpage-preview__sub">henryyanghy.github.io/namecard/now · updated May 20</div>
+        <div class="subpage-preview__entry">
+          <div class="subpage-preview__date">MAY 20 · 2026</div>
+          Building an AI-native virtual namecard.
+          <span class="subpage-preview__tag">building</span>
+        </div>
+        <div class="subpage-preview__entry">
+          <div class="subpage-preview__date">MAY 15 · 2026</div>
+          Learning agentic workflow design patterns.
+          <span class="subpage-preview__tag">learning</span>
+        </div>
+        <div class="subpage-preview__entry">
+          <div class="subpage-preview__date">MAY 8 · 2026</div>
+          Reading "Working Backwards" by Colin Bryar.
+          <span class="subpage-preview__tag">reading</span>
+        </div>
+      </div>
+
+      <p class="mock__notes">
+        <strong>+ Pros:</strong> 完整 timeline 有 second-brain 感、可累積成檔案。/now 是業界 convention，dev/PM 看得懂。<br>
+        <strong>− Cons:</strong> 多一個頁面要設計、要跳轉。名片上的訊號最弱。
+      </p>
+    </div>
+
+    <!-- ============ OPTION 4: COMBO ============ -->
+    <div class="mock" style="border: 2px solid #ff5c00;">
+      <h2 class="mock__label">④ Combo (我推薦)</h2>
+      <p class="mock__desc">latest on card + see more → /now history</p>
+
+      <div class="preview">
+        <div class="preview__rail">
+          <span>HY</span>
+          <span class="right">▦ QR  ·  2026</span>
+        </div>
+        <div class="preview__avatar"></div>
+        <div class="preview__name">Henry Yang</div>
+        <div class="preview__quote">"Obsessed with tools that make humans 10×."</div>
+        <div class="preview__pills">
+          <span class="preview__pill">Builder</span>
+          <span class="preview__pill">Productivity</span>
+          <span class="preview__pill">AI</span>
+        </div>
+        <div class="preview__lower">
+          <div class="now-combo">
+            <div class="now-combo__header">
+              <span class="now-combo__dot"></span>
+              <span class="now-combo__label">Now</span>
+              <span class="now-combo__date">MAY 20</span>
+            </div>
+            <div class="now-combo__text">Building an AI-native virtual namecard for Kellogg MBA recruiting.</div>
+            <a class="now-combo__more">see history</a>
+          </div>
+          <div class="preview__divider">Reach out</div>
+          <div class="preview__links">
+            <div class="preview__link">LinkedIn</div>
+            <div class="preview__link">Email</div>
+            <div class="preview__link">Instagram</div>
+            <div class="preview__link">GitHub</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mock__notes">
+        <strong>+ Pros:</strong> 最新一句直接顯示（活躍感）+ 點進去看完整 timeline（深度）。日期 stamp 增加可信度。<br>
+        <strong>− Cons:</strong> 實作工作最多（要做卡片 inline + /now 子頁兩塊）。但其實就是 1 + 3 的組合。
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
