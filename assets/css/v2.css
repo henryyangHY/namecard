@@ -79,18 +79,48 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   z-index: 2;
   width: 100%;
   max-width: 580px;
-  background: var(--paper-elev);
+  background:
+    radial-gradient(ellipse 65% 50% at 12% 18%, rgba(67, 176, 241, 0.32), transparent 60%),
+    radial-gradient(ellipse 55% 60% at 88% 25%, rgba(255, 92, 0, 0.22), transparent 60%),
+    radial-gradient(ellipse 70% 45% at 50% 75%, rgba(78, 42, 132, 0.38), transparent 65%),
+    var(--paper-elev);
   border: 1px solid var(--paper-edge);
   border-radius: 22px;
   padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 48px);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 22px;
   animation: rise 0.7s var(--ease) both;
+  overflow: hidden;
+  isolation: isolate;
 }
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(40px) saturate(140%);
+  -webkit-backdrop-filter: blur(40px) saturate(140%);
+  z-index: -1;
+  pointer-events: none;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 22px;
+}
+.card > * { position: relative; z-index: 1; }
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -348,13 +378,28 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   width: calc(100% + clamp(48px, 10vw, 96px));
   margin: 16px calc(-1 * clamp(24px, 5vw, 48px)) calc(-1 * clamp(28px, 5vw, 44px));
   padding: 0 clamp(24px, 5vw, 48px) clamp(28px, 5vw, 44px);
-  background: #E4D5B4;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255, 92, 0, 0.04), transparent 60%),
+    #E4D5B4;
   border-radius: 0 0 21px 21px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 22px;
+  position: relative;
+  overflow: hidden;
 }
+.section-lower::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0.1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-lower > * { position: relative; z-index: 1; }
 .section-lower .mono,
 .section-lower .mono--muted { color: #5a4d3a; }
 .section-lower .link {
