@@ -189,7 +189,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script>
     const avatarBtn = document.getElementById('avatar-btn');
     const qrBtn = document.getElementById('qr-btn');
@@ -213,36 +212,34 @@
       showToast('✓ Contact downloaded — open it to save Henry to your phone.');
     });
 
-    // QR
+    // QR — uses qrserver.com image API (no library required)
     let qrRendered = false;
     function openQR() {
       const url = window.location.href.replace(/#.*$/, '');
       qrUrlEl.textContent = url;
       if (!qrRendered) {
-        if (typeof QRCode === 'undefined') {
-          showToast('QR library still loading — try again in a sec.');
-          return;
-        }
+        const src = 'https://api.qrserver.com/v1/create-qr-code/?'
+          + 'size=560x560'
+          + '&margin=8'
+          + '&color=002045'
+          + '&bgcolor=fdedd4'
+          + '&qzone=1'
+          + '&format=png'
+          + '&data=' + encodeURIComponent(url);
+        const img = new Image();
+        img.alt = 'QR code for ' + url;
+        img.width = 280;
+        img.height = 280;
+        img.src = src;
+        img.onerror = () => {
+          qrCanvas.innerHTML = '<div style="padding:40px;color:#5a4d3a;font-size:12px;">Could not load QR. Check your connection.</div>';
+        };
         qrCanvas.innerHTML = '';
-        try {
-          QRCode.toCanvas(url, {
-            width: 280,
-            margin: 1,
-            color: { dark: '#002045', light: '#fdedd4' },
-            errorCorrectionLevel: 'M'
-          }, (err, canvas) => {
-            if (err) { console.error('QR error', err); showToast('Could not render QR.'); return; }
-            qrCanvas.appendChild(canvas);
-            qrRendered = true;
-          });
-        } catch (e) {
-          console.error(e);
-          showToast('Could not render QR.');
-          return;
-        }
+        qrCanvas.appendChild(img);
+        qrRendered = true;
       }
       qrModal.hidden = false;
-      qrModal.classList.add('qr-modal--open');
+      requestAnimationFrame(() => qrModal.classList.add('qr-modal--open'));
       document.body.style.overflow = 'hidden';
     }
     function closeQR() {
