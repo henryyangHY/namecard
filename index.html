@@ -61,10 +61,14 @@
 
   <main class="card">
 
-    <!-- Top rail: monogram + year + QR button -->
+    <!-- Top rail: monogram + Now + QR + year -->
     <header class="rail">
       <span class="mono">HY</span>
       <span class="rail__rule" aria-hidden="true"></span>
+      <button class="rail__btn rail__btn--now" type="button" id="now-btn" aria-label="See what Henry is up to now">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Now</span>
+      </button>
       <button class="rail__btn" type="button" id="qr-btn" aria-label="Show QR code to share this page">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" width="14" height="14">
           <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -189,6 +193,28 @@
     </div>
   </div>
 
+  <!-- Now Modal -->
+  <div class="now-modal" id="now-modal" role="dialog" aria-modal="true" aria-label="What I'm doing now" hidden>
+    <button class="qr-modal__close now-modal__close" type="button" id="now-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="now-modal__inner">
+      <header class="now-modal__head">
+        <div class="now-modal__title-row">
+          <span class="live-dot" aria-hidden="true"></span>
+          <h2 class="now-modal__title">Now · Henry</h2>
+        </div>
+        <p class="now-modal__sub mono">What I'm up to · last updated <span id="now-updated">—</span></p>
+      </header>
+      <ol class="now-list" id="now-list">
+        <li class="now-loading mono">Loading…</li>
+      </ol>
+      <footer class="now-modal__foot mono">
+        Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a>
+      </footer>
+    </div>
+  </div>
+
   <script>
     const avatarBtn = document.getElementById('avatar-btn');
     const qrBtn = document.getElementById('qr-btn');
@@ -254,6 +280,68 @@
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !qrModal.hidden) closeQR();
+    });
+
+    // ---------- Now Page ----------
+    const nowBtn = document.getElementById('now-btn');
+    const nowModal = document.getElementById('now-modal');
+    const nowClose = document.getElementById('now-close');
+    const nowList = document.getElementById('now-list');
+    const nowUpdated = document.getElementById('now-updated');
+    let nowLoaded = false;
+
+    function fmtDate(iso) {
+      const d = new Date(iso + 'T00:00:00');
+      if (isNaN(d)) return iso;
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      return months[d.getMonth()] + ' ' + d.getDate();
+    }
+
+    async function loadNow() {
+      if (nowLoaded) return;
+      try {
+        const res = await fetch('now.json?_=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        nowUpdated.textContent = fmtDate(data.updated);
+        const entries = (data.entries || []).slice(0, 5);
+        if (entries.length === 0) {
+          nowList.innerHTML = '<li class="now-loading mono">Nothing here yet.</li>';
+        } else {
+          nowList.innerHTML = entries.map(e => `
+            <li class="now-entry">
+              <div class="now-entry__meta">
+                <span class="now-entry__date mono">${fmtDate(e.date)}</span>
+                <span class="now-entry__tag now-entry__tag--${(e.tag||'thinking').toLowerCase()}">${e.tag||'thinking'}</span>
+              </div>
+              <p class="now-entry__text">${e.text}</p>
+            </li>`).join('');
+        }
+        nowLoaded = true;
+      } catch (err) {
+        console.error(err);
+        nowList.innerHTML = '<li class="now-loading mono">Could not load. Try again later.</li>';
+      }
+    }
+
+    function openNow() {
+      loadNow();
+      nowModal.hidden = false;
+      requestAnimationFrame(() => nowModal.classList.add('qr-modal--open'));
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNow() {
+      nowModal.classList.remove('qr-modal--open');
+      nowModal.hidden = true;
+      document.body.style.overflow = '';
+    }
+    nowBtn?.addEventListener('click', openNow);
+    nowClose?.addEventListener('click', closeNow);
+    nowModal?.addEventListener('click', (e) => {
+      if (e.target === nowModal) closeNow();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !nowModal.hidden) closeNow();
     });
   </script>
 </body>
