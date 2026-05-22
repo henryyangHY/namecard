@@ -1,6 +1,11 @@
 {
-  "updated": "2026-05-20",
+  "updated": "2026-05-23",
   "entries": [
+    {
+      "date": "2026-05-23",
+      "tag": "building",
+      "text": "Built ClaudeGamepad — a macOS menu bar app to vibe code with a game controller."
+    },
     {
       "date": "2026-05-20",
       "tag": "building",
@@ -15,11 +20,6 @@
       "date": "2026-05-10",
       "tag": "thinking",
       "text": "Sharpening the narrative for my transition from Microsoft to Kellogg MMM '28."
-    },
-    {
-      "date": "2026-05-01",
-      "tag": "reading",
-      "text": "\"Working Backwards\" — Bryar & Carr on Amazon's PR/FAQ method."
     },
     {
       "date": "2026-04-22",
