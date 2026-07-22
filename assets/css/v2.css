@@ -17,7 +17,8 @@
   --muted:        #a09080;
   --subtle:       #6a5a4a;
 
-  --accent:       #ff5c00;
+  --accent:       #ff5c00;          /* decorative: icons, bullets, borders, ring */
+  --accent-text:  #ff5c00;          /* accent used as TEXT (flips darker on light bg) */
   --accent-glow:  rgba(255, 92, 0, 0.20);
   --accent-soft:  rgba(255, 92, 0, 0.10);
   --kellogg:      #4E2A84;
@@ -984,7 +985,7 @@ body { place-items: start center; }
   text-transform: uppercase;
 }
 .kicker__num { font-weight: 600; }
-.chapter--navy .kicker { color: var(--accent); }
+.chapter--navy .kicker { color: var(--accent-text); }
 .chapter--paper .kicker { color: #9a4300; }
 
 /* ---------- Chapter title (Fraunces) ---------- */
@@ -1195,11 +1196,11 @@ body { place-items: start center; }
   margin: 12px 0 0;
   font-family: var(--sans);
   font-weight: 700;
-  font-size: clamp(20px, 3.6vw, 28px);
+  font-size: clamp(21px, 3.7vw, 29px);
   line-height: 1.1;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ---------- Landing shell ---------- */
@@ -1261,7 +1262,8 @@ body { place-items: start center; }
   .bio__proofs { order: 7; } .bio__testimonial { order: 8; } .bio__cta { order: 9; }
 }
 .bio__id { display: flex; flex-direction: column; min-width: 0; }
-.bio__photo { align-self: center; margin: 2px 0 4px; }
+.bio__photo { align-self: center; margin: 2px 0 6px; }
+.bio__photo .avatar__frame { width: clamp(210px, 25vw, 288px); height: clamp(210px, 25vw, 288px); }
 
 .bio .hero__name { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.02; }
 .bio__photo .avatar__frame { width: 190px; height: 190px; }
@@ -1269,13 +1271,13 @@ body { place-items: start center; }
 .bio__tagline {
   margin: 16px 0 0;
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 18px);
   line-height: 1.5;
   color: var(--ink-soft);
   max-width: 42ch;
 }
-.bio__tagline em { font-style: italic; color: var(--accent); font-weight: 500; }
+.bio__tagline em { font-style: italic; color: var(--accent-text); font-weight: 500; }
 
 .links--compact { width: 100%; display: grid; grid-template-columns: 1fr; gap: 8px; }
 @media (min-width: 500px) { .links--compact { grid-template-columns: 1fr 1fr; } }
@@ -1286,22 +1288,23 @@ body { place-items: start center; }
   padding-bottom: 9px;
   border-bottom: 1px solid var(--hairline);
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .block__head--accent {
-  color: var(--accent);
+  color: var(--accent-text);
   border-color: rgba(255, 92, 0, 0.32);
-  font-size: 12px;
+  font-size: 12.5px;
 }
 
 .about__belief {
   margin: 0 0 14px;
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(14.5px, 1.9vw, 16px);
+  font-weight: 400;
+  font-size: clamp(15.5px, 1.9vw, 16.5px);
   line-height: 1.62;
   color: var(--ink-soft);
 }
@@ -1309,7 +1312,7 @@ body { place-items: start center; }
   margin: 0 0 14px;
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.55;
   color: var(--ink);
 }
@@ -1317,19 +1320,19 @@ body { place-items: start center; }
   margin: 0;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.5;
   color: var(--muted);
 }
-.about__fun-tag { color: var(--accent); font-weight: 500; margin-right: 7px; }
-.about__fun em { color: var(--accent); font-style: normal; font-weight: 600; }
+.about__fun-tag { color: var(--accent-text); font-weight: 600; margin-right: 7px; }
+.about__fun em { color: var(--accent-text); font-style: normal; font-weight: 600; }
 
-.ai-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.ai-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .ai-list li {
   position: relative;
   padding-left: 20px;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.45;
   color: var(--ink-soft);
 }
@@ -1347,9 +1350,9 @@ body { place-items: start center; }
 .cred {
   margin: 0;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.05em;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--muted);
   text-align: center;
 }
@@ -1358,20 +1361,20 @@ body { place-items: start center; }
 /* ---------- Proof points ---------- */
 .proofs { display: flex; flex-direction: column; gap: 16px; }
 .proof__title {
-  margin: 0 0 5px;
+  margin: 0 0 6px;
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.07em;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 500;
 }
 .proof__text {
   margin: 0;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 13.5px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--ink-soft);
 }
 
@@ -1444,6 +1447,95 @@ body { place-items: start center; }
   color: var(--ink-soft);
 }
 .story-foot .story-cta { display: inline-flex; justify-content: center; }
+
+/* =========================================================
+   Light theme (v2.6) — white-based landing for readability.
+   Scoped to body.light so the dark story page is untouched.
+   Tokens flip; orange stays decorative, accent TEXT darkens to
+   #c24400 (AA on the near-white card). Verified contrasts:
+   navy 15.7:1 · slate body 12:1 · secondary 9.3:1 · accent-text 4.9:1
+   ========================================================= */
+body.light {
+  --paper:        #E9E0CE;   /* warm page base */
+  --paper-elev:   #FDFBF6;   /* near-white card surface */
+  --paper-edge:   rgba(0, 32, 69, 0.12);
+  --hairline:     rgba(0, 32, 69, 0.16);
+  --ink:          #002045;   /* strong text (15.7:1) */
+  --ink-soft:     #22364a;   /* body text (12:1) */
+  --muted:        #33475b;   /* secondary text (9.3:1) — readable, not faint */
+  --subtle:       #5a6b7d;
+  --accent-text:  #c24400;   /* accent used as text (4.9:1 on card) */
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 60% at 85% -10%, rgba(255, 92, 0, 0.07), transparent 60%),
+    radial-gradient(ellipse 70% 50% at -12% 112%, rgba(78, 42, 132, 0.06), transparent 60%),
+    var(--paper);
+}
+body.light .grain { opacity: 0.04; }
+
+/* Card: clean near-white with soft shadow for separation (no dark glass) */
+body.light .bio-card {
+  background:
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(255, 92, 0, 0.05), transparent 60%),
+    var(--paper-elev);
+  border: 1px solid rgba(0, 32, 69, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 24px 55px rgba(0, 32, 69, 0.12),
+    0 8px 20px rgba(0, 32, 69, 0.06);
+}
+body.light .bio-card::before { background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* Rail (top) */
+body.light .rail__rule { background: linear-gradient(90deg, rgba(0, 32, 69, 0.2), transparent); }
+body.light .rail__btn {
+  color: var(--ink-soft);
+  background: rgba(0, 32, 69, 0.04);
+  border-color: rgba(0, 32, 69, 0.16);
+}
+body.light .rail__btn:hover, body.light .rail__btn:focus-visible {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: rgba(255, 92, 0, 0.08);
+}
+body.light .rail__btn--now {
+  color: var(--accent-text);
+  background: rgba(255, 92, 0, 0.08);
+  border-color: rgba(255, 92, 0, 0.4);
+}
+
+/* Contact cards: white on warm card */
+body.light .link {
+  background: #FFFFFF;
+  border-color: rgba(0, 32, 69, 0.12);
+}
+body.light .link:hover { border-color: var(--accent); }
+body.light .link__icon {
+  background: #F4EEE0;
+  border-color: rgba(0, 32, 69, 0.1);
+  color: var(--accent);
+}
+body.light .link__name { color: var(--ink); }
+body.light .link__handle { color: var(--muted); }
+body.light .link__arrow { color: var(--subtle); }
+body.light .link:hover .link__arrow { color: var(--accent); }
+
+/* Avatar ring inner matches card */
+body.light .avatar__frame::before { background: var(--paper-elev); }
+body.light .avatar__tape { background: var(--ink); color: #FDFBF6; }
+
+/* Testimonial (light) */
+body.light .testimonial--bio {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 32, 69, 0.12);
+  border-left: 3px solid var(--accent);
+}
+body.light .testimonial--bio .testimonial__quote { color: var(--ink); }
+body.light .testimonial--bio .testimonial__cite { color: var(--muted); }
+
+/* Story CTA on light */
+body.light .story-cta { background: rgba(255, 92, 0, 0.08); border-color: rgba(255, 92, 0, 0.35); }
+body.light .story-cta:hover { background: rgba(255, 92, 0, 0.14); border-color: var(--accent); }
 
 /* ---------- Motion safety ---------- */
 @media (prefers-reduced-motion: reduce) {
