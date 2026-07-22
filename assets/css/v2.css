@@ -1196,11 +1196,12 @@ body { place-items: start center; }
   margin: 12px 0 0;
   font-family: var(--sans);
   font-weight: 700;
-  font-size: clamp(21px, 3.7vw, 29px);
-  line-height: 1.1;
+  font-size: clamp(20px, 2.9vw, 26px);
+  line-height: 1.15;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--accent-text);
+  white-space: nowrap;   /* with the <br>, keep it to exactly two lines */
 }
 
 /* ---------- Landing shell ---------- */
@@ -1262,8 +1263,8 @@ body { place-items: start center; }
   .bio__proofs { order: 7; } .bio__testimonial { order: 8; } .bio__cta { order: 9; }
 }
 .bio__id { display: flex; flex-direction: column; min-width: 0; }
-.bio__photo { align-self: center; margin: 2px 0 6px; }
-.bio__photo .avatar__frame { width: clamp(210px, 25vw, 288px); height: clamp(210px, 25vw, 288px); }
+.bio__photo { align-self: center; margin: 2px 0 8px; }
+.bio__photo .avatar__frame { width: clamp(240px, 30vw, 340px); height: clamp(240px, 30vw, 340px); }
 
 .bio .hero__name { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.02; }
 .bio__photo .avatar__frame { width: 190px; height: 190px; }
@@ -1284,20 +1285,20 @@ body { place-items: start center; }
 
 /* ---------- Section blocks ---------- */
 .block__head {
-  margin: 0 0 14px;
-  padding-bottom: 9px;
-  border-bottom: 1px solid var(--hairline);
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--hairline);
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
 }
 .block__head--accent {
   color: var(--accent-text);
-  border-color: rgba(255, 92, 0, 0.32);
-  font-size: 12.5px;
+  border-color: rgba(255, 92, 0, 0.38);
+  font-size: 14.5px;
 }
 
 .about__belief {
@@ -1348,26 +1349,28 @@ body { place-items: start center; }
 
 /* ---------- Credentials strip ---------- */
 .cred {
-  margin: 0;
+  margin: 2px auto 0;
+  max-width: 40ch;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.05em;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--muted);
   text-align: center;
 }
-@media (min-width: 860px) { .cred { text-align: right; } }
 
 /* ---------- Proof points ---------- */
 .proofs { display: flex; flex-direction: column; gap: 16px; }
 .proof__title {
-  margin: 0 0 6px;
+  margin: 0 0 7px;
   font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 13.5px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--accent-text);
-  font-weight: 500;
+  font-weight: 600;
 }
 .proof__text {
   margin: 0;
