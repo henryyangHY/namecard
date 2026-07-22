@@ -1547,3 +1547,88 @@ body.light .story-cta:hover { background: rgba(255, 92, 0, 0.14); border-color: 
   }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   Landing polish (v2.7) — light-mode brand pass  (by Claude)
+   (1) warm-futuristic depth
+   (2) blue x orange dual accent + Fraunces serif moment
+   (3) living surface: staggered entrance + rotating avatar ring
+   All scoped to body.light; the dark story page is untouched.
+   Text-contrast pairs from v2.6 preserved (all glows <= 0.10).
+   ========================================================= */
+
+/* electric blue promoted from hidden glow to a functional
+   "rational / tech" accent, paired with the warm orange "human"
+   accent. #0a6bb0 passes AA on the near-white card. */
+body.light { --accent-tech: #0a6bb0; }
+
+/* --- (1) warm-futuristic depth --- */
+body.light .grain { opacity: 0.075; }
+body.light .bio-card {
+  background:
+    radial-gradient(ellipse 40% 38% at 6% 4%,   rgba(10, 107, 176, 0.10), transparent 60%),
+    radial-gradient(ellipse 46% 42% at 100% 2%,  rgba(255, 92, 0, 0.09),   transparent 62%),
+    radial-gradient(ellipse 62% 42% at 52% 106%, rgba(78, 42, 132, 0.10),  transparent 66%),
+    var(--paper-elev);
+}
+/* soft energy halo behind the portrait (a blur glow, not a solid panel) */
+body.light .bio__photo { position: relative; }
+body.light .bio__photo::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -8%;
+  background: radial-gradient(circle at 50% 46%,
+              rgba(10, 107, 176, 0.16), rgba(255, 92, 0, 0.07) 55%, transparent 72%);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+/* --- (2) rational x emotional in colour + type --- */
+/* hero tagline -> Fraunces italic: the warm / human moment on screen 1 */
+body.light .bio__tagline {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.42;
+}
+body.light .bio__tagline em { color: var(--accent-text); font-weight: 500; }
+
+/* "Making technology feel human" underline blends tech-blue -> human-orange */
+body.light .block__head--accent { border-bottom: none; position: relative; }
+body.light .block__head--accent::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--accent-tech), var(--accent));
+}
+
+/* proof titles encode the two sides: storyteller = human, builder = tech */
+body.light .proofs .proof:nth-child(1) .proof__title { color: var(--accent-text); }
+body.light .proofs .proof:nth-child(3) .proof__title { color: var(--accent-tech); }
+
+/* --- (3) living surface (motion; also neutralised by the reduce block above) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .bio__id, .bio__contact, .bio__about, .bio__areas, .bio__cta,
+  .bio__photo, .bio__proofs, .bio__testimonial {
+    animation: bio-rise 0.6s var(--ease) both;
+  }
+  .bio__id          { animation-delay: 0.04s; }
+  .bio__photo       { animation-delay: 0.10s; }
+  .bio__contact     { animation-delay: 0.16s; }
+  .bio__about       { animation-delay: 0.22s; }
+  .bio__areas       { animation-delay: 0.28s; }
+  .bio__proofs      { animation-delay: 0.28s; }
+  .bio__testimonial { animation-delay: 0.36s; }
+  .bio__cta         { animation-delay: 0.42s; }
+
+  /* conic ring rotates; photo counter-rotates to stay upright */
+  .avatar__frame     { animation: ring-spin 30s linear infinite; }
+  .avatar__frame img { animation: ring-spin-rev 30s linear infinite; }
+}
+@keyframes bio-rise      { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes ring-spin     { to { transform: rotate(360deg); } }
+@keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
