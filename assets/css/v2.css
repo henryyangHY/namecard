@@ -849,10 +849,347 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .links { grid-template-columns: 1fr 1fr; }
 }
 
+/* =========================================================
+   Audacious Bio — scroll story (v2.4)
+   Adds: Fraunces editorial serif, chaptered scroll,
+   ladder, "how others see me", scroll-reveal + progress.
+   Palette unchanged; navy = chaos/tech, parchment = calm/human.
+   ========================================================= */
+
+:root {
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+}
+
+/* New hero tagline is a full sentence: let it wrap (old tagline was one short line) */
+.card .quote {
+  white-space: normal;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+
+/* Page becomes a top-aligned vertical stack (was single centred card) */
+body { place-items: start center; }
+
+.stack {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 4vw, 32px);
+}
+.stack > .card { max-width: none; }
+
+/* ---------- Scroll progress rail ---------- */
+.progress {
+  position: fixed;
+  top: 0; right: 0;
+  width: 3px;
+  height: 100dvh;
+  z-index: 40;
+  background: rgba(253, 237, 212, 0.06);
+  pointer-events: none;
+}
+.progress__bar {
+  display: block;
+  width: 100%; height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: linear-gradient(180deg, var(--accent), #ff8a3c);
+}
+
+/* ---------- Hero moniker + scroll cue (Act 0) ---------- */
+.hero__moniker {
+  margin: 8px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  color: var(--muted);
+  transition: color 0.25s var(--ease);
+}
+.scroll-cue:hover, .scroll-cue:focus-visible { color: var(--accent); outline: none; }
+.scroll-cue__label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+.scroll-cue__chev { display: grid; place-items: center; animation: cue-bob 2.2s var(--ease) infinite; }
+@keyframes cue-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* ---------- Scroll reveal ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Chapter panels ---------- */
+.chapter {
+  position: relative;
+  border-radius: 22px;
+  padding: clamp(30px, 6vw, 48px) clamp(24px, 5vw, 44px);
+  text-align: left;
+  overflow: hidden;
+  isolation: isolate;
+  scroll-margin-top: 20px;
+}
+.chapter--navy {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 12%, rgba(67, 176, 241, 0.14), transparent 60%),
+    radial-gradient(ellipse 55% 55% at 88% 18%, rgba(255, 92, 0, 0.12), transparent 62%),
+    var(--paper-elev);
+  border: 1px solid var(--paper-edge);
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 50px rgba(0, 0, 0, 0.34);
+}
+.chapter--paper {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255, 92, 0, 0.05), transparent 60%),
+    #E4D5B4;
+  border: 1px solid rgba(0, 32, 69, 0.10);
+  color: #002045;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.20);
+}
+.chapter--paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0.1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.chapter > * { position: relative; z-index: 1; }
+
+/* ---------- Kicker (chapter eyebrow) ---------- */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.kicker__num { font-weight: 600; }
+.chapter--navy .kicker { color: var(--accent); }
+.chapter--paper .kicker { color: #9a4300; }
+
+/* ---------- Chapter title (Fraunces) ---------- */
+.chapter__title {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(24px, 4.8vw, 35px);
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  color: #002045;
+}
+.chapter__title--ink { color: var(--ink); }
+
+/* ---------- Confession pull-quote ---------- */
+.pull {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(26px, 5.2vw, 40px);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.pull em { font-style: italic; color: var(--accent); font-weight: 500; }
+.pull__note {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(15px, 2.4vw, 17px);
+  line-height: 1.66;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* ---------- Prose (origin story) ---------- */
+.prose { max-width: 60ch; }
+.prose p {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(15px, 2.4vw, 17px);
+  line-height: 1.72;
+  color: #223449;
+  margin: 0 0 16px;
+}
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------- Ladder (three proof steps) ---------- */
+.ladder { list-style: none; margin: 0; padding: 0; position: relative; }
+.ladder__step { position: relative; padding: 0 0 26px 54px; }
+.ladder__step:last-child { padding-bottom: 0; }
+.ladder__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 18px; top: 40px; bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(255, 92, 0, 0.5), rgba(255, 92, 0, 0.05));
+}
+.ladder__num {
+  position: absolute;
+  left: 0; top: 0;
+  width: 37px; height: 37px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  border: 1px solid rgba(255, 92, 0, 0.45);
+  background: rgba(255, 92, 0, 0.06);
+}
+.ladder__title {
+  margin: 6px 0 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.ladder__text {
+  margin: 0;
+  max-width: 60ch;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(14px, 2.3vw, 16px);
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+/* ---------- How others see me ---------- */
+.others { display: grid; grid-template-columns: 1fr; gap: 28px; }
+@media (min-width: 600px) { .others { grid-template-columns: 1fr 1fr; gap: 34px; } }
+.others__head {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a4d3a;
+}
+.others__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.others__list li {
+  position: relative;
+  padding-left: 20px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #223449;
+}
+.others__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 7px; height: 7px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+.wordpills { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.wordpill {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 32, 69, 0.18);
+  background: rgba(255, 255, 255, 0.45);
+  color: #002045;
+}
+.wordpill--hot {
+  border-color: rgba(255, 92, 0, 0.5);
+  background: rgba(255, 92, 0, 0.12);
+  color: #9a4300;
+  font-weight: 500;
+}
+.others__consensus {
+  margin: 0 0 18px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4a3d2a;
+}
+.testimonial {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(0, 32, 69, 0.1);
+  border-left: 3px solid var(--accent);
+}
+.testimonial__quote {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #002045;
+}
+.testimonial__cite {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a4d3a;
+}
+
+/* ---------- Reach-out chapter: paper-surface link styling ---------- */
+.chapter--paper .mono, .chapter--paper .mono--muted { color: #5a4d3a; }
+.chapter--paper .divider { margin-top: 0; }
+.chapter--paper .divider::before, .chapter--paper .divider::after { background: rgba(0, 32, 69, 0.15); }
+.chapter--paper .links { margin-top: 4px; }
+.chapter--paper .link {
+  border-color: rgba(0, 32, 69, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+}
+.chapter--paper .link:hover { border-color: var(--accent); }
+.chapter--paper .link::before { background: linear-gradient(90deg, rgba(255, 92, 0, 0.08), transparent 60%); }
+.chapter--paper .link__icon {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 32, 69, 0.1);
+  color: var(--accent);
+}
+.chapter--paper .link__name { color: #002045; }
+.chapter--paper .link__handle { color: #5a4d3a; }
+.chapter--paper .link__arrow { color: #8a7a60; }
+.chapter--paper .link:hover .link__arrow { color: var(--accent); }
+.chapter--paper .foot__dot { color: var(--accent); }
+
+/* Narrow screens */
+@media (max-width: 400px) {
+  .chapter { padding: clamp(24px, 6vw, 30px) clamp(18px, 5vw, 22px); }
+  .ladder__step { padding-left: 46px; }
+}
+
 /* ---------- Motion safety ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+  .js .reveal { opacity: 1; transform: none; }
 }
