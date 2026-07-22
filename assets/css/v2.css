@@ -1242,28 +1242,51 @@ body { place-items: start center; }
 }
 .bio-card > * { position: relative; z-index: 1; }
 
-/* ---------- Bio grid ---------- */
+/* ---------- Bio layout — shared-alignment grid ----------
+   Structure:  .bio  >  .bio__row (x2)  >  .bio__cell (x2)  >  blocks
+   Each row is a 2-col grid with identical tracks, so the columns line up
+   vertically across rows AND both cells in a row share the same top edge.
+   Consequence: Row 2's left header (ABOUT HENRY) and right header
+   (MAKING TECHNOLOGY FEEL HUMAN) stay aligned at ANY content length —
+   swap a block for longer/shorter copy and the structure holds. */
 .bio {
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 3vw, 26px);
-  margin-top: 20px;
+  gap: clamp(28px, 4.5vw, 48px);          /* air between the intro band and body band */
+  margin-top: clamp(18px, 3vw, 26px);
   text-align: left;
 }
+.bio__row  { display: flex; flex-direction: column; gap: clamp(22px, 4vw, 30px); }
+.bio__cell { display: flex; flex-direction: column; gap: clamp(22px, 2.8vw, 32px); min-width: 0; }
+
 @media (min-width: 860px) {
-  .bio { flex-direction: row; gap: clamp(34px, 4.5vw, 56px); align-items: flex-start; }
-  .bio__col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: clamp(20px, 2.6vw, 26px); }
+  .bio__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(34px, 5vw, 64px);
+    align-items: start;                    /* both cells top-align -> headers line up */
+  }
+  /* intro cell: identity pinned to the top, contact links sink toward the
+     portrait's baseline so the two body headers meet on Row 2 */
+  .bio__cell--intro { justify-content: space-between; }
 }
-/* On small screens the two column wrappers dissolve so items can interleave
-   (name, photo, then contact/about, then proof) instead of all-left-then-all-right */
+
+/* Mobile (<860px): single column; the row/cell wrappers dissolve so the
+   leaf blocks interleave (name -> photo -> contact -> about -> ... -> story) */
 @media (max-width: 859px) {
-  .bio__col { display: contents; }
-  .bio__id { order: 1; } .bio__photo { order: 2; } .bio__cred { order: 3; }
-  .bio__contact { order: 4; } .bio__about { order: 5; } .bio__areas { order: 6; }
-  .bio__proofs { order: 7; } .bio__testimonial { order: 8; } .bio__cta { order: 9; }
+  .bio__row, .bio__cell { display: contents; }
+  .bio__id { order: 1; } .bio__photo { order: 2; } .bio__contact { order: 3; }
+  .bio__about { order: 4; } .bio__areas { order: 5; } .bio__proofs { order: 6; }
+  .bio__testimonial { order: 7; } .bio__cta { order: 8; }
+
+  /* narrow screens: centre the hero identity + section headers */
+  .bio__id     { align-items: center; text-align: center; }
+  .bio__tagline { margin-left: auto; margin-right: auto; }
+  .block__head { text-align: center; }
 }
+
 .bio__id { display: flex; flex-direction: column; min-width: 0; }
-.bio__photo { align-self: center; width: 100%; max-width: clamp(280px, 44vw, 440px); margin: 2px auto 4px; }
+.bio__photo { align-self: center; width: 100%; max-width: clamp(260px, 40vw, 400px); margin: 0 auto; }
 .bio__photo .avatar__frame { width: 100%; height: auto; aspect-ratio: 1 / 1; }
 
 .bio .hero__name { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.02; }

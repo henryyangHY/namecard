@@ -87,15 +87,19 @@
 
       <div class="bio">
 
-        <!-- LEFT COLUMN: identity + contact + about + interests + story link -->
-        <div class="bio__col bio__col--left">
-          <div class="bio__id">
-            <h1 class="hero__name">Henry Yang</h1>
-            <p class="moniker">The Builder Who Turns<br>Chaos Into Calm</p>
-            <p class="bio__tagline">I build the systems that gave me my life back, so other people can have <em>theirs</em>.</p>
-          </div>
+        <!-- ROW 1 — intro band:  identity + contact   |   portrait
+             Both cells top-align; the intro cell's contact links sink to
+             the photo baseline so Row 2's two headers line up. -->
+        <div class="bio__row bio__row--intro">
 
-          <nav class="links links--compact bio__contact" aria-label="Contact links">
+          <div class="bio__cell bio__cell--intro">
+            <div class="bio__id">
+              <h1 class="hero__name">Henry Yang</h1>
+              <p class="moniker">The Builder Who Turns<br>Chaos Into Calm</p>
+              <p class="bio__tagline">I build the systems that gave me my life back, so other people can have <em>theirs</em>.</p>
+            </div>
+
+            <nav class="links links--compact bio__contact" aria-label="Contact links">
             <a class="link" href="https://www.linkedin.com/in/henry-hj-yang/" target="_blank" rel="noopener">
               <span class="link__icon">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
@@ -139,9 +143,27 @@
               </span>
               <span class="link__arrow" aria-hidden="true">↗</span>
             </a>
-          </nav>
+            </nav>
+          </div>
 
-          <section class="block bio__about">
+          <div class="bio__cell bio__cell--media">
+            <button class="avatar bio__photo" type="button" id="avatar-btn" aria-label="Save Henry's contact card to your phone">
+              <span class="avatar__frame">
+                <img src="images/avatar.jpg" alt="Henry Yang" width="200" height="200" />
+              </span>
+              <span class="avatar__tape" aria-hidden="true">Tap the photo to save contact</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- ROW 2 — body band:  about + interests + story   |   proof + testimonial
+             The two cells share this row's top line, so the left header
+             (ABOUT HENRY) and the right header (MAKING TECHNOLOGY FEEL HUMAN) align. -->
+        <div class="bio__row bio__row--body">
+
+          <div class="bio__cell bio__cell--facets">
+            <section class="block bio__about">
             <h2 class="block__head mono">About Henry</h2>
             <p class="about__belief">Technology should make people more capable, not more busy. I have believed that since I was seventeen. It is why I left Taiwan for Hong Kong, joined Microsoft, and ended up owning the very productivity tool I first fell in love with.</p>
             <p class="about__attrs">Builder. Storyteller. Tech instructor. Épée fencer. Productivity tool obsessive. RPG gamer. Podcaster. Keynote speaker. Five-language communicator.</p>
@@ -161,19 +183,11 @@
           <a class="story-cta bio__cta" href="story.html">
             <span class="story-cta__text">The deeper story: who Henry is, and how others see him</span>
             <span class="story-cta__arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
+            </a>
+          </div>
 
-        <!-- RIGHT COLUMN: photo + credentials + proof + testimonial -->
-        <div class="bio__col bio__col--right">
-          <button class="avatar bio__photo" type="button" id="avatar-btn" aria-label="Save Henry's contact card to your phone">
-            <span class="avatar__frame">
-              <img src="images/avatar.jpg" alt="Henry Yang" width="200" height="200" />
-            </span>
-            <span class="avatar__tape" aria-hidden="true">Tap the photo to save contact</span>
-          </button>
-
-          <section class="block bio__proofs">
+          <div class="bio__cell bio__cell--proof">
+            <section class="block bio__proofs">
             <h2 class="block__head block__head--accent">Making technology feel human</h2>
             <div class="proofs">
               <div class="proof">
@@ -195,6 +209,8 @@
             <p class="testimonial__quote">Henry delivers more than content. He listens, adapts, and makes others feel included in the conversation.</p>
             <cite class="testimonial__cite mono">Douglas Dawson · VP of Cloud + AI Communication, Microsoft</cite>
           </blockquote>
+          </div>
+
         </div>
 
       </div>
