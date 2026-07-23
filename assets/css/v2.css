@@ -1276,8 +1276,8 @@ body { place-items: start center; }
 @media (max-width: 859px) {
   .bio__row, .bio__cell { display: contents; }
   .bio__id { order: 1; } .bio__photo { order: 2; } .bio__contact { order: 3; }
-  .bio__about { order: 4; } .bio__areas { order: 5; } .bio__proofs { order: 6; }
-  .bio__testimonial { order: 7; } .bio__cta { order: 8; }
+  .bio__about { order: 4; } .bio__proofs { order: 5; } .bio__testimonial { order: 6; }
+  .bio__areas { order: 7; } .bio__cta { order: 8; }
 
   /* narrow screens: centre the hero identity + section headers */
   .bio__id     { align-items: center; text-align: center; }
@@ -1339,16 +1339,36 @@ body { place-items: start center; }
   line-height: 1.55;
   color: var(--ink);
 }
+/* Fun fact — lifted out of the paragraph flow into a soft accent callout
+   with a pill label, so it reads as a distinct, playful aside. */
 .about__fun {
-  margin: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 11px;
+  margin: 4px 0 0;
+  padding: 13px 15px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 92, 0, 0.20);
   font-family: var(--sans);
   font-weight: 400;
-  font-size: clamp(15.5px, 1.9vw, 16.5px);
-  line-height: 1.6;
+  font-size: clamp(15px, 1.9vw, 16px);
+  line-height: 1.55;
   color: var(--ink-soft);
 }
-.about__fun-tag { color: var(--accent-text); font-weight: 600; margin-right: 7px; }
-.about__fun em { color: var(--accent-text); font-style: normal; font-weight: 600; }
+.about__fun-tag {
+  flex: none;
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 92, 0, 0.16);
+  color: var(--accent-text);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+.about__fun em { color: var(--accent-text); font-style: normal; font-weight: 700; }
 
 .ai-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .ai-list li {
