@@ -1423,6 +1423,28 @@ body { place-items: start center; }
   color: var(--ink-soft);
 }
 
+/* Desktop-only reading-copy bump — About Henry + Making Technology Feel
+   Human body text. Scoped to the same 860px breakpoint where the layout
+   itself goes two-column, so mobile sizes are completely untouched. */
+@media (min-width: 860px) {
+  .about__belief,
+  .about__fun {
+    font-size: 17.5px;
+    line-height: 1.68;
+  }
+  .about__attrs {
+    font-size: 16.5px;
+    line-height: 1.6;
+  }
+  .proof__title {
+    font-size: 14.5px;
+  }
+  .proof__text {
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+}
+
 /* ---------- Testimonial (dark variant) ---------- */
 .testimonial--bio {
   padding: 16px 18px;
