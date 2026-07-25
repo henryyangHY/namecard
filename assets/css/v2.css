@@ -1443,6 +1443,12 @@ body { place-items: start center; }
     font-size: 16.5px;
     line-height: 1.65;
   }
+  /* section titles: ABOUT HENRY / AREAS OF INTEREST / MAKING TECHNOLOGY
+     FEEL HUMAN — trying 18px per request; stress-tested at the 860px
+     edge and at full width for wrapping/overflow before shipping. */
+  .block__head {
+    font-size: 18px;
+  }
 }
 
 /* ---------- Testimonial (dark variant) ---------- */
