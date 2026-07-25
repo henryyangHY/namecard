@@ -1340,12 +1340,11 @@ body { place-items: start center; }
   color: var(--ink);
 }
 /* Fun fact — lifted out of the paragraph flow into a soft accent callout
-   with a pill label, so it reads as a distinct, playful aside. */
+   with a pill label, so it reads as a distinct, playful aside. Normal
+   text flow (not flex) so "zero right now" wraps like ordinary prose —
+   flex would turn each inline run/element into its own item and force
+   a gap-sized break between them. */
 .about__fun {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 6px 11px;
   margin: 4px 0 0;
   padding: 13px 15px;
   border-radius: 12px;
@@ -1358,8 +1357,8 @@ body { place-items: start center; }
   color: var(--ink-soft);
 }
 .about__fun-tag {
-  flex: none;
-  margin: 0;
+  display: inline-block;
+  margin: 0 8px 3px 0;
   padding: 3px 10px;
   border-radius: 999px;
   background: rgba(255, 92, 0, 0.16);
@@ -1367,6 +1366,7 @@ body { place-items: start center; }
   font-size: 9.5px;
   letter-spacing: 0.12em;
   font-weight: 600;
+  vertical-align: middle;
 }
 .about__fun em { color: var(--accent-text); font-style: normal; font-weight: 700; }
 
