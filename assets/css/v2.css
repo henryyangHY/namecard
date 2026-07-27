@@ -17,7 +17,8 @@
   --muted:        #a09080;
   --subtle:       #6a5a4a;
 
-  --accent:       #ff5c00;
+  --accent:       #ff5c00;          /* decorative: icons, bullets, borders, ring */
+  --accent-text:  #ff5c00;          /* accent used as TEXT (flips darker on light bg) */
   --accent-glow:  rgba(255, 92, 0, 0.20);
   --accent-soft:  rgba(255, 92, 0, 0.10);
   --kellogg:      #4E2A84;
@@ -429,7 +430,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   width: 100%; height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 0%;
   display: block;
 }
 .avatar__tape {
@@ -849,10 +850,1025 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .links { grid-template-columns: 1fr 1fr; }
 }
 
+/* =========================================================
+   Audacious Bio — scroll story (v2.4)
+   Adds: Fraunces editorial serif, chaptered scroll,
+   ladder, "how others see me", scroll-reveal + progress.
+   Palette unchanged; navy = chaos/tech, parchment = calm/human.
+   ========================================================= */
+
+:root {
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+}
+
+/* New hero tagline is a full sentence: let it wrap (old tagline was one short line) */
+.card .quote {
+  white-space: normal;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+
+/* Page becomes a top-aligned vertical stack (was single centred card) */
+body { place-items: start center; }
+
+.stack {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 4vw, 32px);
+}
+.stack > .card { max-width: none; }
+
+/* ---------- Scroll progress rail ---------- */
+.progress {
+  position: fixed;
+  top: 0; right: 0;
+  width: 3px;
+  height: 100dvh;
+  z-index: 40;
+  background: rgba(253, 237, 212, 0.06);
+  pointer-events: none;
+}
+.progress__bar {
+  display: block;
+  width: 100%; height: 100%;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: linear-gradient(180deg, var(--accent), #ff8a3c);
+}
+
+/* ---------- Hero moniker + scroll cue (Act 0) ---------- */
+.hero__moniker {
+  margin: 8px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  color: var(--muted);
+  transition: color 0.25s var(--ease);
+}
+.scroll-cue:hover, .scroll-cue:focus-visible { color: var(--accent); outline: none; }
+.scroll-cue__label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+.scroll-cue__chev { display: grid; place-items: center; animation: cue-bob 2.2s var(--ease) infinite; }
+@keyframes cue-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* ---------- Scroll reveal ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  will-change: opacity, transform;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Chapter panels ---------- */
+.chapter {
+  position: relative;
+  border-radius: 22px;
+  padding: clamp(30px, 6vw, 48px) clamp(24px, 5vw, 44px);
+  text-align: left;
+  overflow: hidden;
+  isolation: isolate;
+  scroll-margin-top: 20px;
+}
+.chapter--navy {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 12%, rgba(67, 176, 241, 0.14), transparent 60%),
+    radial-gradient(ellipse 55% 55% at 88% 18%, rgba(255, 92, 0, 0.12), transparent 62%),
+    var(--paper-elev);
+  border: 1px solid var(--paper-edge);
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 24px 50px rgba(0, 0, 0, 0.34);
+}
+.chapter--paper {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255, 92, 0, 0.05), transparent 60%),
+    #E4D5B4;
+  border: 1px solid rgba(0, 32, 69, 0.10);
+  color: #002045;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.20);
+}
+.chapter--paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 0.1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.chapter > * { position: relative; z-index: 1; }
+
+/* ---------- Kicker (chapter eyebrow) ---------- */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.kicker__num { font-weight: 600; }
+.chapter--navy .kicker { color: var(--accent-text); }
+.chapter--paper .kicker { color: #9a4300; }
+
+/* ---------- Chapter title (Fraunces) ---------- */
+.chapter__title {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(24px, 4.8vw, 35px);
+  line-height: 1.13;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  color: #002045;
+}
+.chapter__title--ink { color: var(--ink); }
+
+/* ---------- Confession pull-quote ---------- */
+.pull {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(26px, 5.2vw, 40px);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.pull em { font-style: italic; color: var(--accent); font-weight: 500; }
+.pull__note {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(15px, 2.4vw, 17px);
+  line-height: 1.66;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* ---------- Prose (origin story) ---------- */
+.prose { max-width: 60ch; }
+.prose p {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(15px, 2.4vw, 17px);
+  line-height: 1.72;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+/* prose sits on both surfaces now; navy is the default, paper flips to dark ink */
+.chapter--paper .prose p { color: #223449; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* ---------- Ladder (three proof steps) ---------- */
+.ladder { list-style: none; margin: 0; padding: 0; position: relative; }
+.ladder__step { position: relative; padding: 0 0 26px 54px; }
+.ladder__step:last-child { padding-bottom: 0; }
+.ladder__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 18px; top: 40px; bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(255, 92, 0, 0.5), rgba(255, 92, 0, 0.05));
+}
+.ladder__num {
+  position: absolute;
+  left: 0; top: 0;
+  width: 37px; height: 37px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  border: 1px solid rgba(255, 92, 0, 0.45);
+  background: rgba(255, 92, 0, 0.06);
+}
+.ladder__title {
+  margin: 6px 0 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.ladder__text {
+  margin: 0;
+  max-width: 60ch;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(14px, 2.3vw, 16px);
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+/* ---------- How others see me ---------- */
+.others { display: grid; grid-template-columns: 1fr; gap: 28px; }
+@media (min-width: 600px) { .others { grid-template-columns: 1fr 1fr; gap: 34px; } }
+.others__head {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5a4d3a;
+}
+.others__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.others__list li {
+  position: relative;
+  padding-left: 20px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: #223449;
+}
+.others__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 7px; height: 7px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+.wordpills { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.wordpill {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 32, 69, 0.18);
+  background: rgba(255, 255, 255, 0.45);
+  color: #002045;
+}
+.wordpill--hot {
+  border-color: rgba(255, 92, 0, 0.5);
+  background: rgba(255, 92, 0, 0.12);
+  color: #9a4300;
+  font-weight: 500;
+}
+.others__consensus {
+  margin: 0 0 18px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4a3d2a;
+}
+.testimonial {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(0, 32, 69, 0.1);
+  border-left: 3px solid var(--accent);
+}
+.testimonial__quote {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #002045;
+}
+.testimonial__cite {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a4d3a;
+}
+
+/* ---------- Reach-out chapter: paper-surface link styling ---------- */
+.chapter--paper .mono, .chapter--paper .mono--muted { color: #5a4d3a; }
+.chapter--paper .divider { margin-top: 0; }
+.chapter--paper .divider::before, .chapter--paper .divider::after { background: rgba(0, 32, 69, 0.15); }
+.chapter--paper .links { margin-top: 4px; }
+.chapter--paper .link {
+  border-color: rgba(0, 32, 69, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+}
+.chapter--paper .link:hover { border-color: var(--accent); }
+.chapter--paper .link::before { background: linear-gradient(90deg, rgba(255, 92, 0, 0.08), transparent 60%); }
+.chapter--paper .link__icon {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 32, 69, 0.1);
+  color: var(--accent);
+}
+.chapter--paper .link__name { color: #002045; }
+.chapter--paper .link__handle { color: #5a4d3a; }
+.chapter--paper .link__arrow { color: #8a7a60; }
+.chapter--paper .link:hover .link__arrow { color: var(--accent); }
+.chapter--paper .foot__dot { color: var(--accent); }
+
+/* Narrow screens */
+@media (max-width: 400px) {
+  .chapter { padding: clamp(24px, 6vw, 30px) clamp(18px, 5vw, 22px); }
+  .ladder__step { padding-left: 46px; }
+}
+
+/* =========================================================
+   Bio landing (v2.5) — two-column poster mirroring the
+   Audacious Bio layout, dark palette. Story lives on story.html.
+   ========================================================= */
+
+/* ---------- Moniker (bold, prominent) ---------- */
+.moniker {
+  margin: 12px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(20px, 2.9vw, 26px);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  white-space: nowrap;   /* with the <br>, keep it to exactly two lines */
+}
+
+/* ---------- Landing shell ---------- */
+.page {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 968px;
+  margin: 0 auto;
+}
+.bio-card {
+  position: relative;
+  border-radius: 24px;
+  padding: clamp(22px, 3.5vw, 34px) clamp(22px, 4vw, 44px) clamp(28px, 4vw, 44px);
+  background:
+    radial-gradient(ellipse 45% 45% at 10% 8%, rgba(67, 176, 241, 0.22), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 92% 12%, rgba(255, 92, 0, 0.16), transparent 62%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(78, 42, 132, 0.28), transparent 65%),
+    var(--paper-elev);
+  border: 1px solid var(--paper-edge);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  isolation: isolate;
+  animation: rise 0.7s var(--ease) both;
+}
+.bio-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px) saturate(140%);
+  -webkit-backdrop-filter: blur(40px) saturate(140%);
+  z-index: -1;
+  pointer-events: none;
+}
+.bio-card > * { position: relative; z-index: 1; }
+
+/* ---------- Bio layout — shared-alignment grid ----------
+   Structure:  .bio  >  .bio__row (x2)  >  .bio__cell (x2)  >  blocks
+   Each row is a 2-col grid with identical tracks, so the columns line up
+   vertically across rows AND both cells in a row share the same top edge.
+   Consequence: Row 2's left header (ABOUT HENRY) and right header
+   (MAKING TECHNOLOGY FEEL HUMAN) stay aligned at ANY content length —
+   swap a block for longer/shorter copy and the structure holds. */
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4.5vw, 48px);          /* air between the intro band and body band */
+  margin-top: clamp(18px, 3vw, 26px);
+  text-align: left;
+}
+.bio__row  { display: flex; flex-direction: column; gap: clamp(22px, 4vw, 30px); }
+.bio__cell { display: flex; flex-direction: column; gap: clamp(22px, 2.8vw, 32px); min-width: 0; }
+
+@media (min-width: 860px) {
+  .bio__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(34px, 5vw, 64px);
+    align-items: start;                    /* both cells top-align -> headers line up */
+  }
+  /* intro cell: identity pinned to the top, contact links sink toward the
+     portrait's baseline so the two body headers meet on Row 2 */
+  .bio__cell--intro { justify-content: space-between; }
+}
+
+/* Mobile (<860px): single column; the row/cell wrappers dissolve so the
+   leaf blocks interleave (name -> photo -> contact -> about -> ... -> story) */
+@media (max-width: 859px) {
+  .bio__row, .bio__cell { display: contents; }
+  .bio__id { order: 1; } .bio__photo { order: 2; } .bio__contact { order: 3; }
+  .bio__about { order: 4; } .bio__proofs { order: 5; } .bio__testimonial { order: 6; }
+  .bio__areas { order: 7; } .bio__cta { order: 8; }
+
+  /* narrow screens: centre the hero identity + section headers */
+  .bio__id     { align-items: center; text-align: center; }
+  .bio__tagline { margin-left: auto; margin-right: auto; }
+  .block__head { text-align: center; }
+}
+
+.bio__id { display: flex; flex-direction: column; min-width: 0; }
+.bio__photo { align-self: center; width: 100%; max-width: clamp(260px, 40vw, 400px); margin: 0 auto; }
+.bio__photo .avatar__frame { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+
+.bio .hero__name { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.02; }
+
+.bio__tagline {
+  margin: 16px 0 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+.bio__tagline em { font-style: italic; color: var(--accent-text); font-weight: 500; }
+
+.links--compact { width: 100%; display: grid; grid-template-columns: 1fr; gap: 8px; }
+@media (min-width: 500px) { .links--compact { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Section blocks ---------- */
+.block__head {
+  margin: 0 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.block__head--accent {
+  color: var(--accent-text);
+  border-color: rgba(255, 92, 0, 0.38);
+  font-size: 14.5px;
+}
+
+.about__belief {
+  margin: 0 0 14px;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(15.5px, 1.9vw, 16.5px);
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+.about__attrs {
+  margin: 0 0 14px;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+/* Fun fact — lifted out of the paragraph flow into a soft accent callout
+   with a pill label, so it reads as a distinct, playful aside. Normal
+   text flow (not flex) so "zero right now" wraps like ordinary prose —
+   flex would turn each inline run/element into its own item and force
+   a gap-sized break between them. */
+.about__fun {
+  margin: 4px 0 0;
+  padding: 13px 15px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 92, 0, 0.20);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(15px, 1.9vw, 16px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.about__fun-tag {
+  display: inline-block;
+  margin: 0 8px 3px 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 92, 0, 0.16);
+  color: var(--accent-text);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.about__fun em { color: var(--accent-text); font-style: normal; font-weight: 700; }
+
+.ai-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.ai-list li {
+  position: relative;
+  padding-left: 20px;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.ai-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 7px;
+  width: 6px; height: 6px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- Credentials strip ---------- */
+.cred {
+  margin: 2px auto 0;
+  max-width: 40ch;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  line-height: 1.65;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Proof points ---------- */
+.proofs { display: flex; flex-direction: column; gap: 16px; }
+.proof__title {
+  margin: 0 0 7px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.proof__text {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* Desktop-only reading-copy bump — About Henry + Making Technology Feel
+   Human body text. Scoped to the same 860px breakpoint where the layout
+   itself goes two-column, so mobile sizes are completely untouched. */
+@media (min-width: 860px) {
+  .about__belief,
+  .about__fun {
+    font-size: 17.5px;
+    line-height: 1.68;
+  }
+  .about__attrs {
+    font-size: 16.5px;
+    line-height: 1.6;
+  }
+  .proof__title {
+    font-size: 14.5px;
+  }
+  .proof__text {
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+  /* section titles: ABOUT HENRY / AREAS OF INTEREST / MAKING TECHNOLOGY
+     FEEL HUMAN — trying 18px per request; stress-tested at the 860px
+     edge and at full width for wrapping/overflow before shipping. */
+  .block__head {
+    font-size: 18px;
+  }
+}
+
+/* ---------- Testimonial (dark variant) ---------- */
+.testimonial--bio {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--accent);
+}
+.testimonial--bio .testimonial__quote { color: var(--ink); font-size: 15px; }
+.testimonial--bio .testimonial__cite { color: var(--muted); }
+
+/* ---------- Story link CTA ---------- */
+.story-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255, 92, 0, 0.32);
+  border-radius: var(--radius);
+  background: rgba(255, 92, 0, 0.07);
+  color: var(--ink);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.story-cta:hover, .story-cta:focus-visible {
+  border-color: var(--accent);
+  background: rgba(255, 92, 0, 0.13);
+  transform: translateY(-1px);
+  outline: none;
+}
+.story-cta__text { font-family: var(--sans); font-weight: 500; font-size: 14px; line-height: 1.35; }
+.story-cta__arrow { color: var(--accent); font-size: 20px; transition: transform 0.25s var(--ease); }
+.story-cta:hover .story-cta__arrow { transform: translateX(3px); }
+.story-cta--back { justify-content: flex-start; gap: 12px; }
+.story-cta--back:hover .story-cta__arrow--left { transform: translateX(-3px); }
+
+/* ---------- Story page chrome ---------- */
+.stack--story { max-width: 620px; gap: clamp(16px, 3vw, 24px); }
+.story-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2px;
+}
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.25s var(--ease);
+}
+.backlink:hover, .backlink:focus-visible { color: var(--accent); outline: none; }
+.story-hero .chapter__title { font-size: clamp(25px, 4.6vw, 36px); margin-bottom: 14px; }
+.story-foot { text-align: center; }
+.story-foot__line {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-size: clamp(16px, 2.6vw, 20px);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.story-foot .story-cta { display: inline-flex; justify-content: center; }
+
+/* =========================================================
+   Light theme (v2.6) — white-based landing for readability.
+   Scoped to body.light so the dark story page is untouched.
+   Tokens flip; orange stays decorative, accent TEXT darkens to
+   #c24400 (AA on the near-white card). Verified contrasts:
+   navy 15.7:1 · slate body 12:1 · secondary 9.3:1 · accent-text 4.9:1
+   ========================================================= */
+body.light {
+  --paper:        #E9E0CE;   /* warm page base */
+  --paper-elev:   #FDFBF6;   /* near-white card surface */
+  --paper-edge:   rgba(0, 32, 69, 0.12);
+  --hairline:     rgba(0, 32, 69, 0.16);
+  --ink:          #002045;   /* strong text (15.7:1) */
+  --ink-soft:     #22364a;   /* body text (12:1) */
+  --muted:        #33475b;   /* secondary text (9.3:1) — readable, not faint */
+  --subtle:       #5a6b7d;
+  --accent-text:  #c24400;   /* accent used as text (4.9:1 on card) */
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 60% at 85% -10%, rgba(255, 92, 0, 0.07), transparent 60%),
+    radial-gradient(ellipse 70% 50% at -12% 112%, rgba(78, 42, 132, 0.06), transparent 60%),
+    var(--paper);
+}
+body.light .grain { opacity: 0.04; }
+
+/* Card: clean near-white with soft shadow for separation (no dark glass) */
+body.light .bio-card {
+  background:
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(255, 92, 0, 0.05), transparent 60%),
+    var(--paper-elev);
+  border: 1px solid rgba(0, 32, 69, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 24px 55px rgba(0, 32, 69, 0.12),
+    0 8px 20px rgba(0, 32, 69, 0.06);
+}
+body.light .bio-card::before { background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* Rail (top) */
+body.light .rail__rule { background: linear-gradient(90deg, rgba(0, 32, 69, 0.2), transparent); }
+body.light .rail__btn {
+  color: var(--ink-soft);
+  background: rgba(0, 32, 69, 0.04);
+  border-color: rgba(0, 32, 69, 0.16);
+}
+body.light .rail__btn:hover, body.light .rail__btn:focus-visible {
+  color: var(--accent-text);
+  border-color: var(--accent);
+  background: rgba(255, 92, 0, 0.08);
+}
+body.light .rail__btn--now {
+  color: var(--accent-text);
+  background: rgba(255, 92, 0, 0.08);
+  border-color: rgba(255, 92, 0, 0.4);
+}
+
+/* Contact cards: white on warm card */
+body.light .link {
+  background: #FFFFFF;
+  border-color: rgba(0, 32, 69, 0.12);
+}
+body.light .link:hover { border-color: var(--accent); }
+body.light .link__icon {
+  background: #F4EEE0;
+  border-color: rgba(0, 32, 69, 0.1);
+  color: var(--accent);
+}
+body.light .link__name { color: var(--ink); }
+body.light .link__handle { color: var(--muted); }
+body.light .link__arrow { color: var(--subtle); }
+body.light .link:hover .link__arrow { color: var(--accent); }
+
+/* Avatar ring inner matches card */
+body.light .avatar__frame::before { background: var(--paper-elev); }
+body.light .avatar__tape { background: var(--ink); color: #FDFBF6; }
+
+/* Testimonial (light) */
+body.light .testimonial--bio {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 32, 69, 0.12);
+  border-left: 3px solid var(--accent);
+}
+body.light .testimonial--bio .testimonial__quote { color: var(--ink); }
+body.light .testimonial--bio .testimonial__cite { color: var(--muted); }
+
+/* Story CTA on light */
+body.light .story-cta { background: rgba(255, 92, 0, 0.08); border-color: rgba(255, 92, 0, 0.35); }
+body.light .story-cta:hover { background: rgba(255, 92, 0, 0.14); border-color: var(--accent); }
+
 /* ---------- Motion safety ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+  .js .reveal { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   Landing polish (v2.7) — light-mode brand pass  (by Claude)
+   (1) warm-futuristic depth
+   (2) blue x orange dual accent + Fraunces serif moment
+   (3) living surface: staggered entrance + rotating avatar ring
+   All scoped to body.light; the dark story page is untouched.
+   Text-contrast pairs from v2.6 preserved (all glows <= 0.10).
+   ========================================================= */
+
+/* electric blue promoted from hidden glow to a functional
+   "rational / tech" accent, paired with the warm orange "human"
+   accent. #0a6bb0 passes AA on the near-white card. */
+body.light { --accent-tech: #0a6bb0; }
+
+/* --- (1) warm-futuristic depth --- */
+body.light .grain { opacity: 0.075; }
+body.light .bio-card {
+  background:
+    radial-gradient(ellipse 40% 38% at 6% 4%,   rgba(10, 107, 176, 0.10), transparent 60%),
+    radial-gradient(ellipse 46% 42% at 100% 2%,  rgba(255, 92, 0, 0.09),   transparent 62%),
+    radial-gradient(ellipse 62% 42% at 52% 106%, rgba(78, 42, 132, 0.10),  transparent 66%),
+    var(--paper-elev);
+}
+/* soft energy halo behind the portrait (a blur glow, not a solid panel) */
+body.light .bio__photo { position: relative; }
+body.light .bio__photo::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -8%;
+  background: radial-gradient(circle at 50% 46%,
+              rgba(10, 107, 176, 0.16), rgba(255, 92, 0, 0.07) 55%, transparent 72%);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+/* --- (2) rational x emotional in colour + type --- */
+/* hero tagline -> Fraunces italic: the warm / human moment on screen 1 */
+body.light .bio__tagline {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.42;
+}
+body.light .bio__tagline em { color: var(--accent-text); font-weight: 500; }
+
+/* "Making technology feel human" underline blends tech-blue -> human-orange */
+body.light .block__head--accent { border-bottom: none; position: relative; }
+body.light .block__head--accent::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--accent-tech), var(--accent));
+}
+
+/* proof titles encode the two sides: storyteller = human, builder = tech */
+body.light .proofs .proof:nth-child(1) .proof__title { color: var(--accent-text); }
+body.light .proofs .proof:nth-child(3) .proof__title { color: var(--accent-tech); }
+
+/* --- (3) living surface (motion; also neutralised by the reduce block above) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .bio__id, .bio__contact, .bio__about, .bio__areas, .bio__cta,
+  .bio__photo, .bio__proofs, .bio__testimonial {
+    animation: bio-rise 0.6s var(--ease) both;
+  }
+  .bio__id          { animation-delay: 0.04s; }
+  .bio__photo       { animation-delay: 0.10s; }
+  .bio__contact     { animation-delay: 0.16s; }
+  .bio__about       { animation-delay: 0.22s; }
+  .bio__areas       { animation-delay: 0.28s; }
+  .bio__proofs      { animation-delay: 0.28s; }
+  .bio__testimonial { animation-delay: 0.36s; }
+  .bio__cta         { animation-delay: 0.42s; }
+
+  /* conic ring rotates; photo counter-rotates to stay upright */
+  .avatar__frame     { animation: ring-spin 30s linear infinite; }
+  .avatar__frame img { animation: ring-spin-rev 30s linear infinite; }
+}
+@keyframes bio-rise      { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes ring-spin     { to { transform: rotate(360deg); } }
+@keyframes ring-spin-rev { to { transform: rotate(-360deg); } }
+
+/* =========================================================
+   Story page (v2.8) — narrative rewrite  (by Claude)
+   Hook → scene → rewind → turn → repeat → why → two mirrors.
+   Dark navy page only; body.light (the name card) is untouched.
+   ========================================================= */
+
+/* ---------- Hook (hero provocation) ---------- */
+.hook__lead {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(24px, 4.6vw, 35px);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.hook {
+  margin: 0 0 20px;
+  max-width: 56ch;
+  font-family: var(--sans);
+  font-size: clamp(15px, 2.4vw, 17px);
+  line-height: 1.66;
+  color: var(--ink-soft);
+}
+.hook em { font-style: italic; color: var(--accent); font-weight: 500; }
+.hook__cut {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* ---------- Scene slug (film-style location line) ---------- */
+.scene__slug {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.scene__slug::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 92, 0, 0.4), transparent);
+}
+.prose--scene p:first-child { color: var(--ink); }
+
+/* ---------- Beat (single-line punch) ---------- */
+.beat {
+  margin: 22px 0 18px;
+  padding-left: 18px;
+  border-left: 2px solid var(--accent);
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(18px, 3.2vw, 24px);
+  line-height: 1.3;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.beat--paper { color: #002045; }
+
+/* ---------- Lie vs. truth ---------- */
+.lietruth {
+  margin: 24px 0 26px;
+  display: grid;
+  gap: 14px;
+}
+.lietruth__row {
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(253, 237, 212, 0.14);
+  background: rgba(253, 237, 212, 0.035);
+}
+.lietruth__row--truth {
+  border-color: rgba(255, 92, 0, 0.42);
+  background: rgba(255, 92, 0, 0.08);
+}
+.lietruth__tag {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lietruth__row--truth .lietruth__tag { color: var(--accent-text); }
+.lietruth__text {
+  margin: 0;
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-size: clamp(15px, 2.5vw, 18px);
+  line-height: 1.42;
+  color: var(--ink);
+}
+
+/* ---------- Word pill attribution ---------- */
+.wordpill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+}
+.wordpill__by {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7d6a52;
+  border-left: 1px solid rgba(0, 32, 69, 0.18);
+  padding-left: 7px;
+}
+.wordpill--hot .wordpill__by {
+  color: #a8551f;
+  border-left-color: rgba(255, 92, 0, 0.38);
+}
+
+/* ---------- Mirrors: self column emphasis ---------- */
+.others__list li em { font-style: italic; color: #9a4300; }
+
+/* full-width verdict under both mirror columns (keeps the two columns balanced) */
+.testimonial--wide { margin-top: 26px; }
+
+/* ---------- Where they disagree with me ---------- */
+.disagree {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 32, 69, 0.14);
+}
+.disagree__head {
+  margin: 0 0 12px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a4300;
+}
+.disagree__text {
+  margin: 0 0 14px;
+  max-width: 66ch;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.62;
+  color: #223449;
+}
+.disagree__text em { font-style: italic; color: #4a3d2a; }
+.disagree__punch {
+  margin: 0;
+  max-width: 66ch;
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: clamp(17px, 2.8vw, 21px);
+  line-height: 1.34;
+  color: #002045;
+  text-wrap: balance;
+}
+
+/* ---------- Story foot: the unresolved ending ---------- */
+.story-foot__line { max-width: 52ch; margin-left: auto; margin-right: auto; }
