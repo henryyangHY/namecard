@@ -78,6 +78,10 @@ All JS is vanilla, inline in `index.html` (no external scripts).
 
 ### Styling
 - All styles live in `assets/css/v2.css`
+- **After editing `v2.css`, bump the `?v=` on the `<link>` in BOTH `index.html` and
+  `story.html`.** GitHub Pages sends no-revalidate caching headers, so returning
+  visitors otherwise render the new markup against a stale cached stylesheet — the
+  page falls back to the dark theme with no card container and a broken grid.
 - Change palette by editing CSS custom properties in `:root`
 - Responsive breakpoints: 560px (2-col links grid), 400px (narrow pill sizing), 340px (extra-narrow)
 - Respect `prefers-reduced-motion` — the reset block at the bottom of `v2.css` handles it
