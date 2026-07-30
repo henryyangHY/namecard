@@ -1,11 +1,13 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Henry Yang
 N:Yang;Henry;;;
+FN:Henry Yang
+NICKNAME:楊欣融
+TITLE:Builder & AI Adoption Specialist
 EMAIL;TYPE=INTERNET,PREF:henry.yang@kellogg.northwestern.edu
-TEL;TYPE=CELL,VOICE:+852 60930260
 URL:https://henryyanghy.github.io/namecard/
-URL;TYPE=LinkedIn:https://www.linkedin.com/in/henry-hj-yang/
-URL;TYPE=GitHub:https://github.com/henryyangHY
-URL;TYPE=Instagram:https://www.instagram.com/henry_yang_0927/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/henry-hj-yang/
+X-SOCIALPROFILE;TYPE=github:https://github.com/henryyangHY
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/henry_yang_0927/
+NOTE:The builder who turns chaos into calm.
 END:VCARD
