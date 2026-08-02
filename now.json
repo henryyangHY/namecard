@@ -1,6 +1,11 @@
 {
-  "updated": "2026-07-20",
+  "updated": "2026-08-02",
   "entries": [
+    {
+      "date": "2026-08-02",
+      "tag": "building",
+      "text": "Teaching 30+ Kellogg MBAs to process information with Zettelkasten, Markdown, and AI."
+    },
     {
       "date": "2026-07-20",
       "tag": "learning",
@@ -10,11 +15,6 @@
       "date": "2026-05-23",
       "tag": "building",
       "text": "Built ClaudeGamepad — a macOS menu bar app to vibe code with a game controller."
-    },
-    {
-      "date": "2026-05-15",
-      "tag": "learning",
-      "text": "Studying agentic workflow design patterns for multi-step automation."
     },
     {
       "date": "2026-05-10",
