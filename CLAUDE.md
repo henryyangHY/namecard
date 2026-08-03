@@ -13,8 +13,12 @@ package manager. Push to `main` → GitHub Pages deploys in ~30 s.
 ```
 namecard/
 ├── index.html              # Entire app — HTML, inline JS, structured data
+├── story.html              # Long-form origin story page
+├── og.html                 # Source template for the share images (not linked)
 ├── now.json                # Live "Now page" feed (AI-updatable, see below)
 ├── NOW_PROTOCOL.md         # Rules for AI agents maintaining now.json
+├── tools/
+│   └── render-og.sh        # Renders og.html → images/og-*.png at 1200×630
 ├── assets/
 │   └── css/
 │       └── v2.css          # All styles (v2.3, dark premium tech theme)
@@ -22,7 +26,9 @@ namecard/
 └── images/
     ├── avatar.jpg          # Profile photo (200×200, displayed on card)
     ├── henry-yang.vcf      # vCard downloaded when visitor taps avatar
-    ├── og.png              # Open Graph / Twitter Card share image (1200×630)
+    ├── og-v3.png          # Share image for index.html (1200×630, rendered)
+    ├── og-story-v3.png    # Share image for story.html (1200×630, rendered)
+    ├── og.png             # Legacy share image (old dark theme, unreferenced)
     ├── favicon-32.png
     ├── favicon-192.png
     └── apple-touch-icon.png
@@ -85,6 +91,23 @@ All JS is vanilla, inline in `index.html` (no external scripts).
 - Change palette by editing CSS custom properties in `:root`
 - Responsive breakpoints: 560px (2-col links grid), 400px (narrow pill sizing), 340px (extra-narrow)
 - Respect `prefers-reduced-motion` — the reset block at the bottom of `v2.css` handles it
+
+### Share images (Open Graph)
+
+Never hand-paint the share images — they drift from the site the moment the
+palette changes. `og.html` is the source of truth: it links the live
+`assets/css/v2.css`, so it inherits the real design tokens and self-hosted
+fonts. Default view = index card; `?p=story` = the ink-band story variant.
+
+1. Edit `og.html` (or just change the palette in `v2.css`)
+2. Run `./tools/render-og.sh` → rewrites `images/og-v3.png` and
+   `images/og-story-v3.png` at exactly 1200×630
+3. Open the PNGs and check them before committing
+
+**Bump the filename when the artwork changes.** Slack, LinkedIn and X cache OG
+images for days regardless of HTTP headers, so reusing a filename means people
+keep seeing the old picture. Go to `og-v4.png`, then update `og:image` +
+`twitter:image` in `index.html` **and** `story.html`.
 
 ### Now page (AI-updatable)
 See `NOW_PROTOCOL.md` for the full protocol. Short version:
