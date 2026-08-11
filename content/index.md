@@ -111,7 +111,7 @@ About Henry
 
 ### [about.belief]
 
-I've believed the same thing since I was seventeen: technology should make people more capable, not more busy. It's why I left Taiwan for Hong Kong, joined Microsoft, and ended up owning the very productivity tool I first fell in love with.
+I've believed the same thing since I was seventeen: technology should make people more capable, not more busy. It's why I left Taiwan for Hong Kong, joined Microsoft, and am now pursuing a dual MBA + MS in Design Innovation at Kellogg. My focus remains unchanged: building intuitive systems that restore balance and give people their time back.
 
 ### [about.attrs]
 
@@ -160,7 +160,7 @@ Storyteller who reads every room
 
 ### [proofs.1.text]
 
-At the 2025 Microsoft AI Summit, I moved between a technical audience, a podcast crowd, and tech creators in a single day, and each group walked away feeling I was one of them. A year later at the 2026 Microsoft AI Tour, I shared the stage with Judson Althoff, Microsoft's Chief Commercial Officer, across Shanghai and Hong Kong: three languages, 6,000+ in the room, 400k+ views. I meet every audience in their own language, because a system nobody understands helps no one.
+At the 2026 Microsoft AI Tour, I shared the keynote stage with Judson Althoff, Microsoft's CEO of Commercial Business, across Shanghai and Hong Kong: three languages, 6,000+ in the room, 400k+ views. I meet every audience in their own language, because a system nobody understands helps no one.
 
 ### [proofs.2.title]
 
@@ -168,7 +168,7 @@ The tool raised me, then hired me
 
 ### [proofs.2.text]
 
-The kid who fixed his high school's inventory chaos with a shared spreadsheet grew up to specialize in the productivity tools themselves: Microsoft 365, Teams, Copilot. Ten years, one obsession.
+The kid who fixed his high school's inventory chaos with a shared Excel spreadsheet grew up to specialize in the productivity tools themselves: Excel, Teams, Microsoft 365, Copilot. Ten years, one obsession.
 
 ### [proofs.3.title]
 
@@ -176,7 +176,7 @@ A builder, not just a talker
 
 ### [proofs.3.text]
 
-I don't only explain productivity tech, I build around it: AI agents, my own second brain system, and a tech podcast for new grads.
+I don't just advocate for productivity tech — ==I build it and live by it==. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a Top-15 tech podcast for new grads, every system I teach is one I've battle-tested myself.
 
 ---
 
