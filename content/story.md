@@ -30,6 +30,10 @@
 > | `06-message-wall.jpg` | 留言黑板 | 02 |
 > | `07-inventory-spreadsheet.png` | 預購試算表（需可放大） | 03 |
 > | `08-microsoft-years.jpg` | 微軟時期拼圖 | 04 |
+> | `09-late-night-study.jpg` | 深夜在家苦讀（主圖） | 05 |
+> | `10-podcast-recording.jpg` | 錄 Podcast | 05 |
+> | `11-cafe-study.jpg` | 咖啡廳讀書 | 05 |
+> | `12-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 |
 
 ---
 
@@ -265,13 +269,30 @@ In 2023 I decided to apply to business school. My work experience was thin, my u
 
 So I did exactly what seventeen-year-old me did. In the second half of that year alone I sat the GMAT, sat the highest level of the Japanese proficiency exam, launched a tech podcast that reached the top 15 in Hong Kong, finished an MIT data analytics course, earned an ESG certification, held down my full-time job at Microsoft, and got nominated for an award given to the top three percent of employees worldwide.
 
-> 🖼 （待定）你在這裡標了一個 `（圖片）`，但卡片上沒有附檔。這是第 16 張，你之後補。
+> 🖼 **IMG-09 ~ IMG-12 — 四張一組，這是全頁最重要的一個版面**
+> `09-late-night-study.jpg`（深夜在家用 iPad 手寫，右邊螢幕滿滿的行事曆）
+> `10-podcast-recording.jpg`（家裡錄 Podcast，大麥克風 + 防噴罩 + 剪音軌）
+> `11-cafe-study.jpg`（咖啡廳裡穿牛仔外套讀 iPad）
+> `12-microsoft-build.jpg`（Microsoft Build Hong Kong 台上拿麥克風）
+>
+> 這一段的力量來自「清單長到荒謬」——GMAT、日檢 N1、Podcast、MIT 課程、ESG 認證、
+> 微軟正職、全球前 3% 提名，全部塞在六個月裡。四張照片同時出現，
+> **版面的擁擠本身就是論點**，不需要再寫一句「我當時很忙」。
+>
+> **版面建議：IMG-09 放大當主圖，其餘三張排成一列在下方。**
+> 理由是 IMG-09 右邊那台螢幕上是一整片沒有空隙的行事曆 ——
+> 這正好回扣開場 Hook 的「no white space on the calendar」，是全頁唯一一次
+> 文字與畫面對到同一個意象。做成四宮格等分的話這個細節會小到看不見。
+> （備案：2×2 等分四宮格，responsive 比較好處理，但會失去上面那個呼應。）
+>
+> ⚠️ 裁圖時順便確認 IMG-09 螢幕上的月份看不看得出來 —— 看起來像 January 2024，
+> 但本章講的是 2023 下半年。低對比、字很小，多半不成問題，你自己看一眼比較準。
 
 From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.
 
 I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. Deep down I already knew what it actually was.
 
-> 🖼 （待定）本章前段有 2 張圖，在接下來的 10 張裡。
+> 🖼 （待定）住院這段的圖還沒到，剩下 3 張裡如果有，就放這裡。
 
 The night I left the hospital and came home, my girlfriend asked me the question that went straight through me: *why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?*
 
@@ -285,7 +306,7 @@ Then I actually tried it. Frameworks first, Inbox Zero and Getting Things Done, 
 
 Productivity tech pulled me out of that spiral. For the second time in my life.
 
-> 🖼 （待定）本章末有 5 張圖，在接下來的 10 張裡。
+> 🖼 （待定）「被生產力工具救回來」這段的圖還沒到。剩下 3 張。
 
 ---
 
