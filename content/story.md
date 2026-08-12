@@ -20,28 +20,45 @@
 > 圖片位置以 `> 🖼 IMG-xx` 標示。編號 = **文章順序**，不是 Henry 傳圖的順序。
 > 檔名對照（放在 `images/story/`）：
 >
-> | 檔名 | 內容 | 章節 |
-> |---|---|---|
-> | `01-warehouse-collapse.jpg` | 癱在貨包堆上 | 01 |
-> | `02-warehouse-crew.jpg` | 倉庫大合照 | 01 |
-> | `03-building-the-sheet.jpg` | 抱著筆電趕工（需裁掉 IG 介面） | 01 |
-> | `04-student-council.jpg` | 學生會競選人像 | 02 |
-> | `05-sports-day.jpg` | 體育館大合照 | 02 |
-> | `06-message-wall.jpg` | 留言黑板 | 02 |
-> | `07-inventory-spreadsheet.png` | 預購試算表（需可放大） | 03 |
-> | `08-microsoft-years.jpg` | 微軟時期拼圖 | 04 |
-> | `09-late-night-study.jpg` | 深夜在家苦讀（主圖） | 05 |
-> | `10-podcast-recording.jpg` | 錄 Podcast | 05 |
-> | `11-cafe-study.jpg` | 咖啡廳讀書 | 05 |
-> | `12-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 |
-> | `13-fever-at-home.jpg` | 在家發燒 | 05 |
-> | `14-hospital-iv.jpg` | 住院點滴 | 05 |
+> | 檔名 | 內容 | 章節 | 狀態 |
+> |---|---|---|---|
+> | `01-warehouse-collapse.jpg` | 癱在貨包堆上 | 01 | ✅ |
+> | `02-the-hoodies.jpg` | HSNU 1947 帽 T 三色 | 01 | ✅ |
+> | `03-building-the-sheet.jpg` | 抱著筆電趕工 | 01 | ✅ |
+> | `04-student-council.jpg` | 學生會競選人像 | 02 | ✅ |
+> | `05-warehouse-crew.jpg` | 倉庫大合照 | 02 | ✅ |
+> | `06-sports-day.jpg` | 體育館大合照 | 02 | ✅ |
+> | `07-message-wall.jpg` | 留言黑板 | 02 | ✅ |
+> | `08-inventory-spreadsheet.png` | 預購試算表（保留原解析度） | 03 | ✅ |
+> | `09-microsoft-years.jpg` | 微軟時期拼圖 | 04 | ✅ |
+> | `10-late-night-study.jpg` | 深夜在家苦讀（主圖） | 05 | ✅ |
+> | `11-podcast-recording.jpg` | 錄 Podcast | 05 | ✅ |
+> | `12-cafe-study.jpg` | 咖啡廳讀書 | 05 | ✅ |
+> | `13-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 | ⬜ **未上傳** |
+> | `14-fever-at-home.jpg` | 在家發燒 | 05 | ✅ |
+> | `15-hospital-iv.jpg` | 住院點滴 | 05 | ✅ |
 >
-> 共 14 張。06、07 兩章與結尾不放圖 —— 那是結論段落，不是場景。
+> 共 15 個位置、14 張已就位。06、07 兩章與結尾不放圖 —— 那是結論段落，不是場景。
 
 ---
 
 ## A. Meta / SEO
+
+> **這一區沒有一個字會出現在頁面上。** 它們分別長在三個地方：
+>
+> | 欄位 | 出現在哪 | 誰會看到 |
+> |---|---|---|
+> | `meta.title` | 瀏覽器分頁名、Google 搜尋結果的**藍色標題** | 用 Google 搜「Henry Yang」的人 |
+> | `meta.description` | Google 搜尋結果標題下的**灰色說明文字** | 同上，決定他要不要點進來 |
+> | `meta.og-*` | 貼到 LinkedIn / Slack / WhatsApp 時彈出的**預覽卡片** | 你直接把連結傳給的人 |
+>
+> **你的直覺是對的。** 現行的 description 以「A student council office in 2016」開頭 ——
+> 那是給讀者的敘事鉤子，不是給搜尋結果用的。
+> 有人 google 你的名字時，他想知道的是「這人現在是誰」，不是 2016 年的一間辦公室。
+> 而且「student council」這個詞會把你的搜尋結果往「高中生」的語意拉。
+>
+> 以下三個提案，**選一個或混搭都可以**。長度都控制在 155–160 字元內
+> （Google 大約在 160 字元截斷）。
 
 ### [meta.title]
 
@@ -49,13 +66,33 @@ Who is Henry Yang — The Story
 
 ### [meta.description]
 
-Nobody likes to work. I was obsessed with being busy anyway. A student council office in 2016, a question I couldn't answer, and why I ended up building productivity systems for a living.
+> ⬜ **待選** —— 目前是提案 C，等你決定。
+>
+> **提案 A — 職涯導向**（推薦給「被 recruiter / 校友 google 到」的情境）
+> 先講你是誰、做什麼，故事只是佐證。三個關鍵字都在：productivity technology、Microsoft、Kellogg。
+>
+> > Why Henry Yang builds productivity technology: ten years from a high school spreadsheet to Microsoft to Kellogg, and the two times a system pulled him out of burnout.
+>
+> **提案 B — 主張導向**（推薦給「主動把連結分享出去」的情境）
+> 先講信念句 —— 那本來就是這一頁的論點，也最容易被人整句引用。
+>
+> > Technology should make people more capable, not more busy. Henry Yang on learning that the hard way, twice, and why he builds productivity systems for a living.
+>
+> **提案 C — 敘事導向**（保留原本的鉤子，只拿掉學生會）
+> 維持故事口吻，但把 2016 那間辦公室換成普世的畫面。三個裡最不 SEO、但最有聲音。
+>
+> > Nobody likes to work. I was obsessed with being busy anyway. The story of how I stopped measuring my worth in output, and started building systems instead.
+
+Nobody likes to work. I was obsessed with being busy anyway. The story of how I stopped measuring my worth in output, and started building systems instead.
 
 ### [meta.og-title]
 
 Who is Henry Yang — The Story
 
 ### [meta.og-description]
+
+> og 是給「人」看的，不是給搜尋引擎看的，所以可以比 description 更有情緒、更短。
+> 現行這句我建議留著 —— 它跟分享圖上印的字是同一組，看起來會很整。
 
 Nobody likes to work. I was obsessed with being busy anyway. The origin story, and how others see me.
 
@@ -112,26 +149,23 @@ We were all exhausted. Nobody wants to spend their evenings in a basement wareho
 
 > 🖼 **IMG-01 + IMG-02 — 並排兩張**
 > `images/story/01-warehouse-collapse.jpg`（有人癱在成堆貨包上）
-> `images/story/02-warehouse-crew.jpg`（倉庫大合照）
+> `images/story/02-the-hoodies.jpg`（三色帽 T，HSNU 1947）
 >
-> 放在「We were all exhausted」正下方。左邊那張是論點：那些藍綠色的貨包堆到比人高，
-> 一個人四肢攤開躺在中間裝死，旁邊的人比著手指 —— 讀者不需要任何說明就懂
-> 「用手寫清單清點這個數量」是什麼概念。右邊那張給出人數與現場。
-> 做成 2-up 並排，比上下堆疊省掉半個螢幕的高度。
+> 放在「We were all exhausted」正下方，做 2-up 並排。
+> 左邊是量：藍綠色貨包堆到比人高，一個人四肢攤開躺在中間裝死，旁邊還有人比手指 ——
+> 讀者不需要任何說明就懂「用手寫清單清點這個數量」是什麼概念。
+> 右邊是物：黑、白、紅三件帽 T 攤在桌上。貨包是不透明的，看不出裡面裝什麼；
+> 這張補上答案，而且**那三個顏色正好就是下一章試算表的三大欄位**（白／紅／黑）。
+> 讀者到第 03 章看到那張表時，會自動把顏色對起來。
 
 *This is stupid — there must be a better way to do this.*
 
 I was seventeen. I went home that night and rebuilt the whole thing in a spreadsheet that synced to the cloud.
 
 > 🖼 IMG-03 — 抱著筆電趕工（`images/story/03-building-the-sheet.jpg`）
-> 放在這一句之後。這是全章唯一一張「你在動手」的畫面：筆電架在膝蓋上打字、
+> 放在這一句之後，單張。這是全章唯一一張「你在動手」的畫面：筆電架在膝蓋上打字、
 > 地上散落資料、另一手還抓著一杯甜點。上一句說「我回家把整件事重做成試算表」，
-> 下面就是那個畫面本身。
->
-> ⚠️ **這張要裁掉 Instagram 介面。** 兩個理由：
-> 一是截圖上的 `February 27, 2016` 會跟本章的 `autumn 2016` 打架，讀者看得到；
-> 二是 View insights / Boost post / 愛心數在 Cobalt Bone 的版面裡是雜訊。
-> 只留中間那張照片。
+> 下面就是那個畫面本身。✅ IG 介面已裁掉。
 
 ### [ch01.beat]
 
@@ -165,21 +199,29 @@ Then I got into the best high school in the country and met the boys who slept t
 So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.
 
 > 🖼 IMG-04 — 學生會競選人像（`images/story/04-student-council.jpg`）
-> 放在這一段之後。「So I changed the game. I joined the student council.」
+> 放在這一段之後，單張。「So I changed the game. I joined the student council.」
 > 配一張穿制服、掛學生會彩帶、手指著前方的照片 —— 這是「換戰場」那一刻的臉。
 
 If I could not be the smartest, I would be the one who worked hardest at everything outside the classroom. That was the whole plan.
 
-> 🖼 IMG-05 — 體育館大合照（`images/story/05-sports-day.jpg`）
-> 放在這一段之後。上一句剛講完「把能接的全接下來」，
-> 這張紅彩帶、球場、幾十個人的照片就是那份清單的實體證據。
+> 🖼 **IMG-05 + IMG-06 — 並排兩張**
+> `images/story/05-warehouse-crew.jpg`（倉庫大合照，舉著「27」紙牌）
+> `images/story/06-sports-day.jpg`（體育館大合照，紅彩帶）
+>
+> 放在這一段之後，做 2-up 並排。
+> 上一句剛講完「anniversary events, graduation, sports days —— 把能接的全接下來」，
+> 這兩張各約四十人的大合照就是那份清單的實體證據：一張校慶、一張運動賽事。
+>
+> **注意：倉庫大合照從第 01 章搬到這裡。** 原本我把它讀成「故事現場」，
+> 但它其實是一場活動的收工合照，跟第 01 章那個八個人加班對帳的夜晚不是同一件事。
+> 放在這裡，它和體育館那張變成一組，語意才對得上。
 
 A teammate ended it in one sentence. *"You love being busy — fine. But stop pushing your standards onto us."*
 
 First rejected on grades. Now rejected on the one thing I had left.
 
-> 🖼 IMG-06 — 留言黑板（`images/story/06-message-wall.jpg`）
-> 放在這一章的最後，當作情緒收尾。
+> 🖼 IMG-07 — 留言黑板（`images/story/07-message-wall.jpg`）
+> 放在這一章的最後，單張，當作情緒收尾。
 > 一個人坐在地上，仰頭看著一整面別人寫滿的黑板 —— 畫面上你是唯一沒有留下字的人。
 > 剛好接在「我僅剩的那一項也被否定了」後面，孤獨感是這一章的落點。
 > **這張是四張裡我最確定的一個決定。** 如果你原本想把它放在別章，跟我說。
@@ -203,7 +245,7 @@ That is the state I was in, in that office, at eight at night.
 
 The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being cancelled for good.
 
-> 🖼 IMG-07 — 那張試算表（`images/story/07-inventory-spreadsheet.png`）
+> 🖼 IMG-08 — 那張試算表（`images/story/08-inventory-spreadsheet.png`）
 > 放在這一段之後。這是全篇唯一的「證物」：三個顏色 × 五個尺寸、預購/實體/瑕疵/存貨，
 > 最下面一格總收入 1,284,315。上一句說「它止住虧損、開始獲利」，下一格就給讀者看帳。
 > 一個十七歲的人做出這張表，這件事本身就是論點。
@@ -226,8 +268,21 @@ That was also the first time I fell in love with technology — because of Excel
 
 ## G. 04 · The hire（深藍底）← 新章
 
-> 這一章是你新增的。四句重複的草稿我併成兩段，保留了你所有的資訊點：
-> 微軟、Modern Workplace、Excel 在自己的 portfolio 裡、從被試算表救的學生變成服務百萬人。
+> 這一章是你新增的。四句重複的草稿併成三段，你所有的資訊點都保留。
+>
+> **依你的要求加強了前後呼應**，這一章現在往回勾了三處、往前勾了一處：
+>
+> | 這一章的句子 | 呼應到 |
+> |---|---|
+> | a seventeen-year-old **on his bedroom floor** | 01「I went home that night and rebuilt the whole thing」+ IMG-03 那張照片 |
+> | **find the simple logic underneath a mess** | 03 幾乎一字不差的原句 |
+> | not **eight students in a basement** | 01「Eight of us were still there」+ 標題「Eight of us, one broken list.」 |
+> | so they can **go home** | 往前接 06「That is giving somebody their evening back」 |
+>
+> 最後那句用你指定的 **"It was just a tool. It became my passion."**
+> 我把它拆成兩個短句 —— 你原本寫成一句（but eventually became），
+> 但這一章是全頁最短的一章，收在兩個三字節奏的斷句上，力道比連起來強。
+> 想要原本的長句版本跟我說。
 >
 > ✅ 年份已定案為 **five years**（2016 → 2021）。與 V-Care Day 2021 的照片一致，
 > 也與第 05 章「2023 年時已賣了三年」對得上。
@@ -243,11 +298,13 @@ The tool raised me, then hired me.
 
 ### [ch04.prose]
 
-Fast forward five years. I joined Microsoft — and guess which team I landed on. I was put on the Modern Workplace productivity team, with Excel sitting in my portfolio.
+Fast forward five years. I joined Microsoft — and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.
 
-I went from a student saved by a spreadsheet to helping millions of professionals work smarter with the same tool. The one that raised me had hired me. What started as an app I happened to use had become the thing I cared most about.
+The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement — it was millions of professionals I will never meet.
 
-> 🖼 IMG-08 — 微軟時期拼圖（`images/story/08-microsoft-years.jpg`）
+It was just a tool. It became my passion.
+
+> 🖼 IMG-09 — 微軟時期拼圖（`images/story/09-microsoft-years.jpg`）
 > 放在本章末，一張撐滿整章。這張已經是組好的五格拼圖：
 > M365 圖示（Excel 在正中間）、香港團隊合照、雙螢幕辦公桌、V-Care Day 2021、攝影棚錄影。
 > 左上角那顆 Excel 圖示直接接住「with Excel sitting in my portfolio」，不用另外解釋。
@@ -276,31 +333,32 @@ In 2023 I decided to apply to business school. My work experience was thin, my u
 So I did exactly what seventeen-year-old me did. In the second half of that year alone I sat the GMAT, sat the highest level of the Japanese proficiency exam, launched a tech podcast that reached the top 15 in Hong Kong, finished an MIT data analytics course, earned an ESG certification, held down my full-time job at Microsoft, and got nominated for an award given to the top three percent of employees worldwide.
 
 > 🖼 **IMG-09 ~ IMG-12 — 四張一組，這是全頁最重要的一個版面**
-> `09-late-night-study.jpg`（深夜在家用 iPad 手寫，右邊螢幕滿滿的行事曆）
-> `10-podcast-recording.jpg`（家裡錄 Podcast，大麥克風 + 防噴罩 + 剪音軌）
-> `11-cafe-study.jpg`（咖啡廳裡穿牛仔外套讀 iPad）
-> `12-microsoft-build.jpg`（Microsoft Build Hong Kong 台上拿麥克風）
+> `10-late-night-study.jpg`（深夜在家用 iPad 手寫，右邊螢幕滿滿的行事曆）
+> `11-podcast-recording.jpg`（家裡錄 Podcast，大麥克風 + 防噴罩 + 剪音軌）
+> `12-cafe-study.jpg`（咖啡廳裡穿牛仔外套讀 iPad）
+> `13-microsoft-build.jpg`（Microsoft Build Hong Kong 台上拿麥克風）⬜ **這張還沒上傳**
 >
 > 這一段的力量來自「清單長到荒謬」——GMAT、日檢 N1、Podcast、MIT 課程、ESG 認證、
 > 微軟正職、全球前 3% 提名，全部塞在六個月裡。四張照片同時出現，
 > **版面的擁擠本身就是論點**，不需要再寫一句「我當時很忙」。
 >
-> **版面建議：IMG-09 放大當主圖，其餘三張排成一列在下方。**
+> **版面建議：IMG-10 放大當主圖，其餘三張排成一列在下方。**
+> （Build 那張補上前先排兩張，版面撐得住，但三張才是原本的設計。）
 > 理由是 IMG-09 右邊那台螢幕上是一整片沒有空隙的行事曆 ——
 > 這正好回扣開場 Hook 的「no white space on the calendar」，是全頁唯一一次
 > 文字與畫面對到同一個意象。做成四宮格等分的話這個細節會小到看不見。
 > （備案：2×2 等分四宮格，responsive 比較好處理，但會失去上面那個呼應。）
 >
-> ⚠️ 裁圖時順便確認 IMG-09 螢幕上的月份看不看得出來 —— 看起來像 January 2024，
-> 但本章講的是 2023 下半年。低對比、字很小，多半不成問題，你自己看一眼比較準。
+> ⚠️ 壓縮後我再看過 IMG-10 螢幕上的月份，1200px 寬時已經完全糊掉、讀不出來，
+> 不會跟 2023 下半年打架。不用處理。
 
 From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.
 
 I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. Deep down I already knew what it actually was.
 
-> 🖼 **IMG-13 + IMG-14 — 並排兩張，依時序**
-> `13-fever-at-home.jpg`（額頭貼退熱貼、癱在沙發上）
-> `14-hospital-iv.jpg`（手背上的點滴針，病房桌）
+> 🖼 **IMG-14 + IMG-15 — 並排兩張，依時序**
+> `14-fever-at-home.jpg`（額頭貼退熱貼、癱在沙發上）
+> `15-hospital-iv.jpg`（手背上的點滴針，病房桌）
 >
 > 順序照文字走：先在家發燒，再住院。左邊接「fever climbed to almost 40°C」，
 > 右邊接「admitted to hospital for a full workup」。
@@ -449,16 +507,18 @@ They see someone who has not learned how to stop. The seventeen-year-old is stil
 
 ## K. 結尾（鈷藍底）
 
-> ⚠️ 語氣變了：舊版結尾是「This story does not have a warm ending.」，
-> 新版收在「我正在打造一個能幫到別人的系統」。從冷收尾變成暖收尾。
-> 這是你的決定，我照做，只是提醒你整頁的重心跟著移動了 —— 舊版把讀者留在不安裡，
-> 新版把讀者留在希望裡。兩種都成立，但別是不小心改掉的。
+> ✅ 用你指定的版本，一字未改（文法本來就沒問題）。正向收尾已確認。
+>
+> ⚠️ **拼字系統要統一。** 你這段寫 `organized`（美式），
+> 但第 03 章有 `cancelled`（英式，美式是 canceled）。全頁目前混用。
+> 建議**全部改美式** —— 你要去 Kellogg，主要讀者在美國，LinkedIn 也是。
+> 這樣只需要動 `cancelled` 一個字。要我改嗎？
 
 ### [foot.line]
 
 I truly believe technology should never make us busier; it should make us more capable.
 
-Ten years on, I still catch myself measuring my worth in output — and it is hard not to, in an MBA classroom. The difference is that now I have systems that keep me organised and focused, and that remind me to rest. And I am building one that can do the same for other people.
+Ten years on, I still catch myself measuring my worth in output (and it is hard not to in an MBA classroom). The difference is that now I have systems that keep me organized and focused, and tell me when to rest. And I am building one that can do the same for other people.
 
 ### [foot.cta]
 
@@ -474,20 +534,27 @@ Back to the name card and contact
 
 | 檔案 | alt text |
 |---|---|
-| `01-warehouse-collapse.jpg` | A student lying spread-eagled across a head-high stack of plastic-wrapped merchandise bundles in the storeroom, while another points at him. |
-| `02-warehouse-crew.jpg` | About forty student council members posed together in the corrugated-iron storeroom where the merchandise was counted. |
+| `01-warehouse-collapse.jpg` | A student lying spread-eagled across a head-high stack of plastic-wrapped hoodie bundles in the storeroom, while another points at him. |
+| `02-the-hoodies.jpg` | Three of the school anniversary hoodies in their packaging — black, cream and red, each printed HSNU 1947. |
 | `03-building-the-sheet.jpg` | Henry at seventeen, hunched over a laptop balanced on his knees, surrounded by scattered event materials. |
 | `04-student-council.jpg` | Henry in school uniform wearing a student council campaign sash, pointing off camera. |
-| `05-sports-day.jpg` | Around forty students with red ribbons posed on a gymnasium basketball court after a sports day. |
-| `06-message-wall.jpg` | Henry sitting on the floor, looking up at a large chalkboard covered edge to edge in handwritten farewell messages. |
-| `07-inventory-spreadsheet.png` | The inventory spreadsheet: three colourways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totalling NT$1,284,315 in revenue. |
-| `08-microsoft-years.jpg` | Five photographs from Henry's Microsoft years: the Microsoft 365 app icons, the Hong Kong team, a desk of monitors, a company volunteering day, and a video shoot. |
-| `09-late-night-study.jpg` | Henry writing on a tablet late at night at his home desk, a second monitor beside him showing a calendar with almost no free space. |
-| `10-podcast-recording.jpg` | Henry recording a podcast at home, speaking into a condenser microphone with an audio editor open on the laptop in front of him. |
-| `11-cafe-study.jpg` | Henry working through study material on a tablet in a café. |
-| `12-microsoft-build.jpg` | Henry presenting on stage at Microsoft Build Hong Kong, microphone in hand. |
-| `13-fever-at-home.jpg` | Henry asleep on a couch with a cooling patch on his forehead and a towel across his chest. |
-| `14-hospital-iv.jpg` | Henry's hand resting on a hospital tray table, an IV line taped into the back of it. |
+| `05-warehouse-crew.jpg` | About forty student council members posed together in the corrugated-iron storeroom, holding a cardboard sign. |
+| `06-sports-day.jpg` | Around forty students with red ribbons posed on a gymnasium basketball court after a sports day. |
+| `07-message-wall.jpg` | Henry sitting on the floor, looking up at a large chalkboard covered edge to edge in handwritten messages. |
+| `08-inventory-spreadsheet.png` | The inventory spreadsheet: three colourways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totalling NT$1,284,315 in revenue. |
+| `09-microsoft-years.jpg` | Five photographs from Henry's Microsoft years: the Microsoft 365 app icons, the Hong Kong team, a desk of monitors, a company volunteering day, and a video shoot. |
+| `10-late-night-study.jpg` | Henry writing on a tablet late at night at his home desk, a second monitor beside him showing a calendar with almost no free space. |
+| `11-podcast-recording.jpg` | Henry recording a podcast at home, speaking into a condenser microphone with an audio editor open on the laptop in front of him. |
+| `12-cafe-study.jpg` | Henry working through study material on a tablet in a café. |
+| `13-microsoft-build.jpg` | Henry presenting on stage at Microsoft Build Hong Kong, microphone in hand. |
+| `14-fever-at-home.jpg` | Henry asleep on a couch with a cooling patch on his forehead and a towel across his chest. |
+| `15-hospital-iv.jpg` | Henry's hand resting on a hospital tray table, an IV line taped into the back of it. |
+
+**兩處我改了說法，你確認一下：**
+- `07-message-wall` 原本寫 `farewell messages`（道別留言）。黑板上寫的是「南北樓不要走」、
+  「謝謝你們對附中的愛」這類句子 —— 看起來是校舍要拆前的留念牆，不是畢業道別。
+  我改成中性的 `handwritten messages`。如果確實是道別，改回去更精準。
+- `01` 原本寫 `merchandise bundles`，看到帽 T 那張之後改成 `hoodie bundles`，更具體。
 
 ---
 

@@ -24,8 +24,13 @@ STORY_DIR = Path(__file__).resolve().parent.parent / "images" / "story"
 LONG_EDGE = 1600
 JPEG_QUALITY = 80
 
-# Meant to be opened and zoomed, so it keeps its pixels.
-FULL_RES = {"07-inventory-spreadsheet.png"}
+# Meant to be opened and zoomed, so it keeps its pixels. Matched on the stem
+# so renumbering the story images cannot silently downscale it.
+FULL_RES_STEMS = {"inventory-spreadsheet"}
+
+
+def is_full_res(name: str) -> bool:
+    return any(stem in name for stem in FULL_RES_STEMS)
 
 
 def optimise(path: Path, dry_run: bool) -> str:
@@ -35,7 +40,7 @@ def optimise(path: Path, dry_run: bool) -> str:
         # the saved file is not silently sideways once the tag is dropped.
         im = ImageOps.exif_transpose(im)
 
-        if path.name in FULL_RES:
+        if is_full_res(path.name):
             resized = ""
         else:
             im.thumbnail((LONG_EDGE, LONG_EDGE), Image.LANCZOS)
