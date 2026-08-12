@@ -16,6 +16,7 @@
 
   /* Editorial accent (burnt ochre) */
   --accent:#9c4a13;
+  --accent-lift:#e0904d; /* ochre readable on --surface-band */
   --on-accent:#ffffff;
 
   /* Surfaces (warm-biased) */
@@ -261,16 +262,56 @@ a:hover{color:var(--primary-deep)}
 .disagree{margin:28px 0 0;padding:24px 24px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--surface-card);box-shadow:var(--shadow-rest)}
 .disagree-head{margin:0 0 13px;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .disagree-text{margin:0 0 16px;font-family:var(--font-body);font-size:15.5px;line-height:1.6;color:var(--body)}
+.disagree-quotes{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:12px}
+.disagree-quotes li{padding-left:16px;border-left:2px solid var(--accent);font-family:var(--font-body);font-style:italic;font-size:15.5px;line-height:1.5;color:var(--body)}
 .disagree-punch{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(18px,2.6vw,23px);line-height:1.24;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 
 .foot-line{margin:0;font-family:var(--font-body);font-weight:400;font-style:italic;font-size:clamp(17px,2.6vw,21px);line-height:1.5;color:var(--on-primary);max-width:46ch}
+.foot-line--sub{font-style:normal;font-size:clamp(15px,2vw,16.5px);line-height:1.62;color:var(--on-primary-soft);max-width:58ch}
 .cta-back{display:inline-flex;align-items:center;gap:11px;font-family:var(--font-body);font-weight:600;font-size:15px;padding:14px 22px;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--ink);color:var(--canvas);box-shadow:4px 4px 0 var(--primary-shade);transition:transform var(--dur-interaction) var(--ease-physical),box-shadow var(--dur-interaction) var(--ease-physical)}
 .cta-back:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--primary-shade);color:var(--canvas)}
 .cta-back:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--primary-shade)}
 .cta-back__arrow{font-family:var(--font-mono);font-size:18px;line-height:1;transition:transform var(--dur-interaction) var(--ease-physical)}
 .cta-back:hover .cta-back__arrow{transform:translateX(-3px)}
 
+/* story figures — every photograph sits in a hard-shadowed ink frame.
+   Portrait shots are width-capped so they do not tower over the 900px column;
+   only the thumbnail row crops (aspect-ratio + cover), because there the grid
+   regularity matters more than the full frame. */
+.fig{margin:32px 0 0}
+.fig__frame{display:block;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--canvas-tint);box-shadow:var(--shadow-rest);overflow:hidden}
+.fig__frame img{width:100%;height:auto;display:block}
+.fig__cap{margin:12px 0 0;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
+/* Child combinators: .fig--lead also wraps the thumbnail row, which must not
+   inherit the lead frame's width cap. */
+.fig--portrait > .fig__frame{max-width:400px;margin-inline:auto}
+.fig--lead > .fig__frame{max-width:520px;margin-inline:auto}
+.prose--after-fig{margin-top:32px}
+.fig--pair{display:grid;grid-template-columns:1fr;gap:16px;align-items:center}
+.fig-row{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+.fig-row .fig__frame{aspect-ratio:3/4}
+.fig-row .fig__frame img{height:100%;object-fit:cover}
+.fig-row .fig__frame--offset img{object-position:56% center}
+
+.fig__zoom{display:block;width:100%;margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:zoom-in}
+.fig__zoom .fig__frame{transition:transform var(--dur-interaction) var(--ease-physical),box-shadow var(--dur-interaction) var(--ease-physical)}
+.fig__zoom:hover .fig__frame{transform:translate(-2px,-2px);box-shadow:var(--shadow-lift)}
+.fig__zoom:active .fig__frame{transform:translate(2px,2px);box-shadow:var(--shadow-flat)}
+.fig__hint{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
+
+.cb-modal--zoom{max-width:calc(100vw - 40px);padding:14px;display:flex;flex-direction:column;gap:12px}
+.zoom-canvas{overflow:auto;-webkit-overflow-scrolling:touch;max-height:calc(100vh - 170px);border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--canvas)}
+.zoom-canvas img{max-width:none;width:auto;height:auto;display:block}
+.zoom-note{margin:0;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center}
+
 /* ink-band overrides: dark full-bleed chapters */
+.band--ink .cb-mark{background:var(--primary-lift);color:var(--ink)}
+.band--ink .cb-em{color:var(--accent-lift)}
+.band--ink .fig__frame{border-color:var(--on-band-dim);background:#1b2842;box-shadow:4px 4px 0 var(--primary-shade)}
+.band--ink .fig__cap{color:var(--on-band-dim)}
+.band--ink .fig__hint{color:var(--primary-lift)}
+.band--ink .fig__zoom:hover .fig__frame{box-shadow:6px 6px 0 var(--primary-shade)}
+.band--ink .fig__zoom:active .fig__frame{box-shadow:0 0 0 var(--primary-shade)}
 .band--ink .kicker{color:var(--on-band-dim)}
 .band--ink .kicker__num{border-color:var(--on-band-dim)}
 .band--ink .ch-title{color:var(--canvas)}
@@ -291,5 +332,9 @@ a:hover{color:var(--primary-deep)}
 @media (min-width:640px){
   .lietruth{grid-template-columns:1fr 1fr}
   .mirrors{grid-template-columns:1fr 1fr}
+}
+@media (min-width:700px){
+  .fig--pair{grid-template-columns:var(--pair-cols,1fr 1fr)}
+  .fig-row{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
