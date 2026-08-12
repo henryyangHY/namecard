@@ -17,7 +17,19 @@
 > | 07 | Two mirrors | 米色 tint |
 > | — | Foot | 鈷藍 cobalt |
 >
-> 圖片位置以 `> 🖼 IMG-xx` 標示，見 `images/story/` 命名表。
+> 圖片位置以 `> 🖼 IMG-xx` 標示。編號 = **文章順序**，不是 Henry 傳圖的順序。
+> 檔名對照（放在 `images/story/`）：
+>
+> | 檔名 | 內容 | 章節 |
+> |---|---|---|
+> | `01-warehouse-collapse.jpg` | 癱在貨包堆上 | 01 |
+> | `02-warehouse-crew.jpg` | 倉庫大合照 | 01 |
+> | `03-building-the-sheet.jpg` | 抱著筆電趕工（需裁掉 IG 介面） | 01 |
+> | `04-student-council.jpg` | 學生會競選人像 | 02 |
+> | `05-sports-day.jpg` | 體育館大合照 | 02 |
+> | `06-message-wall.jpg` | 留言黑板 | 02 |
+> | `07-inventory-spreadsheet.png` | 預購試算表（需可放大） | 03 |
+> | `08-microsoft-years.jpg` | 微軟時期拼圖 | 04 |
 
 ---
 
@@ -90,13 +102,28 @@ Eight of us were still there, counting boxes of school anniversary merchandise a
 
 We were all exhausted. Nobody wants to spend their evenings in a basement warehouse counting hoodies until eight.
 
+> 🖼 **IMG-01 + IMG-02 — 並排兩張**
+> `images/story/01-warehouse-collapse.jpg`（有人癱在成堆貨包上）
+> `images/story/02-warehouse-crew.jpg`（倉庫大合照）
+>
+> 放在「We were all exhausted」正下方。左邊那張是論點：那些藍綠色的貨包堆到比人高，
+> 一個人四肢攤開躺在中間裝死，旁邊的人比著手指 —— 讀者不需要任何說明就懂
+> 「用手寫清單清點這個數量」是什麼概念。右邊那張給出人數與現場。
+> 做成 2-up 並排，比上下堆疊省掉半個螢幕的高度。
+
 *This is stupid — there must be a better way to do this.*
 
 I was seventeen. I went home that night and rebuilt the whole thing in a spreadsheet that synced to the cloud.
 
-> 🖼 IMG-01 — 倉庫大合照（`images/story/01-warehouse-crew.jpg`）
-> 放在這一段之後、beat 之前。這張就是故事裡那個地下倉庫和那群人，
-> 讀者剛讀完「八個人在數箱子」，馬上看到本尊，場景直接落地。
+> 🖼 IMG-03 — 抱著筆電趕工（`images/story/03-building-the-sheet.jpg`）
+> 放在這一句之後。這是全章唯一一張「你在動手」的畫面：筆電架在膝蓋上打字、
+> 地上散落資料、另一手還抓著一杯甜點。上一句說「我回家把整件事重做成試算表」，
+> 下面就是那個畫面本身。
+>
+> ⚠️ **這張要裁掉 Instagram 介面。** 兩個理由：
+> 一是截圖上的 `February 27, 2016` 會跟本章的 `autumn 2016` 打架，讀者看得到；
+> 二是 View insights / Boost post / 愛心數在 Cobalt Bone 的版面裡是雜訊。
+> 只留中間那張照片。
 
 ### [ch01.beat]
 
@@ -129,13 +156,13 @@ Then I got into the best high school in the country and met the boys who slept t
 
 So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.
 
-> 🖼 IMG-02 — 學生會競選人像（`images/story/02-student-council.jpg`）
+> 🖼 IMG-04 — 學生會競選人像（`images/story/04-student-council.jpg`）
 > 放在這一段之後。「So I changed the game. I joined the student council.」
 > 配一張穿制服、掛學生會彩帶、手指著前方的照片 —— 這是「換戰場」那一刻的臉。
 
 If I could not be the smartest, I would be the one who worked hardest at everything outside the classroom. That was the whole plan.
 
-> 🖼 IMG-03 — 體育館大合照（`images/story/03-sports-day.jpg`）
+> 🖼 IMG-05 — 體育館大合照（`images/story/05-sports-day.jpg`）
 > 放在這一段之後。上一句剛講完「把能接的全接下來」，
 > 這張紅彩帶、球場、幾十個人的照片就是那份清單的實體證據。
 
@@ -143,7 +170,7 @@ A teammate ended it in one sentence. *"You love being busy — fine. But stop pu
 
 First rejected on grades. Now rejected on the one thing I had left.
 
-> 🖼 IMG-04 — 留言黑板（`images/story/04-message-wall.jpg`）
+> 🖼 IMG-06 — 留言黑板（`images/story/06-message-wall.jpg`）
 > 放在這一章的最後，當作情緒收尾。
 > 一個人坐在地上，仰頭看著一整面別人寫滿的黑板 —— 畫面上你是唯一沒有留下字的人。
 > 剛好接在「我僅剩的那一項也被否定了」後面，孤獨感是這一章的落點。
@@ -168,7 +195,7 @@ That is the state I was in, in that office, at eight at night.
 
 The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being cancelled for good.
 
-> 🖼 IMG-05 — 那張試算表（`images/story/05-inventory-spreadsheet.png`）
+> 🖼 IMG-07 — 那張試算表（`images/story/07-inventory-spreadsheet.png`）
 > 放在這一段之後。這是全篇唯一的「證物」：三個顏色 × 五個尺寸、預購/實體/瑕疵/存貨，
 > 最下面一格總收入 1,284,315。上一句說「它止住虧損、開始獲利」，下一格就給讀者看帳。
 > 一個十七歲的人做出這張表，這件事本身就是論點。
@@ -189,10 +216,11 @@ That was also the first time I fell in love with technology — because of Excel
 > 這一章是你新增的。四句重複的草稿我併成兩段，保留了你所有的資訊點：
 > 微軟、Modern Workplace、Excel 在自己的 portfolio 裡、從被試算表救的學生變成服務百萬人。
 >
-> ⚠️ **年份要確認**：你寫「Fast forward eight years later」，2016 + 8 = 2024。
-> 但第 05 章寫 2023 年時「我在微軟賣生產力軟體賣了三年」＝ 2020 年就進微軟了（差 4 年）。
-> 這兩個對不起來。是「四年後進微軟」，還是「八年後才接到 Excel 這條產品線」？
-> 我先照你原文寫 eight，你確認後我改。
+> ⚠️ **年份幾乎確定要改**：你寫「Fast forward eight years later」，2016 + 8 = 2024。
+> 但（a）第 05 章寫 2023 年時「我在微軟賣生產力軟體賣了三年」＝ 2020 年進微軟；
+> （b）你給我的微軟拼圖裡有一格是 **Microsoft V-Care Day 2021**，你穿著活動 T 恤在裡面。
+> 2021 年你已經在微軟了，所以「八年後才進微軟」不可能成立。
+> 2016 → 2020/2021 是 **四年或五年**。我先保留 eight，你給我數字我就改。
 
 ### [ch04.kicker]
 
@@ -209,7 +237,14 @@ Fast forward eight years. I joined Microsoft — and guess which team I landed o
 
 I went from a student saved by a spreadsheet to helping millions of professionals work smarter with the same tool. The one that raised me had hired me. What started as an app I happened to use had become the thing I cared most about.
 
-> 🖼 （待定）本章有 1 張圖，在你接下來要傳的 10 張裡。
+> 🖼 IMG-08 — 微軟時期拼圖（`images/story/08-microsoft-years.jpg`）
+> 放在本章末，一張撐滿整章。這張已經是組好的五格拼圖：
+> M365 圖示（Excel 在正中間）、香港團隊合照、雙螢幕辦公桌、V-Care Day 2021、攝影棚錄影。
+> 左上角那顆 Excel 圖示直接接住「with Excel sitting in my portfolio」，不用另外解釋。
+>
+> ⚠️ 這張自帶斜切邊的設計語言，跟 Cobalt Bone 的直角＋2px 邊框＋硬陰影不同調。
+> **解法：外面包一層標準的 2px ink 邊框 + 4px 硬陰影**，框住之後會讀成「一張被引用的圖」，
+> 而不是「一塊風格跑掉的素材」。不建議拆成五張單圖，那會讓這章長度失控。
 
 ---
 
