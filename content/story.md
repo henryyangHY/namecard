@@ -9,6 +9,11 @@
 > **鈷藍 = 敘事者的結論，赭色 = 別人的／自己的聲音。**
 > 別人說出口的話保留引號，Henry 自己的想法不加引號。
 >
+> **量測後的排版規則（2026-08 調整）**
+> - 內文每行實測 87–93 字元，過寬。已收到 **65–71 字元**（`.prose p{max-width:48ch}`）。
+>   注意 `ch` 是「0」的字寬，比平均小寫字母寬，62ch 實際會排到 ~90 字元 —— 別用 ch 數推估。
+> - `beat` / `voice` / `pull` 不再受內文寬度限制，可用滿整欄，讓標語盡量單行。
+>
 > 章節結構（重編後 · 共 7 章）與色帶：
 >
 > | 章 | 標題 | 底色 |
@@ -358,7 +363,7 @@ So I did exactly what seventeen-year-old me did. In the second half of that year
 
 From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.
 
-I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. Deep down I already knew what it actually was.
+I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. **Deep down I already knew what it actually was.**
 
 > 🖼 **IMG-14 + IMG-15 — 並排兩張，依時序**
 > `14-fever-at-home.jpg`（額頭貼退熱貼、癱在沙發上）
@@ -376,9 +381,9 @@ The night I left the hospital and came home, my girlfriend asked me the question
 
 **voice:** "Why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?"
 
-That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love had become the reason I was hurting myself and worrying them. Was I keeping myself this busy so that I could watch them worry about me?
+That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love **had become the reason I was hurting myself and worrying them**. Was I keeping myself this busy so that I could watch them worry about me?
 
-Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — and I was not using any of it. To me it was an app. A product. A thing in a deck.
+Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — **and I was not using any of it**. To me it was an app. A product. A thing in a deck.
 
 Then I actually tried it. Frameworks first, Inbox Zero and Getting Things Done, then a second brain, then an AI agent I have been rebuilding ever since. Within a week I could ==see==, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of *I am so busy and I don't know what I am busy with* was simply gone.
 
@@ -497,8 +502,9 @@ Everything on my side of this page is about craft. But when I asked those same t
 
 ### [ch07.disagree-quotes]
 
-> 排版建議：做成四行縮排的引言堆疊，比擠成一段更有「很多人同時在跟你說同一件事」的重量。
-> 如果你想維持原本的單段落，跟我說。
+> ✅ 做成 **2×2 便利貼**：鈷藍底、白色斜體、2px ink 邊框 + 硬陰影，
+> 每張帶 ±1 度的輕微傾斜（沿用名片頁 `Fun fact` 標籤既有的手法）。
+> 視窗變窄時自動變成單欄。
 
 - You should rest more.
 - Give yourself short breaks.
