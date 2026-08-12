@@ -309,9 +309,9 @@ The tool raised me, then hired me.
 
 Fast forward five years. I joined Microsoft, and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.
 
-The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement. It was millions of professionals I will never meet.
+The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement. It was millions of professionals I never met before.
 
-It was just a tool. It became my passion.
+It was just a tool, but eventually became my passion.
 
 > 🖼 IMG-09 — 微軟時期拼圖（`images/story/09-microsoft-years.jpg`）
 > 放在本章末，一張撐滿整章。這張已經是組好的五格拼圖：
@@ -386,7 +386,7 @@ That was a punch to the stomach. Somewhere along the way, the thing I had starte
 
 Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — **and I was not using any of it**. To me, it was an app, a product, a thing in a deck.
 
-Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then an AI agent. Within a week I could ==see==, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of ==I am so busy and I don't know what I am busy with== was simply gone.
+Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then now my own AI agent. Within a week I could ==see==, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of ==I am so busy and I don't know what I am busy with== was simply gone.
 
 ### [ch05.beat]
 
@@ -410,7 +410,8 @@ Productivity tech pulled me out of that spiral of ==anxiety==.<br>For the second
 
 ### [ch06.prose]
 
-Work is most of life. If I can take a little friction and a little confusion out of someone's work — if I can hand a person, or a team, something they could not do the day before — that is not a small thing. That is giving somebody their evening back.
+Like it or not, work is most of life. 
+If I can take a little friction and a little confusion out of someone's work — if I can hand a person, or a team, something they could not do the day before — that is not a small thing. That is giving somebody their evening back.
 
 ### [ch06.lie-tag]
 
@@ -434,7 +435,7 @@ Technology should make people more capable, **not more busy**.
 
 ### [ch06.pull-note]
 
-I do not say that as a slogan. I say it as someone who was the busiest person he knew, and was not more capable for it. That is why I work on productivity technology — not because it is a market, but because it ==saved== me twice, and I would like to be the one who does that for somebody else.
+I do not say that as a slogan. I say it as someone who was the busiest person he knew, and was not more capable for it. That is why I work on productivity technology — not because it is a market, but because it ==saved me== twice, and I would like to be the one who does that for somebody else.
 
 ---
 
