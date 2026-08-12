@@ -9,10 +9,11 @@
 > **鈷藍 = 敘事者的結論，赭色 = 別人的／自己的聲音。**
 > 別人說出口的話保留引號，Henry 自己的想法不加引號。
 >
-> **量測後的排版規則（2026-08 調整）**
-> - 內文每行實測 87–93 字元，過寬。已收到 **65–71 字元**（`.prose p{max-width:48ch}`）。
->   注意 `ch` 是「0」的字寬，比平均小寫字母寬，62ch 實際會排到 ~90 字元 —— 別用 ch 數推估。
-> - `beat` / `voice` / `pull` 不再受內文寬度限制，可用滿整欄，讓標語盡量單行。
+> **版面規則：整頁只有一個欄寬。**
+> 文字、標語、圖片全部對齊同一條左右邊界（`.band__inner{max-width:780px}`，內容 700px）。
+> 只收窄段落、不收窄圖片會產生三種右邊界，讀起來像壞掉 —— 不要那樣做。
+> 行寬靠**放大字級**（內文 19px）而不是收窄文字區塊來控制，實測每行 73–79 字元。
+> 注意 `ch` 是「0」的字寬，比平均小寫字母寬，不能拿來推估字數，一定要實際量。
 >
 > 章節結構（重編後 · 共 7 章）與色帶：
 >
@@ -363,7 +364,7 @@ So I did exactly what seventeen-year-old me did. In the second half of that year
 
 From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.
 
-I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. **Deep down I already knew what it actually was.**
+I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. **Deep down I already knew what it actually was: anxiety.**
 
 > 🖼 **IMG-14 + IMG-15 — 並排兩張，依時序**
 > `14-fever-at-home.jpg`（額頭貼退熱貼、癱在沙發上）
@@ -389,7 +390,7 @@ Then I actually tried it. Frameworks first, Inbox Zero and Getting Things Done, 
 
 ### [ch05.beat]
 
-Productivity tech pulled me out of that spiral. For the second time in my life.
+Productivity tech pulled me out of that spiral of anxiety.<br>For the second time in my life.
 
 > 🖼 **這一段刻意不放圖**（Henry 手上也沒有素材）。
 > 這不是缺口，是這章的節奏：
