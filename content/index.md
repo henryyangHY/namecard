@@ -176,7 +176,7 @@ A builder, not just a talker
 
 ### [proofs.3.text]
 
-I don't just advocate for productivity tech — ==I build it and live by it==. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a Top-15 tech podcast for new grads, every system I teach is one I've battle-tested myself.
+I don't just advocate for productivity tech — ==I build it and live by it==. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a tech podcast for new grads that reached the top 15 in Hong Kong, every system I teach is one I've battle-tested myself.
 
 ---
 

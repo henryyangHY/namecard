@@ -207,7 +207,12 @@ The system I built that autumn did the obvious things. It ended the recurring lo
 > 放在這一段之後。這是全篇唯一的「證物」：三個顏色 × 五個尺寸、預購/實體/瑕疵/存貨，
 > 最下面一格總收入 1,284,315。上一句說「它止住虧損、開始獲利」，下一格就給讀者看帳。
 > 一個十七歲的人做出這張表，這件事本身就是論點。
-> **建議做成可點擊放大**，縮圖看不清數字，但放大後的細節正是說服力來源。
+> ✅ **做成可點擊放大**（縮圖看不清數字，放大後的細節才是說服力來源）。
+> ✅ **全頁唯一一張有說明文字的圖**，下方加一行 mono 小字：
+>
+> `The actual spreadsheet, autumn 2016. Not a recreation.`
+>
+> 這一行必要 —— 少了它，讀者會預設這是後來重畫的示意圖，證物就變成插圖。
 
 But that is not the part I remember. What I remember is that nobody argued about the count again, and nobody stayed until eight. For two years I had been trying to prove my worth by ==out-working== the people around me and being the busiest person in the room — and the thing that finally made me feel worth something was ==taking work away== from them.
 
@@ -224,11 +229,8 @@ That was also the first time I fell in love with technology — because of Excel
 > 這一章是你新增的。四句重複的草稿我併成兩段，保留了你所有的資訊點：
 > 微軟、Modern Workplace、Excel 在自己的 portfolio 裡、從被試算表救的學生變成服務百萬人。
 >
-> ⚠️ **年份幾乎確定要改**：你寫「Fast forward eight years later」，2016 + 8 = 2024。
-> 但（a）第 05 章寫 2023 年時「我在微軟賣生產力軟體賣了三年」＝ 2020 年進微軟；
-> （b）你給我的微軟拼圖裡有一格是 **Microsoft V-Care Day 2021**，你穿著活動 T 恤在裡面。
-> 2021 年你已經在微軟了，所以「八年後才進微軟」不可能成立。
-> 2016 → 2020/2021 是 **四年或五年**。我先保留 eight，你給我數字我就改。
+> ✅ 年份已定案為 **five years**（2016 → 2021）。與 V-Care Day 2021 的照片一致，
+> 也與第 05 章「2023 年時已賣了三年」對得上。
 
 ### [ch04.kicker]
 
@@ -241,7 +243,7 @@ The tool raised me, then hired me.
 
 ### [ch04.prose]
 
-Fast forward eight years. I joined Microsoft — and guess which team I landed on. I was put on the Modern Workplace productivity team, with Excel sitting in my portfolio.
+Fast forward five years. I joined Microsoft — and guess which team I landed on. I was put on the Modern Workplace productivity team, with Excel sitting in my portfolio.
 
 I went from a student saved by a spreadsheet to helping millions of professionals work smarter with the same tool. The one that raised me had hired me. What started as an app I happened to use had become the thing I cared most about.
 
@@ -461,3 +463,46 @@ Ten years on, I still catch myself measuring my worth in output — and it is ha
 ### [foot.cta]
 
 Back to the name card and contact
+
+---
+
+## L. 附錄：圖片 alt text 初稿
+
+> alt text 是給讀螢幕的人、以及搜尋引擎看的文字描述，不會顯示在畫面上。
+> 請複核內容有沒有寫錯（尤其人數、地點、事件名稱）。
+> 原則：描述「畫面上看得到什麼」，不重複內文已經說過的話，不寫「一張照片顯示…」。
+
+| 檔案 | alt text |
+|---|---|
+| `01-warehouse-collapse.jpg` | A student lying spread-eagled across a head-high stack of plastic-wrapped merchandise bundles in the storeroom, while another points at him. |
+| `02-warehouse-crew.jpg` | About forty student council members posed together in the corrugated-iron storeroom where the merchandise was counted. |
+| `03-building-the-sheet.jpg` | Henry at seventeen, hunched over a laptop balanced on his knees, surrounded by scattered event materials. |
+| `04-student-council.jpg` | Henry in school uniform wearing a student council campaign sash, pointing off camera. |
+| `05-sports-day.jpg` | Around forty students with red ribbons posed on a gymnasium basketball court after a sports day. |
+| `06-message-wall.jpg` | Henry sitting on the floor, looking up at a large chalkboard covered edge to edge in handwritten farewell messages. |
+| `07-inventory-spreadsheet.png` | The inventory spreadsheet: three colourways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totalling NT$1,284,315 in revenue. |
+| `08-microsoft-years.jpg` | Five photographs from Henry's Microsoft years: the Microsoft 365 app icons, the Hong Kong team, a desk of monitors, a company volunteering day, and a video shoot. |
+| `09-late-night-study.jpg` | Henry writing on a tablet late at night at his home desk, a second monitor beside him showing a calendar with almost no free space. |
+| `10-podcast-recording.jpg` | Henry recording a podcast at home, speaking into a condenser microphone with an audio editor open on the laptop in front of him. |
+| `11-cafe-study.jpg` | Henry working through study material on a tablet in a café. |
+| `12-microsoft-build.jpg` | Henry presenting on stage at Microsoft Build Hong Kong, microphone in hand. |
+| `13-fever-at-home.jpg` | Henry asleep on a couch with a cooling patch on his forehead and a towel across his chest. |
+| `14-hospital-iv.jpg` | Henry's hand resting on a hospital tray table, an IV line taped into the back of it. |
+
+---
+
+## M. 附錄：已定案的決定
+
+| 項目 | 決定 |
+|---|---|
+| ch04 年份 | five years（2016 → 2021） |
+| Podcast 排名 | 兩頁都寫明 in Hong Kong |
+| ch03 螢光筆 | 只留 `out-working` 與 `taking work away` 兩處 |
+| 結尾語氣 | 維持正向收尾 |
+| ch05 成就區 | IMG-09 放大當主圖 + 其餘三張排一列 |
+| ch07 四句引言 | 四行堆疊 |
+| 試算表 | 可點擊放大 + 一行說明文字 |
+| 微軟拼圖 | 包 2px ink 邊框 + 硬陰影 |
+| 其他圖片 caption | 全部不加 |
+| 合照肖像 | 無疑慮，照登 |
+| 待辦（排版後） | 大合照上用手繪風格圈出 Henry 的位置 |
