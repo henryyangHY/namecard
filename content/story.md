@@ -479,7 +479,26 @@ What other people see me as…
 
 ### [ch07.consensus]
 
-I asked ten friends and colleagues the same five questions, separately. Asked what I am best at, six of them independently landed on a version of the same sentence: *he makes complicated things easy to understand.* Asked to compare me to a product, four said Notion.
+> 改成「一句引言 + 兩張結果卡」。原本三句擠在一段裡，兩個調查結果讀起來像附註；
+> 拆成卡片之後，問題（mono 小標）／答案（展示字體）／票數（赭色）三層分明。
+> 票數保留下來當佐證 —— 「六／十」比「有些人說」有力得多。
+
+I asked ten friends and colleagues the same five questions, separately.
+
+**card 1**
+- q: What Henry's best at
+- a: He makes complicated things easy to understand.
+- meta: Six of ten, independently
+
+**card 2**
+- q: Compare Henry to a product
+- a: Notion（含 Notion 標誌）
+- meta: Four of ten
+
+> ⚠️ **Notion 標誌是我手繪的 inline SVG**，不是官方素材檔 ——
+> 圓角方框 + 一個 N 的幾何重現，用頁面的 ink 色（`#15203a`，接近官方的黑）。
+> 尺寸小的時候辨識度沒問題，但如果你要百分之百精確，
+> 去 notion.so/brand 下載官方 SVG 放進 `images/`，跟我說我換掉。
 
 ### [ch07.testimonial-quote]
 
