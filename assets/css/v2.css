@@ -326,6 +326,7 @@ a:hover{color:var(--primary-deep)}
 .band--ink .fig__hint{color:var(--primary-lift)}
 .band--ink .fig__zoom:hover .fig__frame{box-shadow:6px 6px 0 var(--primary-shade)}
 .band--ink .fig__zoom:active .fig__frame{box-shadow:0 0 0 var(--primary-shade)}
+.band--ink + .band--ink{border-top-color:rgba(152,161,179,.42)}
 .band--ink .kicker{color:var(--on-band-dim)}
 .band--ink .kicker__num{border-color:var(--on-band-dim)}
 .band--ink .ch-title{color:var(--canvas)}
