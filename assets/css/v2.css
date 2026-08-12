@@ -236,7 +236,7 @@ a:hover{color:var(--primary-deep)}
 .hook-cut{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--on-band-dim);margin:0}
 
 .beat{font-family:var(--font-display);font-weight:700;font-size:clamp(19px,2.7vw,24px);line-height:1.22;letter-spacing:-.01em;color:var(--ink);margin:28px 0 0;padding-left:20px;border-left:3px solid var(--primary);text-wrap:balance}
-.pull-note{font-family:var(--font-body);font-weight:400;font-size:clamp(14.5px,2vw,16px);line-height:1.62;color:var(--muted);margin:24px 0 0}
+.pull-note{font-family:var(--font-body);font-weight:400;font-size:clamp(16.5px,2.4vw,19px);line-height:1.72;color:var(--body);margin:24px 0 0}
 .pull{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4.8vw,40px);line-height:1.14;letter-spacing:var(--ls-display-md);color:var(--ink);margin:30px 0 22px;max-width:34ch;text-wrap:balance}
 
 .lietruth{display:grid;grid-template-columns:1fr;gap:16px;margin:30px 0 0}
@@ -280,8 +280,8 @@ a:hover{color:var(--primary-deep)}
 .disagree-quotes li:nth-child(4){transform:rotate(-.8deg)}
 .disagree-punch{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(18px,2.6vw,23px);line-height:1.24;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 
-.foot-line{margin:0;font-family:var(--font-body);font-weight:400;font-style:italic;font-size:clamp(22px,3.6vw,32px);line-height:1.28;color:var(--on-primary);max-width:42ch;text-wrap:balance}
-.foot-line--sub{font-style:normal;font-size:clamp(15px,2vw,16.5px);line-height:1.62;color:var(--on-primary-soft);max-width:52ch;text-wrap:balance}
+.foot-line{margin:0;font-family:var(--font-body);font-weight:400;font-style:italic;font-size:clamp(22px,3.6vw,32px);line-height:1.28;color:var(--on-primary);max-width:42ch;text-wrap:balance;text-shadow:3px 3px 0 var(--primary-shade)}
+.foot-line--sub{text-shadow:none;font-style:normal;font-size:clamp(15px,2vw,16.5px);line-height:1.62;color:var(--on-primary-soft);max-width:52ch;text-wrap:balance}
 .cta-back{display:inline-flex;align-items:center;gap:11px;font-family:var(--font-body);font-weight:600;font-size:15px;padding:14px 22px;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--ink);color:var(--canvas);box-shadow:4px 4px 0 var(--primary-shade);transition:transform var(--dur-interaction) var(--ease-physical),box-shadow var(--dur-interaction) var(--ease-physical)}
 .cta-back:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--primary-shade);color:var(--canvas)}
 .cta-back:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--primary-shade)}
@@ -335,7 +335,7 @@ a:hover{color:var(--primary-deep)}
 .band--ink .scene-slug{color:var(--on-band-dim)}
 .band--ink .beat{color:var(--canvas)}
 .band--ink .pull{color:var(--canvas)}
-.band--ink .pull-note{color:var(--on-band-dim)}
+.band--ink .pull-note{color:var(--on-band)}
 .band--ink .lt-card{box-shadow:4px 4px 0 var(--primary-shade)}
 .band--ink .lt-card--lie{background:#1b2842;border-color:var(--on-band-dim)}
 .band--ink .lt-card--truth{background:var(--primary);border-color:var(--on-band-dim)}

@@ -176,7 +176,7 @@ The next year, one person did that job. Not eight.
 
 ### [ch01.pull-note]
 
-I have spent ten years trying to explain why that mattered so much to me. This is the closest I have come.
+I have spent ten years trying to explain why that mattered so much to me.<br>This is the closest I have come.
 
 ---
 
@@ -307,9 +307,9 @@ The tool raised me, then hired me.
 
 ### [ch04.prose]
 
-Fast forward five years. I joined Microsoft — and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.
+Fast forward five years. I joined Microsoft, and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.
 
-The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement — it was millions of professionals I will never meet.
+The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement. It was millions of professionals I will never meet.
 
 It was just a tool. It became my passion.
 
@@ -384,13 +384,13 @@ The night I left the hospital and came home, my girlfriend asked me the question
 
 That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love **had become the reason I was hurting myself and worrying them**. Was I keeping myself this busy so that I could watch them worry about me?
 
-Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — **and I was not using any of it**. To me it was an app. A product. A thing in a deck.
+Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — **and I was not using any of it**. To me, it was an app, a product, a thing in a deck.
 
-Then I actually tried it. Frameworks first, Inbox Zero and Getting Things Done, then a second brain, then an AI agent I have been rebuilding ever since. Within a week I could ==see==, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of *I am so busy and I don't know what I am busy with* was simply gone.
+Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then an AI agent. Within a week I could ==see==, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of ==I am so busy and I don't know what I am busy with== was simply gone.
 
 ### [ch05.beat]
 
-Productivity tech pulled me out of that spiral of anxiety.<br>For the second time in my life.
+Productivity tech pulled me out of that spiral of ==anxiety==.<br>For the second time in my life.
 
 > 🖼 **這一段刻意不放圖**（Henry 手上也沒有素材）。
 > 這不是缺口，是這章的節奏：
