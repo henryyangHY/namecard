@@ -34,6 +34,10 @@
 > | `10-podcast-recording.jpg` | 錄 Podcast | 05 |
 > | `11-cafe-study.jpg` | 咖啡廳讀書 | 05 |
 > | `12-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 |
+> | `13-fever-at-home.jpg` | 在家發燒 | 05 |
+> | `14-hospital-iv.jpg` | 住院點滴 | 05 |
+>
+> 共 14 張。06、07 兩章與結尾不放圖 —— 那是結論段落，不是場景。
 
 ---
 
@@ -292,7 +296,17 @@ From the outside, that list reads like ambition. From the inside it was the same
 
 I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. Deep down I already knew what it actually was.
 
-> 🖼 （待定）住院這段的圖還沒到，剩下 3 張裡如果有，就放這裡。
+> 🖼 **IMG-13 + IMG-14 — 並排兩張，依時序**
+> `13-fever-at-home.jpg`（額頭貼退熱貼、癱在沙發上）
+> `14-hospital-iv.jpg`（手背上的點滴針，病房桌）
+>
+> 順序照文字走：先在家發燒，再住院。左邊接「fever climbed to almost 40°C」，
+> 右邊接「admitted to hospital for a full workup」。
+>
+> **版面要跟上面那組刻意相反。** 上面是四張擠在一起的高密度區塊（在演、在忙、在成就），
+> 這裡只有兩張、留白拉大、不加任何說明文字。
+> 讀者從「滿版的忙碌」捲到「兩張安靜的橫躺」，那個落差就是這一章的論證，
+> 文字不用再多講一句。
 
 The night I left the hospital and came home, my girlfriend asked me the question that went straight through me: *why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?*
 
@@ -306,7 +320,10 @@ Then I actually tried it. Frameworks first, Inbox Zero and Getting Things Done, 
 
 Productivity tech pulled me out of that spiral. For the second time in my life.
 
-> 🖼 （待定）「被生產力工具救回來」這段的圖還沒到。剩下 3 張。
+> 🖼 **這一段刻意不放圖**（Henry 手上也沒有素材）。
+> 這不是缺口，是這章的節奏：
+> 四張擠成一團（忙碌）→ 兩張安靜橫躺（崩潰）→ 完全沒有圖（復原）。
+> 視覺密度一路遞減，跟情緒曲線同步。復原是安靜的，版面也應該安靜。
 
 ---
 
