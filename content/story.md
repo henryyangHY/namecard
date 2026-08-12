@@ -479,26 +479,23 @@ What other people see me as…
 
 ### [ch07.consensus]
 
-> 改成「一句引言 + 兩張結果卡」。原本三句擠在一段裡，兩個調查結果讀起來像附註；
-> 拆成卡片之後，問題（mono 小標）／答案（展示字體）／票數（赭色）三層分明。
-> 票數保留下來當佐證 —— 「六／十」比「有些人說」有力得多。
-
-I asked ten friends and colleagues the same five questions, separately.
+> 改成兩張小卡，沿用第 06 章 `lt-card`（謊言／真相）的形式，
+> 但**標籤浮出卡片上緣**，像標籤紙夾在邊框上。
+>
+> 拿掉了：引言句「I asked ten friends...」、票數「Six of ten」「Four of ten」。
 
 **card 1**
-- q: What Henry's best at
+- tag: What Henry's best at
 - a: He makes complicated things easy to understand.
-- meta: Six of ten, independently
 
 **card 2**
-- q: Compare Henry to a product
-- a: Notion（含 Notion 標誌）
-- meta: Four of ten
+- tag: Compare Henry to a product
+- a: Notion（含標誌）
 
-> ⚠️ **Notion 標誌是我手繪的 inline SVG**，不是官方素材檔 ——
-> 圓角方框 + 一個 N 的幾何重現，用頁面的 ink 色（`#15203a`，接近官方的黑）。
-> 尺寸小的時候辨識度沒問題，但如果你要百分之百精確，
-> 去 notion.so/brand 下載官方 SVG 放進 `images/`，跟我說我換掉。
+> ✅ **Notion 標誌換成 Henry 提供的檔案** —— Font Awesome Free 7.3.1，
+> 圖示授權 CC BY 4.0。路徑用 `fill="currentColor"`，所以會自動吃頁面的 `--ink` 色。
+> path 直接內嵌在 `story.html` 裡（省一次請求、拿得到 ink 色），
+> 署名註解一併保留在標籤旁邊。原始檔留在 `images/notion.svg` 當來源存證。
 
 ### [ch07.testimonial-quote]
 
