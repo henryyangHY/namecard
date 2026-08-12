@@ -195,7 +195,7 @@ The scoreboard I was raised on.
 
 To understand why a spreadsheet moved me that much, you need to know what I thought I was worth.
 
-My parents both worked, and they were tired, and they gave me everything they had. I was too young to have the words for thank you, so I paid them back in the only currency I understood: the one with a clear external standard. I was the kid with the good grades. In Taiwan, that is not an achievement. That is an identity.
+My parents both worked. They were tired, but they still gave me everything they had. I was too young to have the words to express my gratitude, so I paid them back in the only currency I understood, the one with a clear external standard: Being the kid with perfect grades. In Taiwan, that is not an achievement. That is an identity.
 
 Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close:
 
