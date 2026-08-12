@@ -34,11 +34,12 @@
 > | `10-late-night-study.jpg` | 深夜在家苦讀（主圖） | 05 | ✅ |
 > | `11-podcast-recording.jpg` | 錄 Podcast | 05 | ✅ |
 > | `12-cafe-study.jpg` | 咖啡廳讀書 | 05 | ✅ |
-> | `13-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 | ⬜ **未上傳** |
+> | `13-microsoft-build.jpg` | Microsoft Build HK 台上 | 05 | ✅ |
 > | `14-fever-at-home.jpg` | 在家發燒 | 05 | ✅ |
 > | `15-hospital-iv.jpg` | 住院點滴 | 05 | ✅ |
 >
-> 共 15 個位置、14 張已就位。06、07 兩章與結尾不放圖 —— 那是結論段落，不是場景。
+> **15 張全數就位、已壓縮（94 MB → 4.3 MB）。**
+> 06、07 兩章與結尾不放圖 —— 那是結論段落，不是場景。
 
 ---
 
@@ -66,24 +67,12 @@ Who is Henry Yang — The Story
 
 ### [meta.description]
 
-> ⬜ **待選** —— 目前是提案 C，等你決定。
->
-> **提案 A — 職涯導向**（推薦給「被 recruiter / 校友 google 到」的情境）
-> 先講你是誰、做什麼，故事只是佐證。三個關鍵字都在：productivity technology、Microsoft、Kellogg。
->
-> > Why Henry Yang builds productivity technology: ten years from a high school spreadsheet to Microsoft to Kellogg, and the two times a system pulled him out of burnout.
->
-> **提案 B — 主張導向**（推薦給「主動把連結分享出去」的情境）
-> 先講信念句 —— 那本來就是這一頁的論點，也最容易被人整句引用。
->
-> > Technology should make people more capable, not more busy. Henry Yang on learning that the hard way, twice, and why he builds productivity systems for a living.
->
-> **提案 C — 敘事導向**（保留原本的鉤子，只拿掉學生會）
-> 維持故事口吻，但把 2016 那間辦公室換成普世的畫面。三個裡最不 SEO、但最有聲音。
->
-> > Nobody likes to work. I was obsessed with being busy anyway. The story of how I stopped measuring my worth in output, and started building systems instead.
+> ✅ **已選提案 A（職涯導向）**。先講你是誰、做什麼，故事只是佐證。
+> 三個可搜尋的關鍵字都在：productivity technology、Microsoft、Kellogg。
+> 165 字元，Google 大約在 160 截斷，尾巴的 burnout 可能被切掉 —— 但前半段的資訊已經完整。
+> （被淘汰的是：B 主張導向、C 敘事導向。要換回來隨時說。）
 
-Nobody likes to work. I was obsessed with being busy anyway. The story of how I stopped measuring my worth in output, and started building systems instead.
+Why Henry Yang builds productivity technology: ten years from a high school spreadsheet to Microsoft to Kellogg, and the two times a system pulled him out of burnout.
 
 ### [meta.og-title]
 
@@ -243,7 +232,7 @@ What the spreadsheet actually did.
 
 That is the state I was in, in that office, at eight at night.
 
-The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being cancelled for good.
+The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being canceled for good.
 
 > 🖼 IMG-08 — 那張試算表（`images/story/08-inventory-spreadsheet.png`）
 > 放在這一段之後。這是全篇唯一的「證物」：三個顏色 × 五個尺寸、預購/實體/瑕疵/存貨，
@@ -336,14 +325,13 @@ So I did exactly what seventeen-year-old me did. In the second half of that year
 > `10-late-night-study.jpg`（深夜在家用 iPad 手寫，右邊螢幕滿滿的行事曆）
 > `11-podcast-recording.jpg`（家裡錄 Podcast，大麥克風 + 防噴罩 + 剪音軌）
 > `12-cafe-study.jpg`（咖啡廳裡穿牛仔外套讀 iPad）
-> `13-microsoft-build.jpg`（Microsoft Build Hong Kong 台上拿麥克風）⬜ **這張還沒上傳**
+> `13-microsoft-build.jpg`（Microsoft Build Hong Kong 台上拿麥克風）
 >
 > 這一段的力量來自「清單長到荒謬」——GMAT、日檢 N1、Podcast、MIT 課程、ESG 認證、
 > 微軟正職、全球前 3% 提名，全部塞在六個月裡。四張照片同時出現，
 > **版面的擁擠本身就是論點**，不需要再寫一句「我當時很忙」。
 >
 > **版面建議：IMG-10 放大當主圖，其餘三張排成一列在下方。**
-> （Build 那張補上前先排兩張，版面撐得住，但三張才是原本的設計。）
 > 理由是 IMG-09 右邊那台螢幕上是一整片沒有空隙的行事曆 ——
 > 這正好回扣開場 Hook 的「no white space on the calendar」，是全頁唯一一次
 > 文字與畫面對到同一個意象。做成四宮格等分的話這個細節會小到看不見。
@@ -509,10 +497,9 @@ They see someone who has not learned how to stop. The seventeen-year-old is stil
 
 > ✅ 用你指定的版本，一字未改（文法本來就沒問題）。正向收尾已確認。
 >
-> ⚠️ **拼字系統要統一。** 你這段寫 `organized`（美式），
-> 但第 03 章有 `cancelled`（英式，美式是 canceled）。全頁目前混用。
-> 建議**全部改美式** —— 你要去 Kellogg，主要讀者在美國，LinkedIn 也是。
-> 這樣只需要動 `cancelled` 一個字。要我改嗎？
+> ✅ **拼字已統一為美式。** 掃過兩頁 HTML 和這份 md，實際只有兩處要動：
+> 第 03 章 `cancelled` → `canceled`，以及 alt text 的 `colourways` / `totalling`
+> → `colorways` / `totaling`。其餘本來就是美式。
 
 ### [foot.line]
 
@@ -541,7 +528,7 @@ Back to the name card and contact
 | `05-warehouse-crew.jpg` | About forty student council members posed together in the corrugated-iron storeroom, holding a cardboard sign. |
 | `06-sports-day.jpg` | Around forty students with red ribbons posed on a gymnasium basketball court after a sports day. |
 | `07-message-wall.jpg` | Henry sitting on the floor, looking up at a large chalkboard covered edge to edge in handwritten messages. |
-| `08-inventory-spreadsheet.png` | The inventory spreadsheet: three colourways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totalling NT$1,284,315 in revenue. |
+| `08-inventory-spreadsheet.png` | The inventory spreadsheet: three colorways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totaling NT$1,284,315 in revenue. |
 | `09-microsoft-years.jpg` | Five photographs from Henry's Microsoft years: the Microsoft 365 app icons, the Hong Kong team, a desk of monitors, a company volunteering day, and a video shoot. |
 | `10-late-night-study.jpg` | Henry writing on a tablet late at night at his home desk, a second monitor beside him showing a calendar with almost no free space. |
 | `11-podcast-recording.jpg` | Henry recording a podcast at home, speaking into a condenser microphone with an audio editor open on the laptop in front of him. |
@@ -550,11 +537,9 @@ Back to the name card and contact
 | `14-fever-at-home.jpg` | Henry asleep on a couch with a cooling patch on his forehead and a towel across his chest. |
 | `15-hospital-iv.jpg` | Henry's hand resting on a hospital tray table, an IV line taped into the back of it. |
 
-**兩處我改了說法，你確認一下：**
-- `07-message-wall` 原本寫 `farewell messages`（道別留言）。黑板上寫的是「南北樓不要走」、
-  「謝謝你們對附中的愛」這類句子 —— 看起來是校舍要拆前的留念牆，不是畢業道別。
-  我改成中性的 `handwritten messages`。如果確實是道別，改回去更精準。
-- `01` 原本寫 `merchandise bundles`，看到帽 T 那張之後改成 `hoodie bundles`，更具體。
+✅ 兩處說法已確認：
+- `07-message-wall` 用 `handwritten messages`（Henry 確認那是一個活動，不是畢業道別）
+- `01` 從 `merchandise bundles` 改成 `hoodie bundles`（看到帽 T 那張之後可以更具體）
 
 ---
 
@@ -572,4 +557,7 @@ Back to the name card and contact
 | 微軟拼圖 | 包 2px ink 邊框 + 硬陰影 |
 | 其他圖片 caption | 全部不加 |
 | 合照肖像 | 無疑慮，照登 |
+| story 頁 meta description | 提案 A（職涯導向） |
+| 拼字 | 全頁統一美式 |
+| 圖片資產 | 15 張全數就位、已壓縮並改名（`images/story/`） |
 | 待辦（排版後） | 大合照上用手繪風格圈出 Henry 的位置 |
