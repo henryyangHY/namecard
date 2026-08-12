@@ -3,6 +3,12 @@
 > 編輯規則見 `README.md`。**不要動 `### [block-id]` 那一行。**
 > 行內標記：`==鈷藍螢光==` · `**赭色強調**` · `*斜體*`
 >
+> **新增：`**voice:**` 開頭的段落 = 「聲音行」。** 用在有人開口說話、或 Henry 的內心提問。
+> 排版上會獨立成一行、斜體、放大到 17.5–21.5px、左邊一條赭色細線。
+> 這是刻意跟 `beat`（鈷藍粗線 + 展示字體）分開的兩種語域：
+> **鈷藍 = 敘事者的結論，赭色 = 別人的／自己的聲音。**
+> 別人說出口的話保留引號，Henry 自己的想法不加引號。
+>
 > 章節結構（重編後 · 共 7 章）與色帶：
 >
 > | 章 | 標題 | 底色 |
@@ -147,7 +153,9 @@ We were all exhausted. Nobody wants to spend their evenings in a basement wareho
 > 這張補上答案，而且**那三個顏色正好就是下一章試算表的三大欄位**（白／紅／黑）。
 > 讀者到第 03 章看到那張表時，會自動把顏色對起來。
 
-*This is stupid — there must be a better way to do this.*
+> 「聲音行」——獨立成行、斜體、赭色左線。見下方說明。
+
+**voice:** This is stupid — there must be a better way to do this.
 
 I was seventeen. I went home that night and rebuilt the whole thing in a spreadsheet that synced to the cloud.
 
@@ -183,7 +191,9 @@ To understand why a spreadsheet moved me that much, you need to know what I thou
 
 My parents both worked, and they were tired, and they gave me everything they had. I was too young to have the words for thank you, so I paid them back in the only currency I understood: the one with a clear external standard. I was the kid with the good grades. In Taiwan, that is not an achievement. That is an identity.
 
-Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close: *if I'm not the smartest, what exactly am I worth?*
+Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close:
+
+**voice:** If I'm not the smartest, what exactly am I worth?
 
 So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.
 
@@ -205,7 +215,9 @@ If I could not be the smartest, I would be the one who worked hardest at everyth
 > 但它其實是一場活動的收工合照，跟第 01 章那個八個人加班對帳的夜晚不是同一件事。
 > 放在這裡，它和體育館那張變成一組，語意才對得上。
 
-A teammate ended it in one sentence. *"You love being busy — fine. But stop pushing your standards onto us."*
+A teammate ended it in one sentence.
+
+**voice:** "You love being busy — fine. But stop pushing your standards onto us."
 
 First rejected on grades. Now rejected on the one thing I had left.
 
@@ -251,7 +263,9 @@ Standing in that office, I remember thinking: this is valuable. So *this* is wha
 
 It was the first evidence I had that I might be good at something other than being the best in the room. I was good at finding the simple logic underneath a mess, and building it into something that helped other people work less.
 
-That was also the first time I fell in love with technology — because of Excel. *Technology can really change people's lives*, I remember thinking.
+That was also the first time I fell in love with technology — because of Excel.
+
+**voice:** Technology can really change people's lives.
 
 ---
 
@@ -317,7 +331,9 @@ I did not learn it the first time.
 
 ### [ch05.prose]
 
-In 2023 I decided to apply to business school. My work experience was thin, my undergraduate GPA was not what it needed to be, and the old question came back wearing a new costume: *what makes you think you're good enough for this?*
+In 2023 I decided to apply to business school. My work experience was thin, my undergraduate GPA was not what it needed to be, and the old question came back wearing a new costume:
+
+**voice:** What makes you think you're good enough for this?
 
 So I did exactly what seventeen-year-old me did. In the second half of that year alone I sat the GMAT, sat the highest level of the Japanese proficiency exam, launched a tech podcast that reached the top 15 in Hong Kong, finished an MIT data analytics course, earned an ESG certification, held down my full-time job at Microsoft, and got nominated for an award given to the top three percent of employees worldwide.
 
@@ -356,7 +372,9 @@ I was sick constantly and tired all the time. Then, two weekends in a row, my fe
 > 讀者從「滿版的忙碌」捲到「兩張安靜的橫躺」，那個落差就是這一章的論證，
 > 文字不用再多講一句。
 
-The night I left the hospital and came home, my girlfriend asked me the question that went straight through me: *why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?*
+The night I left the hospital and came home, my girlfriend asked me the question that went straight through me:
+
+**voice:** "Why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?"
 
 That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love had become the reason I was hurting myself and worrying them. Was I keeping myself this busy so that I could watch them worry about me?
 
