@@ -186,20 +186,6 @@ I don't just advocate for productivity tech — ==I build it and live by it==. F
 
 Henry delivers more than content. He listens, adapts, and makes others feel included in the conversation.
 
-### [feed.heading]
-
-Currently building
-
-### [feed.embed]
-
-> LinkedIn 貼文嵌入。**放滿版、不放進左右欄** —— 嵌入固定 504px 寬，
-> 但兩欄各只有 340–406px，塞進去一定溢出。滿版時卡片內寬有 704–876px。
->
-> - 來源：`https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7479578006714331136?compact=1`
-> - 外框用站上既有的 2px ink 邊框 + 硬陰影，讓它不會像貼進來的異物
-> - `loading="lazy"`，不拖慢首次繪製
-> - 下方留一行 fallback 連結，貼文若被刪或未登入者看不到時仍有出路
-
 ### [testimonial.cite]
 
 - initials: DD
