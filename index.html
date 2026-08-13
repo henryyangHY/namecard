@@ -169,6 +169,29 @@
           </div>
         </div>
 
+        <!-- Full width: video wants the room, and neither column has it. -->
+        <section class="block bio__demo">
+          <h2 class="block__head" style="font-size: 18px">Currently building</h2>
+
+          <figure class="vid" style="--vid-ratio: 16 / 9">
+            <button class="vid__trigger" type="button" id="demo-play"
+                    aria-label="Play the demo video">
+              <img class="vid__poster" src="images/demo-poster.jpg" width="1280" height="720"
+                   loading="lazy" decoding="async"
+                   alt="Still frame from a short demo of the project Henry is building." />
+              <span class="vid__scrim" aria-hidden="true"></span>
+              <span class="vid__play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+              </span>
+              <span class="vid__label" aria-hidden="true">Watch the demo</span>
+            </button>
+          </figure>
+
+          <p class="vid__cap">A short walkthrough of what I'm building right now &middot;
+            <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7479578006714331136/" target="_blank" rel="noopener">see the post on LinkedIn &#8599;</a>
+          </p>
+        </section>
+
       </div>
     </article>
   </main>
@@ -304,6 +327,27 @@
     }
   });
 })();
+
+  /* ---------- Demo video ----------
+     Nothing is fetched until the visitor clicks. Swap the <video> block for
+     the YouTube branch below if the file gets too big for the repo. */
+  (function(){
+    var trigger = document.getElementById('demo-play');
+    if (!trigger) return;
+    var figure = trigger.parentNode;
+
+    trigger.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = 'images/demo.mp4';
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.setAttribute('poster', trigger.querySelector('.vid__poster').src);
+      figure.appendChild(v);
+      trigger.remove();
+      v.focus();
+    });
+  })();
 </script>
 </body>
 </html>
