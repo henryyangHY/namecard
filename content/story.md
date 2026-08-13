@@ -450,6 +450,16 @@ I do not say that as a slogan. I say it as someone who was the busiest person he
 
 Who I think I am, and who they say I am.
 
+### [ch07.intro]
+
+> 新增的開場句。三處文法修正：
+> 1. `I also believe to understand` → 補上 `that`（believe 後面接子句需要）
+> 2. `how people ... say about him` → `what the people ... say about them`
+>    （say 接的是「說了什麼」，用 what 不是 how）
+> 3. `him` → `them` —— 句子講的是泛稱的「a person」，用中性代名詞才對得上
+
+I also believe that to understand who a person is, you should listen to their story, and to what the people closest to them say about them.
+
 ### [ch07.self-heading]
 
 I consider myself as…

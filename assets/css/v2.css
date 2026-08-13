@@ -130,6 +130,13 @@ a:hover{color:var(--primary-deep)}
 .ai-list li{position:relative;padding-left:22px;font-family:var(--font-body);font-size:15px;line-height:1.45;color:var(--body)}
 .ai-list li::before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;background:var(--primary);border:1.5px solid var(--ink);transform:rotate(45deg)}
 
+/* LinkedIn embed. The iframe is a fixed 504x399 and cannot reflow its own
+   contents, so it is capped and centred rather than stretched, and framed in
+   the site's border so it does not read as a pasted-in foreign object. */
+.li-embed{max-width:504px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--surface-card);box-shadow:var(--shadow-rest);overflow:hidden;line-height:0}
+.li-embed iframe{display:block;width:100%;height:399px;border:0}
+.li-embed__note{margin:11px 0 0;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.li-embed__note a{color:var(--primary);border-bottom:1px dotted}
 .story-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--surface-band);color:var(--canvas);box-shadow:var(--shadow-rest);transition:transform var(--dur-interaction) var(--ease-physical),box-shadow var(--dur-interaction) var(--ease-physical)}
 .story-cta:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-lift);color:var(--canvas)}
 .story-cta:active{transform:translate(2px,2px);box-shadow:var(--shadow-flat)}
@@ -181,6 +188,9 @@ a:hover{color:var(--primary-deep)}
 @keyframes cb-pop{from{transform:translateY(-8px)}to{transform:translateY(0)}}
 @keyframes cb-rise-toast{from{transform:translate(-50%,14px)}to{transform:translate(-50%,0)}}
 
+/* Pre-existing: the rail's fixed-width items plus 14px gaps overflow a
+   320px viewport by ~18px. Tightening the gap is enough; no wrap needed. */
+@media (max-width:380px){.rail{gap:8px}}
 @media (min-width:500px){.bio__contact{grid-template-columns:1fr 1fr}}
 @media (min-width:860px){
   .bio__row{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(34px,5vw,64px);align-items:start}
@@ -192,7 +202,7 @@ a:hover{color:var(--primary-deep)}
 }
 @media (max-width:859px){
   .bio__row,.bio__cell{display:contents}
-  .bio__id{order:1}.bio__photo{order:2}.bio__contact{order:3}.bio__about{order:4}.bio__proofs{order:5}.bio__testimonial{order:6}.bio__areas{order:7}.bio__cta{order:8}
+  .bio__id{order:1}.bio__photo{order:2}.bio__contact{order:3}.bio__about{order:4}.bio__proofs{order:5}.bio__testimonial{order:6}.bio__areas{order:7}.bio__cta{order:8}.bio__feed{order:9}
   .bio__id{align-items:center;text-align:center}
   .bio__tagline{margin-left:auto;margin-right:auto}
   .block__head{text-align:center}
