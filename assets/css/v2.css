@@ -272,7 +272,12 @@ a:hover{color:var(--primary-deep)}
   .pd__shot{height:130px}
   .pd__shots--one{grid-template-columns:1fr}
   .pd__shots--one .pd__shot{height:200px}
-  .pd__pair{column-gap:10px}
+  /* Too narrow for two portrait frames: stack photo, then label, player, caption */
+  .pd__pair{grid-template-columns:1fr;row-gap:0}
+  .pd__pair .pd__shot{grid-column:1;grid-row:1;margin-bottom:18px}
+  .pd__pair .pd__label{grid-column:1;grid-row:2}
+  .pd__pair .pd__player{grid-column:1;grid-row:3}
+  .pd__pair .pd__caption{grid-column:1;grid-row:4}
 }
 
 /* ===================== story page ===================== */

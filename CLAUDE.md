@@ -26,7 +26,7 @@ namecard/
 └── images/
     ├── projects/           # Per-engagement photos for the projects section
     │   ├── workshop/       #   01-room, 02-audience, 03-note-canvas
-    │   └── claudegamepad/  #   01-desk (+ demo-loop.mp4 when it lands)
+    │   └── claudegamepad/  #   01-desk, demo-cover, thumb-loop.mp4 + thumb-cover
     ├── avatar.jpg          # Profile photo (200×200, displayed on card)
     ├── henry-yang.vcf      # vCard downloaded when visitor taps avatar
     ├── og-v3.png           # Share image for index.html (1200×630, rendered)
@@ -122,7 +122,7 @@ All JS is vanilla and inline in the page it belongs to (no external scripts).
 - **Year** → update `.rail__year` in `index.html`
 
 ### Styling
-- All styles live in `assets/css/v2.css` (currently `?v=3.0`)
+- All styles live in `assets/css/v2.css` (currently `?v=3.6`)
 - **After editing `v2.css`, bump the `?v=` on the `<link>` in `index.html`,
   `story.html` AND `og.html`.** GitHub Pages sends no-revalidate caching headers,
   so returning visitors otherwise render the new markup against a stale cached
@@ -170,6 +170,11 @@ and copy — nothing else needs touching.
 - Video: never commit a GIF or a raw screen recording. Either put it on YouTube
   and use the `.pd__player` facade, or ship a muted `<video class="pd__loop">`
   loop under ~4 MB. GitHub rejects files over 100 MB and git history is forever.
+- A card cover can be a muted `<video class="project__loop" preload="none">`
+  instead of an `<img>`: the script plays it only once `#projects` is expanded,
+  and never under `prefers-reduced-motion`.
+- Two portrait frames (photo + player) go in one `.pd__pair` row; it stacks
+  below 560px.
 - `index.html#p-<slug>` opens the section and that project directly.
 
 ### Now page (AI-updatable)
