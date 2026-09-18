@@ -418,6 +418,16 @@
     while (clone.firstChild) pjBody.appendChild(clone.firstChild);
     var heading = pjBody.querySelector('.pd__title');
     if (heading) heading.id = 'project-title';
+    // A looping demo is decoration: show the poster instead when the visitor
+    // has asked their OS for less motion. No-ops until a .pd__loop exists.
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var loops = pjBody.querySelectorAll('.pd__loop');
+      for (var i = 0; i < loops.length; i++) {
+        loops[i].removeAttribute('autoplay');
+        loops[i].setAttribute('controls', '');
+        loops[i].pause();
+      }
+    }
     pjReturnTo = article.querySelector('.project__open');
     pjScrim.hidden = false;
     document.body.style.overflow = 'hidden';

@@ -72,10 +72,10 @@ The markup is already in `index.html` as a comment inside the ClaudeGamepad
 </div>
 ```
 
-`.pd__loop` is already in `v2.css`. One thing left to decide: under
-`prefers-reduced-motion` the video should not autoplay. The CSS reset at the
-bottom of `v2.css` kills transitions but not video playback — say the word and
-I'll add the three lines of JS that swap the video for its poster.
+`.pd__loop` is already in `v2.css`, and `prefers-reduced-motion` is already
+handled: when the visitor has asked their OS for less motion the script strips
+`autoplay` and shows controls instead, so the poster sits still until they press
+play. Verified in Chromium under both motion settings. Nothing to add.
 
 If you would rather put the timelapse on YouTube like the workshop one, give me
 the URL instead and I'll reuse the same click-to-load player — that costs the
