@@ -24,6 +24,9 @@ namecard/
 │   │   └── v2.css          # All styles — "Cobalt Bone" design system
 │   └── fonts/              # Self-hosted variable fonts (.ttf)
 └── images/
+    ├── projects/           # Per-engagement photos for the projects section
+    │   ├── workshop/       #   01-room, 02-audience, 03-note-canvas
+    │   └── claudegamepad/  #   01-desk (+ demo-loop.mp4 when it lands)
     ├── avatar.jpg          # Profile photo (200×200, displayed on card)
     ├── henry-yang.vcf      # vCard downloaded when visitor taps avatar
     ├── og-v3.png           # Share image for index.html (1200×630, rendered)
@@ -100,6 +103,8 @@ Display type runs tight: `--ls-display-lg` `-1.45px`, `--ls-display-md` `-0.7px`
 | QR modal | `#qr-btn` → renders QR via `api.qrserver.com` (no library needed), lazy-loaded once |
 | Now modal | `#now-btn` → fetches `now.json?_=<timestamp>` (cache-busted), renders up to 5 entries |
 | Toast | `showToast(msg)` — auto-dismisses after 3.4 s |
+| Projects section | `#projects` (`<details>`, collapsed by default) → cards in `#projects-grid`; each card's detail is cloned into `#project-scrim` |
+| Project video | Click-to-load facade — the YouTube iframe is only created when someone presses play, so the page stays request-free otherwise |
 | Scroll progress | `story.html` only — `#progress-bar` scales on scroll |
 
 All JS is vanilla and inline in the page it belongs to (no external scripts).
@@ -147,6 +152,25 @@ fonts. Default view = index card; `?p=story` = the ink-band story variant.
 images for days regardless of HTTP headers, so reusing a filename means people
 keep seeing the old picture. Go to `og-v4.png`, then update `og:image` +
 `twitter:image` in `index.html` **and** `story.html`.
+
+### Projects section
+
+One engagement = one `<article class="project" id="p-<slug>">` in `index.html`.
+It holds **both** the card (`.project__open`) and its detail
+(`.project__detail`, `hidden`), so there is a single place to edit per project.
+To add one, copy an existing `<article>` and swap the id, images, chip, title
+and copy — nothing else needs touching.
+
+- Titles repeat the verb: `<em>I built:</em> …` / `<em>I teach:</em> …`
+  (`<em>` is the cobalt run, not italics). Future verbs use the same chip.
+- The chip has one treatment for every role — roles are told apart by the words,
+  not by colour.
+- Photos live in `images/projects/<slug>/`, long edge 1600, JPEG q80. Frame each
+  one with an inline `style="object-position:…"` rather than re-cropping the file.
+- Video: never commit a GIF or a raw screen recording. Either put it on YouTube
+  and use the `.pd__player` facade, or ship a muted `<video class="pd__loop">`
+  loop under ~4 MB. GitHub rejects files over 100 MB and git history is forever.
+- `index.html#p-<slug>` opens the section and that project directly.
 
 ### Now page (AI-updatable)
 See `NOW_PROTOCOL.md` for the full protocol. Short version:

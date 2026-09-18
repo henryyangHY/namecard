@@ -53,7 +53,7 @@
 
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.2" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=3.3" />
 </head>
 <body>
 
@@ -169,6 +169,101 @@
           </div>
         </div>
 
+
+        <details class="projects" id="projects">
+          <summary class="projects__summary">
+            <span class="projects__head">
+              <span class="projects__kicker">Projects</span>
+              <span class="projects__title">The recent projects I&rsquo;m doing</span>
+            </span>
+            <span class="projects__count">2 items</span>
+            <span class="projects__toggle" aria-hidden="true"></span>
+          </summary>
+
+          <div class="projects__grid" id="projects-grid">
+
+            <article class="project" id="p-workshop">
+              <button class="project__open" type="button">
+                <span class="project__thumb"><img src="images/projects/workshop/01-room.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%"></span>
+                <span class="project__verb">I teach</span>
+                <span class="project__name"><em>I teach:</em> AI productivity, and how to take notes so knowledge compounds</span>
+                <span class="project__line">Two runs at Kellogg &mdash; 30+, then nearly 70 people. Zettelkasten, Markdown, AI.</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue">Open &#8599;</span></span>
+              </button>
+
+              <div class="project__detail" hidden>
+                <header class="pd__head">
+                  <span class="project__verb">I teach</span>
+                  <h2 class="pd__title"><em>I teach:</em> AI productivity and how to take notes to make knowledge compound</h2>
+                  <p class="pd__meta">Kellogg MMM MasterClass &middot; Sep 15, 2026 &middot; nearly 70 people &middot; second run</p>
+                </header>
+                <div class="pd__rule"></div>
+                <div class="pd__body">
+                  <p>How to take notes that help you think &mdash; and connect ideas across every subject.</p>
+                </div>
+                <div>
+                  <p class="pd__label">From the room</p>
+                  <div class="pd__shots">
+                    <figure class="pd__shot"><img src="images/projects/workshop/01-room.jpg" alt="The lecture hall at the start of the session, title slide on both screens" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%"></figure>
+                    <figure class="pd__shot"><img src="images/projects/workshop/02-audience.jpg" alt="The room seen from the podium, laptops open across the tiers" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 80%"></figure>
+                    <figure class="pd__shot"><img src="images/projects/workshop/03-note-canvas.jpg" alt="A live note canvas on the screen during the session" width="1108" height="1477" loading="lazy" decoding="async" style="object-position:center 78%"></figure>
+                  </div>
+                </div>
+                <div>
+                  <p class="pd__label">The session</p>
+                  <div class="pd__player" data-video="6ReXxS6mL-M">
+                    <img src="images/projects/workshop/01-room.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%">
+                    <button class="pd__play" type="button" aria-label="Play the session recording">
+                      <span><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M9 6.5l9 5.5-9 5.5z" fill="currentColor"></path></svg></span>
+                    </button>
+                  </div>
+                  <p class="pd__caption"><a href="https://www.youtube.com/watch?v=6ReXxS6mL-M" target="_blank" rel="noopener">Watch on YouTube &#8599;</a></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" id="p-claudegamepad">
+              <button class="project__open" type="button">
+                <span class="project__thumb"><img src="images/projects/claudegamepad/01-desk.jpg" alt="" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></span>
+                <span class="project__verb">I built</span>
+                <span class="project__name"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</span>
+                <span class="project__line">A native macOS menu bar app that puts Claude Code on a controller.</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue">Open &#8599;</span></span>
+              </button>
+
+              <div class="project__detail" hidden>
+                <header class="pd__head">
+                  <span class="project__verb">I built</span>
+                  <h2 class="pd__title"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</h2>
+                  <p class="pd__meta">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; MIT</p>
+                </header>
+                <div class="pd__rule"></div>
+                <div class="pd__body">
+                  <p>A native macOS menu bar app that lets you control Claude Code with a game controller. Lean back, plug in, and vibe code &mdash; hands off the keyboard, eyes still on the terminal.</p>
+                  <p>Native Swift + AppKit. No Electron, no Python. Xbox, PS5 and MFi controllers on macOS&nbsp;14+.</p>
+                </div>
+                <div>
+                  <p class="pd__label">Screens</p>
+                  <div class="pd__shots pd__shots--one">
+                    <figure class="pd__shot"><img src="images/projects/claudegamepad/01-desk.jpg" alt="ClaudeGamepad open beside the terminal, controller in hand, quick-prompt overlay on screen" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></figure>
+                  </div>
+                </div>
+                <!-- Demo loop goes here once claudegamepad-loop.mp4 lands in images/projects/claudegamepad/.
+                     Paste this block in place of nothing, right after the Screens block above:
+
+                <div>
+                  <p class="pd__label">The demo</p>
+                  <video class="pd__loop" src="images/projects/claudegamepad/demo-loop.mp4"
+                         poster="images/projects/claudegamepad/demo-cover.jpg"
+                         autoplay muted loop playsinline preload="metadata"></video>
+                </div>
+                -->
+              </div>
+            </article>
+
+          </div>
+        </details>
+
       </div>
     </article>
   </main>
@@ -202,6 +297,16 @@
         <li class="now-loading">Loading…</li>
       </ol>
       <footer class="now-foot">Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a></footer>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="cb-scrim" id="project-scrim" hidden>
+    <div class="cb-modal cb-modal--project" role="dialog" aria-modal="true" aria-labelledby="project-title">
+      <button class="cb-close" type="button" id="project-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+      <div id="project-body"></div>
     </div>
   </div>
 </div>
@@ -297,10 +402,82 @@
   document.getElementById('now-close').addEventListener('click', closeNow);
   nowScrim.addEventListener('click', function(e){ if (e.target === nowScrim) closeNow(); });
 
+  // ---------- Project modal ----------
+  var pjScrim = document.getElementById('project-scrim');
+  var pjBody = document.getElementById('project-body');
+  var pjGrid = document.getElementById('projects-grid');
+  var pjDetails = document.getElementById('projects');
+  var pjCloseBtn = document.getElementById('project-close');
+  var pjReturnTo = null;
+
+  function openProject(article){
+    var detail = article.querySelector('.project__detail');
+    if (!detail) return;
+    var clone = detail.cloneNode(true);
+    pjBody.innerHTML = '';
+    while (clone.firstChild) pjBody.appendChild(clone.firstChild);
+    var heading = pjBody.querySelector('.pd__title');
+    if (heading) heading.id = 'project-title';
+    pjReturnTo = article.querySelector('.project__open');
+    pjScrim.hidden = false;
+    document.body.style.overflow = 'hidden';
+    pjCloseBtn.focus();
+  }
+
+  function closeProject(){
+    pjScrim.hidden = true;
+    document.body.style.overflow = '';
+    pjBody.innerHTML = '';           // stops a playing video
+    if (pjReturnTo) { pjReturnTo.focus(); pjReturnTo = null; }
+    if (location.hash.indexOf('#p-') === 0) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  }
+
+  if (pjGrid) {
+    pjGrid.addEventListener('click', function(e){
+      var card = e.target.closest('.project__open');
+      if (card) openProject(card.closest('.project'));
+    });
+
+    // The YouTube iframe is only fetched once someone presses play, so the
+    // page stays script-free (and cookie-free) for everyone who doesn't.
+    pjBody.addEventListener('click', function(e){
+      var play = e.target.closest('.pd__play');
+      if (!play) return;
+      var shell = play.parentNode;
+      var id = shell.getAttribute('data-video');
+      if (!id) return;
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      frame.title = 'Session recording';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.setAttribute('allowfullscreen', '');
+      shell.innerHTML = '';
+      shell.appendChild(frame);
+    });
+
+    pjCloseBtn.addEventListener('click', closeProject);
+    pjScrim.addEventListener('click', function(e){ if (e.target === pjScrim) closeProject(); });
+
+    // index.html#p-workshop opens the section and that project straight away,
+    // so a single engagement can be shared on its own link.
+    function openFromHash(){
+      if (location.hash.indexOf('#p-') !== 0) return;
+      var target = document.getElementById(location.hash.slice(1));
+      if (!target || !target.classList.contains('project')) return;
+      if (pjDetails) pjDetails.open = true;
+      openProject(target);
+    }
+    window.addEventListener('hashchange', openFromHash);
+    openFromHash();
+  }
+
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') {
       if (!qrScrim.hidden) closeQR();
       if (!nowScrim.hidden) closeNow();
+      if (!pjScrim.hidden) closeProject();
     }
   });
 })();
