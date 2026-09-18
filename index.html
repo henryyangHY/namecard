@@ -53,7 +53,7 @@
 
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.3" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=3.5" />
 </head>
 <body>
 
@@ -224,7 +224,7 @@
 
             <article class="project" id="p-claudegamepad">
               <button class="project__open" type="button">
-                <span class="project__thumb"><img src="images/projects/claudegamepad/01-desk.jpg" alt="" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></span>
+                <span class="project__thumb"><video class="project__loop" src="images/projects/claudegamepad/thumb-loop.mp4" poster="images/projects/claudegamepad/thumb-cover.jpg" width="960" height="540" muted loop playsinline preload="none" aria-hidden="true"></video></span>
                 <span class="project__verb">I built</span>
                 <span class="project__name"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</span>
                 <span class="project__line">A native macOS menu bar app that puts Claude Code on a controller.</span>
@@ -235,29 +235,25 @@
                 <header class="pd__head">
                   <span class="project__verb">I built</span>
                   <h2 class="pd__title"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</h2>
-                  <p class="pd__meta">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; MIT</p>
+                  <p class="pd__meta">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; Open Source</p>
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
                   <p>A native macOS menu bar app that lets you control Claude Code with a game controller. Lean back, plug in, and vibe code &mdash; hands off the keyboard, eyes still on the terminal.</p>
                   <p>Native Swift + AppKit. No Electron, no Python. Xbox, PS5 and MFi controllers on macOS&nbsp;14+.</p>
                 </div>
-                <div>
-                  <p class="pd__label">Screens</p>
-                  <div class="pd__shots pd__shots--one">
-                    <figure class="pd__shot"><img src="images/projects/claudegamepad/01-desk.jpg" alt="ClaudeGamepad open beside the terminal, controller in hand, quick-prompt overlay on screen" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></figure>
-                  </div>
-                </div>
-                <!-- Demo loop goes here once claudegamepad-loop.mp4 lands in images/projects/claudegamepad/.
-                     Paste this block in place of nothing, right after the Screens block above:
-
-                <div>
+                <!-- Photo left, demo right: both portrait, so they share one row. -->
+                <div class="pd__pair">
+                  <figure class="pd__shot"><img src="images/projects/claudegamepad/01-desk.jpg" alt="ClaudeGamepad open beside the terminal, controller in hand, quick-prompt overlay on screen" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></figure>
                   <p class="pd__label">The demo</p>
-                  <video class="pd__loop" src="images/projects/claudegamepad/demo-loop.mp4"
-                         poster="images/projects/claudegamepad/demo-cover.jpg"
-                         autoplay muted loop playsinline preload="metadata"></video>
+                  <div class="pd__player" data-video="BqHP_jRhW2g" data-title="ClaudeGamepad demo">
+                    <img src="images/projects/claudegamepad/demo-cover.jpg" alt="" width="1200" height="1600" loading="lazy" decoding="async">
+                    <button class="pd__play" type="button" aria-label="Play the demo">
+                      <span><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M9 6.5l9 5.5-9 5.5z" fill="currentColor"></path></svg></span>
+                    </button>
+                  </div>
+                  <p class="pd__caption"><a href="https://www.youtube.com/shorts/BqHP_jRhW2g" target="_blank" rel="noopener">Watch on YouTube &#8599;</a></p>
                 </div>
-                -->
               </div>
             </article>
 
@@ -460,7 +456,7 @@
       if (!id) return;
       var frame = document.createElement('iframe');
       frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-      frame.title = 'Session recording';
+      frame.title = shell.getAttribute('data-title') || 'Session recording';
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       frame.setAttribute('allowfullscreen', '');
       shell.innerHTML = '';
@@ -480,6 +476,24 @@
       openProject(target);
     }
     window.addEventListener('hashchange', openFromHash);
+
+    // Card loops stay unloaded until the section is expanded, and never move
+    // for visitors who asked their OS for less motion: they keep the poster.
+    var thumbLoops = pjGrid.querySelectorAll('.project__loop');
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (pjDetails && thumbLoops.length && !calm) {
+      pjDetails.addEventListener('toggle', function(){
+        for (var i = 0; i < thumbLoops.length; i++) {
+          if (pjDetails.open) {
+            var p = thumbLoops[i].play();
+            if (p && p.catch) p.catch(function(){});
+          } else {
+            thumbLoops[i].pause();
+          }
+        }
+      });
+    }
+
     openFromHash();
   }
 

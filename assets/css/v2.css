@@ -220,7 +220,7 @@ a:hover{color:var(--primary-deep)}
 .project__open:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-lift)}
 .project__open:active{transform:translate(2px,2px);box-shadow:var(--shadow-flat)}
 .project__thumb{width:100%;aspect-ratio:16/10;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--canvas-tint);overflow:hidden}
-.project__thumb img{width:100%;height:100%;object-fit:cover}
+.project__thumb img,.project__thumb video{display:block;width:100%;height:100%;object-fit:cover}
 .project__verb{padding:4px 11px;border:2px solid var(--ink);border-radius:var(--radius-pill);background:var(--canvas-tint);color:var(--ink);font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 .project__name{font-family:var(--font-display);font-weight:700;font-size:20px;line-height:1.18;letter-spacing:var(--ls-card-title);color:var(--ink)}
 .project__name em,.pd__title em{font-style:normal;color:var(--primary)}
@@ -230,8 +230,8 @@ a:hover{color:var(--primary-deep)}
 .project__cue{color:var(--primary)}
 .project__open:hover .project__cue{color:var(--primary-deep)}
 
-.cb-modal--project{max-width:720px;padding:26px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh - 96px);overflow-y:auto}
-#project-body{display:flex;flex-direction:column;gap:18px}
+.cb-modal--project{max-width:800px;padding:0;display:flex;flex-direction:column;max-height:calc(100vh - 96px)}
+#project-body{display:flex;flex-direction:column;gap:18px;min-height:0;padding:26px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;border-radius:calc(var(--radius-lg) - 2px)}
 .pd__head{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
 .pd__title{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(21px,3.2vw,28px);line-height:1.14;letter-spacing:var(--ls-display-md);color:var(--ink)}
 .pd__meta{margin:0;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.5}
@@ -253,6 +253,12 @@ a:hover{color:var(--primary-deep)}
 .pd__play:active span{transform:scale(.97)}
 .pd__caption{margin:9px 0 0;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
 .pd__loop{width:100%;aspect-ratio:16/9;display:block;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--canvas-tint);object-fit:cover}
+/* Two portrait frames side by side; label and caption sit over/under the right one only, so the frames stay level */
+.pd__pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px}
+.pd__pair .pd__shot{grid-column:1;grid-row:2;height:auto;aspect-ratio:3/4}
+.pd__pair .pd__label{grid-column:2;grid-row:1}
+.pd__pair .pd__player{grid-column:2;grid-row:2;aspect-ratio:3/4}
+.pd__pair .pd__caption{grid-column:2;grid-row:3}
 
 @media (min-width:700px){.projects__grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){
@@ -261,10 +267,12 @@ a:hover{color:var(--primary-deep)}
   .projects__title{font-size:17px}
 }
 @media (max-width:560px){
-  .cb-modal--project{padding:20px}
+  #project-body{padding:20px}
   .pd__shots{grid-template-columns:1fr 1fr}
   .pd__shot{height:130px}
+  .pd__shots--one{grid-template-columns:1fr}
   .pd__shots--one .pd__shot{height:200px}
+  .pd__pair{column-gap:10px}
 }
 
 /* ===================== story page ===================== */
