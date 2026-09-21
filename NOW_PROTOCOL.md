@@ -64,11 +64,17 @@ The data lives at `now.json` in this repo (`henryyangHY/namecard`). Schema:
 {
   "updated": "YYYY-MM-DD",
   "entries": [
-    { "date": "YYYY-MM-DD", "tag": "building", "text": "..." },
+    { "date": "YYYY-MM-DD", "tag": "building", "text": "...", "text_zh": "..." },
     ...
   ]
 }
 ```
+
+`text_zh` is **optional**. The card has a Chinese view (the `中文` pill in the
+rail), and an entry shows `text_zh` there when it has one. When it does not, the
+Chinese view falls back to `text`, so an entry can go up in English alone
+without leaving a hole. Existing entries were never backfilled and do not need
+to be. Same rules as `text`: one sentence, ≤ 140 chars, no emojis, no URLs.
 
 Update flow:
 

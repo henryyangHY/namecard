@@ -177,6 +177,89 @@ and copy — nothing else needs touching.
   below 560px.
 - `index.html#p-<slug>` opens the section and that project directly.
 
+### Bilingual content (English / 繁體中文)
+
+Both pages carry a `中` / `EN` pill that switches the whole page in place. No
+second URL, no reload, no extra request. Design spec:
+`docs/superpowers/specs/2026-09-20-bilingual-i18n-design.md`.
+
+`<html lang>` is the only state. Two rules in `v2.css` do the switching:
+
+```css
+html[lang="en"]      [lang="zh-Hant"]{display:none}
+html[lang="zh-Hant"] [lang="en"]     {display:none}
+```
+
+**Anything without a `lang` shows in both languages.** That is the point: a new
+project can go up in English tonight and get its Chinese next week without the
+Chinese view breaking. Never mark only one side of a pair — that is the one
+mistake that silently deletes a block from one language.
+
+Three ways to handle a string:
+
+| | Use for | How |
+|---|---|---|
+| Paired markup | Content prose (appears once) | Two sibling elements, same tag, `lang="en"` then `lang="zh-Hant"`, adjacent |
+| Dictionary | Interface strings, `<title>`, meta, anything built in JS | `data-i18n="key"` / `data-i18n-label="key"`, Chinese in the `ZH` object in that page's inline script |
+| Nothing | Images, URLs, handles, numbers, product and people names | Leave it alone |
+
+English is never duplicated in the dictionary — it is read back off the page at
+runtime, so it cannot drift. For a JS-built string, English stays inline at the
+call site: `t('toast.vcard', '✓ Contact downloaded — …')`.
+
+Mark the **smallest element that holds only text**. Do not mark an inline
+`<span>` inside an already-marked block: the block around it already switches,
+and double-marking trips the checker.
+
+Adding a project, both languages:
+
+```html
+<article class="project" id="p-newthing">
+  <button class="project__open" type="button">
+    <span class="project__thumb"><img src="…"></span>
+    <span class="project__verb" lang="en">I built</span>
+    <span class="project__verb" lang="zh-Hant">我做了</span>
+    <span class="project__name" lang="en"><em>I built:</em> …</span>
+    <span class="project__name" lang="zh-Hant"><em>我做了：</em>…</span>
+    <span class="project__line" lang="en">…</span>
+    <span class="project__line" lang="zh-Hant">…</span>
+    <span class="project__meta">
+      <span class="project__year">2026</span>
+      <span class="project__cue" data-i18n="cue.open">Open ↗</span>
+    </span>
+  </button>
+  …
+</article>
+```
+
+A story chapter is the same shape: `.kicker`, `.ch-title` and every `<p>` inside
+`.prose` get an adjacent twin; `<figure>` and `<img>` are left unmarked.
+
+**Someone else's words are not translated.** A named or attributed quote stays
+in English in both views, with a `<p class="quote-gloss" lang="zh-Hant">`
+underneath marked as a reading, not as what they said. `.quote-gloss` is the
+only intentionally one-sided element and the checker whitelists it.
+
+After adding or editing content:
+
+```bash
+./tools/check-i18n.sh
+```
+
+It reports unpaired `lang` elements and `data-i18n` keys missing from the
+dictionary, and exits non-zero if it finds any. Three seconds, no dependencies.
+
+**Never add a CJK webfont.** Chinese uses the system stack (PingFang TC / Noto
+Sans TC / Microsoft JhengHei) via the `--font-*` tokens redefined under
+`[lang="zh-Hant"]`, costing 0 bytes. The smallest usable Chinese webfont is
+~3 MB and would destroy this page's load time. The brand faces stay first in
+the stack, so Latin runs inside Chinese sentences still render in them.
+
+Chinese typography lives in one block at the end of `v2.css`. It resets tracking
+for every marked block rather than naming classes, so new content is covered
+without new rules. It must stay last in the file — several rules tie on
+specificity with the base rules they override and win on source order.
+
 ### Now page (AI-updatable)
 See `NOW_PROTOCOL.md` for the full protocol. Short version:
 

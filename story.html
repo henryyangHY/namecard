@@ -26,7 +26,7 @@
 
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.6" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=3.7" />
 </head>
 <body>
 
@@ -36,28 +36,42 @@
   <div class="story-shell">
     <header class="story-top">
       <a class="backlink" href="index.html"><span class="backlink__arrow" aria-hidden="true">←</span> Henry Yang</a>
+      <!-- Language is per page by design: this opens in English even if the
+           name card was being read in Chinese. See the bilingual spec. -->
+      <button class="cb-pill" type="button" id="lang-btn" data-i18n-label="lang.aria" aria-label="Switch to Chinese">
+        <span data-i18n="lang.label">中文</span>
+      </button>
     </header>
   </div>
 
   <!-- Hero — the hook -->
   <section class="band band--ink story-hero">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">Who is Henry</span></p>
-      <h1 class="hook-lead">The thing is — nobody actually likes to work.</h1>
-      <p class="hook">I was obsessed with it anyway. Not with the work itself, but with being <span class="cb-mark">busy</span> at it. Stacked projects, no white space on the calendar, the last train home. For a long time, that was the only evidence I had that I was worth anything.</p>
-      <p class="hook-cut">This is where it started.</p>
+      <p class="kicker" lang="en"><span class="kicker__num">Who is Henry</span></p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">Henry 是誰</span></p>
+      <h1 class="hook-lead" lang="en">The thing is — nobody actually likes to work.</h1>
+      <h1 class="hook-lead" lang="zh-Hant">說實話 &mdash; 沒有人真的喜歡工作。</h1>
+      <p class="hook" lang="en">I was obsessed with it anyway. Not with the work itself, but with being <span class="cb-mark">busy</span> at it. Stacked projects, no white space on the calendar, the last train home. For a long time, that was the only evidence I had that I was worth anything.</p>
+      <p class="hook" lang="zh-Hant">但我還是沉迷其中。不是沉迷工作本身，而是沉迷於<span class="cb-mark">忙</span>。一個接一個的專案、行事曆上沒有空白、每天搭最後一班車回家。有很長一段時間，那是我唯一能證明自己有價值的東西。</p>
+      <p class="hook-cut" lang="en">This is where it started.</p>
+      <p class="hook-cut" lang="zh-Hant">一切從這裡開始。</p>
     </div>
   </section>
 
   <!-- 01 · The room -->
   <section class="band band--ink chapter" id="room">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">01</span> The room</p>
-      <h2 class="ch-title">Eight of us, one broken list.</h2>
-      <p class="scene-slug">Student council office · autumn 2016 · almost 8pm</p>
+      <p class="kicker" lang="en"><span class="kicker__num">01</span> The room</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">01</span> 那間辦公室</p>
+      <h2 class="ch-title" lang="en">Eight of us, one broken list.</h2>
+      <h2 class="ch-title" lang="zh-Hant">八個人，一份錯的清單。</h2>
+      <p class="scene-slug" lang="en">Student council office · autumn 2016 · almost 8pm</p>
+      <p class="scene-slug" lang="zh-Hant">學生會辦公室 · 2016 年秋天 · 快八點</p>
       <div class="prose">
-        <p>Eight of us were still there, counting boxes of school anniversary merchandise against a handwritten list that had been wrong since September. Two of my teammates were arguing about a number that would not reconcile. This happened most nights that season, and it happened every year before us.</p>
-        <p>We were all exhausted. Nobody wants to spend their evenings in a basement warehouse counting hoodies until eight.</p>
+        <p lang="en">Eight of us were still there, counting boxes of school anniversary merchandise against a handwritten list that had been wrong since September. Two of my teammates were arguing about a number that would not reconcile. This happened most nights that season, and it happened every year before us.</p>
+        <p lang="zh-Hant">八個人還留在那裡，對著一份從九月就錯掉的手寫清單，一箱一箱清點校慶紀念品。兩個隊友為了一個怎麼都對不起來的數字在吵。那陣子幾乎每個晚上都這樣，而我們之前的每一屆也都這樣。</p>
+        <p lang="en">We were all exhausted. Nobody wants to spend their evenings in a basement warehouse counting hoodies until eight.</p>
+        <p lang="zh-Hant">大家都累壞了。沒有人想把晚上耗在地下室倉庫裡數帽 T 數到八點。</p>
       </div>
 
       <figure class="fig fig--pair" style="--pair-cols:5fr 7fr">
@@ -72,8 +86,10 @@
       </figure>
 
       <div class="prose prose--after-fig">
-        <p class="voice">This is stupid — there must be a better way to do this.</p>
-        <p>I was seventeen. I went home that night and rebuilt the whole thing in a spreadsheet that synced to the cloud.</p>
+        <p class="voice" lang="en">This is stupid — there must be a better way to do this.</p>
+        <p class="voice" lang="zh-Hant">這太蠢了 &mdash; 一定有更好的做法。</p>
+        <p lang="en">I was seventeen. I went home that night and rebuilt the whole thing in a spreadsheet that synced to the cloud.</p>
+        <p lang="zh-Hant">我那年十七歲。那天晚上回家，我用一份會同步到雲端的試算表，把整件事重做了一遍。</p>
       </div>
 
       <figure class="fig fig--portrait">
@@ -83,22 +99,31 @@
         </span>
       </figure>
 
-      <p class="beat">The next year, one person did that job. Not eight.</p>
-      <p class="pull-note">I have spent ten years trying to explain why that mattered so much to me.<br>This is the closest I have come.</p>
+      <p class="beat" lang="en">The next year, one person did that job. Not eight.</p>
+      <p class="beat" lang="zh-Hant">隔年，這件事一個人就做完了。不是八個。</p>
+      <p class="pull-note" lang="en">I have spent ten years trying to explain why that mattered so much to me.<br>This is the closest I have come.</p>
+      <p class="pull-note" lang="zh-Hant">我花了十年想解釋，為什麼那件事對我這麼重要。<br>這是我目前最接近答案的版本。</p>
     </div>
   </section>
 
   <!-- 02 · Rewind -->
   <section class="band band--tint chapter" id="scoreboard">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">02</span> Rewind</p>
-      <h2 class="ch-title">The scoreboard I was raised on.</h2>
+      <p class="kicker" lang="en"><span class="kicker__num">02</span> Rewind</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">02</span> 倒帶</p>
+      <h2 class="ch-title" lang="en">The scoreboard I was raised on.</h2>
+      <h2 class="ch-title" lang="zh-Hant">養大我的那張計分板。</h2>
       <div class="prose">
-        <p>To understand why a spreadsheet moved me that much, you need to know what I thought I was worth.</p>
-        <p>My parents both worked. They were tired, but they still gave me everything they had. I was too young to have the words to express my gratitude, so I paid them back in the only currency I understood, the one with a clear external standard: Being the kid with perfect grades. In Taiwan, that is not an achievement. That is an identity.</p>
-        <p>Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close:</p>
-        <p class="voice">If I'm not the smartest, what exactly am I worth?</p>
-        <p>So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.</p>
+        <p lang="en">To understand why a spreadsheet moved me that much, you need to know what I thought I was worth.</p>
+        <p lang="zh-Hant">要理解一份試算表為什麼能讓我那麼激動，你得先知道我當時怎麼看自己的價值。</p>
+        <p lang="en">My parents both worked. They were tired, but they still gave me everything they had. I was too young to have the words to express my gratitude, so I paid them back in the only currency I understood, the one with a clear external standard: Being the kid with perfect grades. In Taiwan, that is not an achievement. That is an identity.</p>
+        <p lang="zh-Hant">我爸媽都要上班。他們很累，但還是把能給的都給了我。那時候我太小，講不出感謝，所以我用我唯一懂的貨幣回報他們 &mdash; 一種有明確外部標準的貨幣：當那個成績很好的小孩。在台灣，那不是成就，那是一種身分。</p>
+        <p lang="en">Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close:</p>
+        <p lang="zh-Hant">後來我考上全國最好的高中，遇到一群上課睡覺、放學打球，成績還是贏過我的人。我更拚了。還是輸。然後有一個問題被打開，關不起來：</p>
+        <p class="voice" lang="en">If I'm not the smartest, what exactly am I worth?</p>
+        <p class="voice" lang="zh-Hant">如果我不是最聰明的那個，我到底值什麼？</p>
+        <p lang="en">So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.</p>
+        <p lang="zh-Hant">所以我換了戰場。我進了學生會，能接的全部接 &mdash; 校慶、畢業典禮、運動會 &mdash; 用一種接近偏執的強度在做。</p>
       </div>
 
       <figure class="fig fig--portrait">
@@ -109,7 +134,8 @@
       </figure>
 
       <div class="prose prose--after-fig">
-        <p>If I could not be the smartest, I would be the one who worked hardest at everything outside the classroom. That was the whole plan.</p>
+        <p lang="en">If I could not be the smartest, I would be the one who worked hardest at everything outside the classroom. That was the whole plan.</p>
+        <p lang="zh-Hant">如果我當不成最聰明的，那我就當教室外面最拚的那個。整個計畫就是這樣。</p>
       </div>
 
       <figure class="fig fig--pair">
@@ -124,9 +150,12 @@
       </figure>
 
       <div class="prose prose--after-fig">
-        <p>A teammate ended it in one sentence.</p>
-        <p class="voice">"You love being busy — fine. But stop pushing your standards onto us."</p>
-        <p>First rejected on grades. Now rejected on the one thing I had left.</p>
+        <p lang="en">A teammate ended it in one sentence.</p>
+        <p lang="zh-Hant">一個隊友用一句話結束了這件事。</p>
+        <p class="voice" lang="en">"You love being busy — fine. But stop pushing your standards onto us."</p>
+        <p class="voice" lang="zh-Hant">「你喜歡忙，可以。但不要把你的標準壓在我們身上。」</p>
+        <p lang="en">First rejected on grades. Now rejected on the one thing I had left.</p>
+        <p lang="zh-Hant">先是在成績上被否定。現在連我僅剩的那件事也被否定了。</p>
       </div>
 
       <figure class="fig">
@@ -141,30 +170,40 @@
   <!-- 03 · The turn -->
   <section class="band band--ink chapter" id="turn">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">03</span> The turn</p>
-      <h2 class="ch-title">What the spreadsheet actually did.</h2>
+      <p class="kicker" lang="en"><span class="kicker__num">03</span> The turn</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">03</span> 轉折</p>
+      <h2 class="ch-title" lang="en">What the spreadsheet actually did.</h2>
+      <h2 class="ch-title" lang="zh-Hant">那份試算表真正做到的事。</h2>
       <div class="prose">
-        <p>That is the state I was in, in that office, at eight at night.</p>
-        <p>The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being canceled for good.</p>
+        <p lang="en">That is the state I was in, in that office, at eight at night.</p>
+        <p lang="zh-Hant">那就是我當時的狀態 &mdash; 晚上八點，在那間辦公室裡。</p>
+        <p lang="en">The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being canceled for good.</p>
+        <p lang="zh-Hant">那年秋天我做的系統，做到了那些看得見的事。它終結了年年虧損。它開始賺錢。它救下了一個再差一年就會被永久取消的活動。</p>
       </div>
 
       <figure class="fig">
-        <button class="fig__zoom" type="button" id="sheet-zoom" aria-label="Open the inventory spreadsheet at full size">
+        <button class="fig__zoom" type="button" id="sheet-zoom" data-i18n-label="zoom.aria" aria-label="Open the inventory spreadsheet at full size">
           <span class="fig__frame">
             <img src="images/story/08-inventory-spreadsheet.png" width="2288" height="1432" loading="lazy" decoding="async"
                  alt="The inventory spreadsheet: three colorways across five sizes, tracking pre-orders, counter sales, defects and remaining stock, totaling NT$1,284,315 in revenue." />
           </span>
-          <span class="fig__hint">⤢ Tap to read the numbers</span>
+          <span class="fig__hint" data-i18n="zoom.hint">⤢ Tap to read the numbers</span>
         </button>
-        <figcaption class="fig__cap">The actual spreadsheet, autumn 2016. Not a recreation.</figcaption>
+        <figcaption class="fig__cap" lang="en">The actual spreadsheet, autumn 2016. Not a recreation.</figcaption>
+        <figcaption class="fig__cap" lang="zh-Hant">2016 年秋天那份真正的試算表。不是重做的。</figcaption>
       </figure>
 
       <div class="prose prose--after-fig">
-        <p>But that is not the part I remember. What I remember is that nobody argued about the count again, and nobody stayed until eight. For two years I had been trying to prove my worth by <span class="cb-mark">out-working</span> the people around me and being the busiest person in the room — and the thing that finally made me feel worth something was <span class="cb-mark">taking work away</span> from them.</p>
-        <p>Standing in that office, I remember thinking: this is valuable. So <em>this</em> is what valuable feels like.</p>
-        <p>It was the first evidence I had that I might be good at something other than being the best in the room. I was good at finding the simple logic underneath a mess, and building it into something that helped other people work less.</p>
-        <p>That was also the first time I fell in love with technology — because of Excel.</p>
-        <p class="voice">Technology can really change people's lives.</p>
+        <p lang="en">But that is not the part I remember. What I remember is that nobody argued about the count again, and nobody stayed until eight. For two years I had been trying to prove my worth by <span class="cb-mark">out-working</span> the people around me and being the busiest person in the room — and the thing that finally made me feel worth something was <span class="cb-mark">taking work away</span> from them.</p>
+        <p lang="zh-Hant">但我記得的不是這些。我記得的是，再也沒有人為了數字吵架，也再也沒有人留到八點。有兩年，我一直想靠<span class="cb-mark">比身邊的人更拚</span>、當全場最忙的那個來證明自己的價值 &mdash; 結果真正讓我覺得自己有價值的，是<span class="cb-mark">把工作從他們身上拿走</span>。</p>
+        <p lang="en">Standing in that office, I remember thinking: this is valuable. So <em>this</em> is what valuable feels like.</p>
+        <p lang="zh-Hant">站在那間辦公室裡，我記得我心想：這是有價值的。原來<em>有價值</em>是這種感覺。</p>
+        <p lang="en">It was the first evidence I had that I might be good at something other than being the best in the room. I was good at finding the simple logic underneath a mess, and building it into something that helped other people work less.</p>
+        <p lang="zh-Hant">那是我第一個證據，證明我可能擅長的不只是當全場最強的那個。我擅長的是在一團亂底下找到那條簡單的邏輯，然後把它做成一個讓別人少做一點的東西。</p>
+        <p lang="en">That was also the first time I fell in love with technology — because of Excel.</p>
+        <p lang="zh-Hant">那也是我第一次愛上科技 &mdash; 因為 Excel。</p>
+        <p class="voice" lang="en">Technology can really change people's lives.</p>
+        <p class="voice" lang="zh-Hant">科技真的可以改變一個人的生活。</p>
       </div>
     </div>
   </section>
@@ -172,11 +211,15 @@
   <!-- 04 · The hire -->
   <section class="band band--ink chapter" id="hire">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">04</span> The hire</p>
-      <h2 class="ch-title">The tool raised me, then hired me.</h2>
+      <p class="kicker" lang="en"><span class="kicker__num">04</span> The hire</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">04</span> 被錄取</p>
+      <h2 class="ch-title" lang="en">The tool raised me, then hired me.</h2>
+      <h2 class="ch-title" lang="zh-Hant">是工具把我帶大的，後來它雇用了我。</h2>
       <div class="prose">
-        <p>Fast forward five years. I joined Microsoft, and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.</p>
-        <p>The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement. It was millions of professionals I never met before.</p>
+        <p lang="en">Fast forward five years. I joined Microsoft, and guess which team I landed on. Modern Workplace productivity, with Excel sitting in my portfolio.</p>
+        <p lang="zh-Hant">快轉五年。我進了 Microsoft，猜猜我被分到哪一組。Modern Workplace 生產力，而 Excel 就在我負責的產品清單裡。</p>
+        <p lang="en">The spreadsheet a seventeen-year-old taught himself on his bedroom floor had become the thing I stood on stages to explain. Same tool. Same idea: find the simple logic underneath a mess, and hand it to people so they can go home. Only now the room was not eight students in a basement. It was millions of professionals I never met before.</p>
+        <p lang="zh-Hant">一個十七歲的小孩在自己房間地板上自學的那套試算表，變成我站在台上解釋的東西。同一個工具。同一個想法：在一團亂底下找到那條簡單的邏輯，交給別人，讓他們可以回家。只是這次台下不是地下室裡的八個學生，而是幾百萬個我從沒見過的上班族。</p>
       </div>
 
       <figure class="fig">
@@ -186,19 +229,25 @@
         </span>
       </figure>
 
-      <p class="beat">It was just a tool, but eventually became my passion.</p>
+      <p class="beat" lang="en">It was just a tool, but eventually became my passion.</p>
+      <p class="beat" lang="zh-Hant">它本來只是一個工具，最後變成我的熱情所在。</p>
     </div>
   </section>
 
   <!-- 05 · Again -->
   <section class="band band--tint chapter" id="again">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">05</span> Again</p>
-      <h2 class="ch-title">I did not learn it the first time.</h2>
+      <p class="kicker" lang="en"><span class="kicker__num">05</span> Again</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">05</span> 又來一次</p>
+      <h2 class="ch-title" lang="en">I did not learn it the first time.</h2>
+      <h2 class="ch-title" lang="zh-Hant">第一次，我沒學會。</h2>
       <div class="prose">
-        <p>In 2023 I decided to apply to business school. My work experience was thin, my undergraduate GPA was not what it needed to be, and the old question came back wearing a new costume:</p>
-        <p class="voice">What makes you think you're good enough for this?</p>
-        <p>So I did exactly what seventeen-year-old me did. In the second half of that year alone I sat the GMAT, sat the highest level of the Japanese proficiency exam, launched a tech podcast that reached the top 15 in Hong Kong, finished an MIT data analytics course, earned an ESG certification, held down my full-time job at Microsoft, and got nominated for an award given to the top three percent of employees worldwide.</p>
+        <p lang="en">In 2023 I decided to apply to business school. My work experience was thin, my undergraduate GPA was not what it needed to be, and the old question came back wearing a new costume:</p>
+        <p lang="zh-Hant">2023 年，我決定申請商學院。我的工作年資不夠、大學 GPA 不夠看，然後那個老問題換了件衣服又回來了：</p>
+        <p class="voice" lang="en">What makes you think you're good enough for this?</p>
+        <p class="voice" lang="zh-Hant">你憑什麼覺得自己夠格？</p>
+        <p lang="en">So I did exactly what seventeen-year-old me did. In the second half of that year alone I sat the GMAT, sat the highest level of the Japanese proficiency exam, launched a tech podcast that reached the top 15 in Hong Kong, finished an MIT data analytics course, earned an ESG certification, held down my full-time job at Microsoft, and got nominated for an award given to the top three percent of employees worldwide.</p>
+        <p lang="zh-Hant">所以我做了十七歲的我會做的事。光是那年下半年，我考了 GMAT、考了日文檢定最高級、開了一檔衝到香港前 15 名的科技 Podcast、修完 MIT 的資料分析課程、拿了 ESG 證照、同時扛著 Microsoft 的全職工作，還被提名了一個全球前 3% 員工才拿得到的獎。</p>
       </div>
 
       <figure class="fig fig--lead">
@@ -223,8 +272,10 @@
       </figure>
 
       <div class="prose prose--after-fig">
-        <p>From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.</p>
-        <p>I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. <span class="cb-em">Deep down I already knew what it actually was: anxiety.</span></p>
+        <p lang="en">From the outside, that list reads like ambition. From the inside it was the same boy asking the same question, pretending that being busy was the same as being worth something. By then I was breaking down on a schedule.</p>
+        <p lang="zh-Hant">從外面看，這份清單叫做企圖心。從裡面看，是同一個小孩在問同一個問題，假裝忙碌等於有價值。那時候我已經在定期崩潰了。</p>
+        <p lang="en">I was sick constantly and tired all the time. Then, two weekends in a row, my fever climbed to almost 40°C and I was admitted to hospital for a full workup. Every indicator came back normal. <span class="cb-em">Deep down I already knew what it actually was: anxiety.</span></p>
+        <p lang="zh-Hant">我一直生病，一直很累。然後連續兩個週末，我燒到快 40°C，住院做了全套檢查。每一項指標都正常。<span class="cb-em">其實我心裡早就知道那是什麼：焦慮。</span></p>
       </div>
 
       <figure class="fig fig--pair">
@@ -239,77 +290,112 @@
       </figure>
 
       <div class="prose prose--after-fig">
-        <p>The night I left the hospital and came home, my girlfriend asked me the question that went straight through me:</p>
-        <p class="voice">"Why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?"</p>
-        <p>That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love <span class="cb-em">had become the reason I was hurting myself and worrying them</span>. Was I keeping myself this busy so that I could watch them worry about me?</p>
-        <p>Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — <span class="cb-em">and I was not using any of it</span>.</p>
-        <p>To me, it was an app, a product, a thing in a deck.</p>
-        <p>Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then now my own AI agent. Within a week I could see, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of <span class="cb-mark">I am so busy but don't know what I am busy with</span> was simply gone.</p>
+        <p lang="en">The night I left the hospital and came home, my girlfriend asked me the question that went straight through me:</p>
+        <p lang="zh-Hant">出院回家的那天晚上，我女朋友問了我一個直接穿過去的問題：</p>
+        <p class="voice" lang="en">"Why do you keep wearing yourself down to nothing, and then come home like that to the people who love you?"</p>
+        <p class="voice" lang="zh-Hant">「你為什麼要把自己耗到什麼都不剩，然後用這個樣子回到愛你的人身邊？」</p>
+        <p lang="en">That was a punch to the stomach. Somewhere along the way, the thing I had started as a way of repaying the people I love <span class="cb-em">had become the reason I was hurting myself and worrying them</span>. Was I keeping myself this busy so that I could watch them worry about me?</p>
+        <p lang="zh-Hant">那一下打在胃上。不知道從哪一刻開始，我原本為了回報所愛的人而開始的事，<span class="cb-em">變成了我傷害自己、讓他們擔心的原因</span>。我把自己弄得這麼忙，難道是為了看他們擔心我嗎？</p>
+        <p lang="en">Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — <span class="cb-em">and I was not using any of it</span>.</p>
+        <p lang="zh-Hant">接下來是最難承認的部分。我在 Microsoft 賣生產力軟體賣了三年。三年站在台上解釋它怎麼把時間還給人 &mdash; <span class="cb-em">而我自己一個都沒在用</span>。</p>
+        <p lang="en">To me, it was an app, a product, a thing in a deck.</p>
+        <p lang="zh-Hant">對我來說，那是一個 app、一個產品、投影片上的一個東西。</p>
+        <p lang="en">Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then now my own AI agent. Within a week I could see, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of <span class="cb-mark">I am so busy but don't know what I am busy with</span> was simply gone.</p>
+        <p lang="zh-Hant">然後我真的開始用：先是方法論，Inbox Zero 和 Getting Things Done，接著「蓋」一個第二大腦，到現在是自己的 AI agent。一個星期之內，我第一次清楚看見自己到底扛了什麼、又沒扛什麼。幾個月之內，那種<span class="cb-mark">很忙但不知道在忙什麼</span>的焦慮，就這樣不見了。</p>
       </div>
 
-      <p class="beat">Productivity tech pulled me out of that spiral of <span class="cb-mark">anxiety</span>.<br>For the second time in my life.</p>
+      <p class="beat" lang="en">Productivity tech pulled me out of that spiral of <span class="cb-mark">anxiety</span>.<br>For the second time in my life.</p>
+      <p class="beat" lang="zh-Hant">生產力科技把我從那個<span class="cb-mark">焦慮</span>的漩渦裡拉了出來。<br>這是我人生中的第二次。</p>
     </div>
   </section>
 
   <!-- 06 · So this is why -->
   <section class="band band--ink chapter" id="why">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">06</span> So this is why</p>
+      <p class="kicker" lang="en"><span class="kicker__num">06</span> So this is why</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">06</span> 所以，這就是原因</p>
       <div class="prose">
-        <p>Like it or not, work is most of life. If I can take a little friction and a little confusion out of someone's work — if I can hand a person, or a team, something they could not do the day before — that is not a small thing. That is giving somebody their evening back.</p>
+        <p lang="en">Like it or not, work is most of life. If I can take a little friction and a little confusion out of someone's work — if I can hand a person, or a team, something they could not do the day before — that is not a small thing. That is giving somebody their evening back.</p>
+        <p lang="zh-Hant">喜不喜歡都一樣，工作佔掉人生大部分的時間。如果我能從一個人的工作裡拿掉一點摩擦、一點混亂 &mdash; 如果我能交給一個人、或一個團隊，一個他們昨天還做不到的東西 &mdash; 那不是小事。那是把一個人的晚上還給他。</p>
       </div>
       <div class="lietruth">
         <div class="lt-card lt-card--lie">
-          <span class="lt-tag lt-tag--lie">The lie I believed</span>
-          <p class="lt-text">Do a little more, prepare a little harder, and the value will finally be seen.</p>
+          <span class="lt-tag lt-tag--lie" lang="en">The lie I believed</span>
+          <span class="lt-tag lt-tag--lie" lang="zh-Hant">我曾經相信的謊</span>
+          <p class="lt-text" lang="en">Do a little more, prepare a little harder, and the value will finally be seen.</p>
+          <p class="lt-text" lang="zh-Hant">再多做一點，再準備得更周全一點，價值總有一天會被看見。</p>
         </div>
         <div class="lt-card lt-card--truth">
-          <span class="lt-tag lt-tag--truth">What was actually true</span>
-          <p class="lt-text">Package what you know into a system other people can run, and it keeps working when you are not in the room.</p>
+          <span class="lt-tag lt-tag--truth" lang="en">What was actually true</span>
+          <span class="lt-tag lt-tag--truth" lang="zh-Hant">真正成立的事</span>
+          <p class="lt-text" lang="en">Package what you know into a system other people can run, and it keeps working when you are not in the room.</p>
+          <p class="lt-text" lang="zh-Hant">把你會的東西包成一套別人也能跑的系統，它會在你不在場的時候繼續運作。</p>
         </div>
       </div>
-      <blockquote class="pull">Technology should make people more capable, <span class="cb-em">not more busy</span>.</blockquote>
-      <p class="pull-note">I do not say that as a slogan. I say it as someone who was the busiest person he knew, and was not more capable for it. That is why I work on productivity technology — not because it is a market, but because it <span class="cb-mark">saved me</span> twice, and I would like to be the one who does that for somebody else.</p>
+      <blockquote class="pull" lang="en">Technology should make people more capable, <span class="cb-em">not more busy</span>.</blockquote>
+      <blockquote class="pull" lang="zh-Hant">科技應該讓人更有能力，<span class="cb-em">而不是更忙</span>。</blockquote>
+      <p class="pull-note" lang="en">I do not say that as a slogan. I say it as someone who was the busiest person he knew, and was not more capable for it. That is why I work on productivity technology — not because it is a market, but because it <span class="cb-mark">saved me</span> twice, and I would like to be the one who does that for somebody else.</p>
+      <p class="pull-note" lang="zh-Hant">我不是把這句話當口號在講。我是以一個曾經是自己認識的人裡面最忙、卻沒有因此更有能力的人的身分在講。這就是我做生產力科技的原因 &mdash; 不是因為它是個市場，而是因為它<span class="cb-mark">救過我</span>兩次，而我想成為替別人做這件事的人。</p>
     </div>
   </section>
 
   <!-- 07 · Two mirrors -->
   <section class="band band--tint chapter" id="mirrors">
     <div class="band__inner">
-      <p class="kicker"><span class="kicker__num">07</span> Two mirrors</p>
-      <h2 class="ch-title">Who I think I am, and who they say I am.</h2>
+      <p class="kicker" lang="en"><span class="kicker__num">07</span> Two mirrors</p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">07</span> 兩面鏡子</p>
+      <h2 class="ch-title" lang="en">Who I think I am, and who they say I am.</h2>
+      <h2 class="ch-title" lang="zh-Hant">我以為的我，和他們說的我。</h2>
       <div class="prose">
-        <p>I also believe that to understand who a person is, you should listen to their story, and to what the people closest to them say about them.</p>
+        <p lang="en">I also believe that to understand who a person is, you should listen to their story, and to what the people closest to them say about them.</p>
+        <p lang="zh-Hant">我也相信，要理解一個人是誰，你該聽他的故事，也該聽最靠近他的人怎麼說他。</p>
       </div>
       <div class="mirrors">
         <div class="mirror-col">
-          <h3 class="mirror-head">I consider myself as…</h3>
+          <h3 class="mirror-head" lang="en">I consider myself as…</h3>
+          <h3 class="mirror-head" lang="zh-Hant">我認為我自己是…</h3>
           <ul class="mirror-list">
-            <li>Someone whose gift is making complex things clear. My parents met in a university debate club; "say it again, make it clear this time" was a house rule before it was a career.</li>
-            <li>A translator between technology and people in three languages, for whoever is in the room.</li>
-            <li>A planner by nature. I like order. Productivity systems do on paper what I was already doing in my head.</li>
-            <li>Someone who changed his own scoreboard: from <em>what did I finish</em> to <em>what keeps running when I'm not there</em>.</li>
+            <li lang="en">Someone whose gift is making complex things clear. My parents met in a university debate club; "say it again, make it clear this time" was a house rule before it was a career.</li>
+            <li lang="zh-Hant">一個天賦是把複雜的事講清楚的人。我爸媽是在大學辯論社認識的；「再講一次，這次講清楚」在變成我的職業之前，先是我家的家規。</li>
+            <li lang="en">A translator between technology and people in three languages, for whoever is in the room.</li>
+            <li lang="zh-Hant">一個用三種語言在科技和人之間做翻譯的人，對象是當下在場的任何人。</li>
+            <li lang="en">A planner by nature. I like order. Productivity systems do on paper what I was already doing in my head.</li>
+            <li lang="zh-Hant">天生的規劃者。我喜歡秩序。生產力系統只是把我本來就在腦子裡做的事，搬到紙上做。</li>
+            <li lang="en">Someone who changed his own scoreboard: from <em>what did I finish</em> to <em>what keeps running when I'm not there</em>.</li>
+            <li lang="zh-Hant">一個換掉自己計分板的人：從<em>我完成了什麼</em>，換成<em>我不在的時候什麼還在運作</em>。</li>
           </ul>
         </div>
         <div class="mirror-col">
-          <h3 class="mirror-head">What other people see me as…</h3>
-          <ul class="pills" aria-label="Words friends and colleagues used to describe Henry">
-            <li class="pill pill--hot">Structured</li>
-            <li class="pill pill--hot">Inspiring</li>
-            <li class="pill">Driven</li>
-            <li class="pill">Curious</li>
-            <li class="pill">Analytical</li>
-            <li class="pill">All-rounded</li>
-            <li class="pill">Perseverant</li>
-            <li class="pill">Go-getter</li>
+          <h3 class="mirror-head" lang="en">What other people see me as…</h3>
+          <h3 class="mirror-head" lang="zh-Hant">別人眼中的我是…</h3>
+          <ul class="pills" data-i18n-label="pills.aria" aria-label="Words friends and colleagues used to describe Henry">
+            <li class="pill pill--hot" lang="en">Structured</li>
+            <li class="pill pill--hot" lang="zh-Hant">有條理</li>
+            <li class="pill pill--hot" lang="en">Inspiring</li>
+            <li class="pill pill--hot" lang="zh-Hant">有感染力</li>
+            <li class="pill" lang="en">Driven</li>
+            <li class="pill" lang="zh-Hant">有衝勁</li>
+            <li class="pill" lang="en">Curious</li>
+            <li class="pill" lang="zh-Hant">好奇</li>
+            <li class="pill" lang="en">Analytical</li>
+            <li class="pill" lang="zh-Hant">善於分析</li>
+            <li class="pill" lang="en">All-rounded</li>
+            <li class="pill" lang="zh-Hant">全方位</li>
+            <li class="pill" lang="en">Perseverant</li>
+            <li class="pill" lang="zh-Hant">有毅力</li>
+            <li class="pill" lang="en">Go-getter</li>
+            <li class="pill" lang="zh-Hant">行動派</li>
           </ul>
           <div class="cc-set">
             <div class="cc">
-              <span class="cc__tag">What Henry's best at</span>
-              <p class="cc__a">He makes complicated things easy to understand.</p>
+              <span class="cc__tag" lang="en">What Henry's best at</span>
+              <span class="cc__tag" lang="zh-Hant">Henry 最擅長的事</span>
+              <p class="cc__a" lang="en">He makes complicated things easy to understand.</p>
+              <p class="cc__a" lang="zh-Hant">他能把複雜的事變得好懂。</p>
             </div>
             <div class="cc">
-              <span class="cc__tag">Compare Henry to a product</span>
+              <span class="cc__tag" lang="en">Compare Henry to a product</span>
+              <span class="cc__tag" lang="zh-Hant">把 Henry 比作一個產品</span>
               <p class="cc__a cc__a--brand">
                 <!-- Notion mark from Font Awesome Free 7.3.1, CC BY 4.0 — https://fontawesome.com/license/free -->
                 <svg class="cc__logo" viewBox="0 0 512 512" role="img" aria-label="Notion"><path fill="currentColor" d="M94.9 100.2c14.9 12.1 20.5 11.2 48.6 9.3L407.8 93.6c5.6 0 .9-5.6-.9-6.5L362.9 55.4c-8.4-6.5-19.6-14-41.1-12.1L65.9 61.9c-9.3 .9-11.2 5.6-7.5 9.3l36.4 28.9zm15.9 61.6l0 278.1c0 14.9 7.5 20.5 24.3 19.6l290.5-16.8c16.8-.9 18.7-11.2 18.7-23.3l0-276.2c0-12.1-4.7-18.7-15-17.7L125.7 143.1c-11.2 .9-14.9 6.5-14.9 18.7zm286.7 14.9c1.9 8.4 0 16.8-8.4 17.8l-14 2.8 0 205.3c-12.2 6.5-23.4 10.3-32.7 10.3-15 0-18.7-4.7-29.9-18.7l-91.5-143.7 0 139 29 6.5s0 16.8-23.4 16.8l-64.4 3.7c-1.9-3.7 0-13.1 6.5-14.9l16.8-4.7 0-183.8-23.3-1.9c-1.9-8.4 2.8-20.5 15.9-21.5l69.1-4.7 95.3 145.6 0-128.8-24.3-2.8c-1.9-10.3 5.6-17.7 14.9-18.7l64.5-3.8zM44.4 36.7L310.6 17.1c32.7-2.8 41.1-.9 61.6 14l85 59.7c14 10.3 18.7 13.1 18.7 24.3l0 327.6c0 20.5-7.5 32.7-33.6 34.5L133.2 495.8c-19.6 .9-29-1.9-39.2-14.9L31.4 399.7c-11.2-14.9-15.9-26.1-15.9-39.2l0-291.2c0-16.8 7.5-30.8 28.9-32.7z"/></svg>
@@ -320,21 +406,33 @@
         </div>
       </div>
 
+      <!-- One named person's words: English in both views, Chinese as a gloss. -->
       <blockquote class="tm-wide">
         <p class="tm-quote">You take messy, scattered ideas and turn them into a beautifully structured, highly functional system that makes everyone else's lives easier and more productive.</p>
-        <cite class="tm-cite">Colleague, Microsoft</cite>
+        <p class="quote-gloss" lang="zh-Hant">「你會把雜亂零散的想法，變成一套結構漂亮、非常好用的系統，讓其他人的生活更輕鬆、更有效率。」</p>
+        <cite class="tm-cite" lang="en">Colleague, Microsoft</cite>
+        <cite class="tm-cite" lang="zh-Hant">同事，Microsoft</cite>
       </blockquote>
 
       <div class="disagree">
-        <h3 class="disagree-head">Where they disagree with me</h3>
-        <p class="disagree-text">Everything on my side of this page is about craft. But when I asked those same ten people what I should do <em>more</em> of, not one of them said craft.</p>
+        <h3 class="disagree-head" lang="en">Where they disagree with me</h3>
+        <h3 class="disagree-head" lang="zh-Hant">他們不同意我的地方</h3>
+        <p class="disagree-text" lang="en">Everything on my side of this page is about craft. But when I asked those same ten people what I should do <em>more</em> of, not one of them said craft.</p>
+        <p class="disagree-text" lang="zh-Hant">這一頁我這一側寫的全都跟把事情做得更好有關。但當我問那十個人，我該<em>多</em>做一點什麼，沒有一個人提到把事情做得更好。</p>
+        <!-- Unattributed, collected from ten people, so these are rendered in
+             each language rather than glossed. -->
         <ul class="disagree-quotes">
-          <li>You should rest more.</li>
-          <li>Give yourself short breaks.</li>
-          <li>You share the joy of the means — I would like to see you think about what you actually want as the destination.</li>
-          <li>Read a novel that isn't trying to teach you anything.</li>
+          <li lang="en">You should rest more.</li>
+          <li lang="zh-Hant">你應該多休息。</li>
+          <li lang="en">Give yourself short breaks.</li>
+          <li lang="zh-Hant">給自己一些短暫的休息。</li>
+          <li lang="en">You share the joy of the means — I would like to see you think about what you actually want as the destination.</li>
+          <li lang="zh-Hant">你分享的是過程的樂趣 &mdash; 我想看到你想一想，你真正想要的終點是什麼。</li>
+          <li lang="en">Read a novel that isn't trying to teach you anything.</li>
+          <li lang="zh-Hant">讀一本沒有要教你任何東西的小說。</li>
         </ul>
-        <p class="disagree-punch">They see someone who has not learned how to stop. The seventeen-year-old is still in there.</p>
+        <p class="disagree-punch" lang="en">They see someone who has not learned how to stop. The seventeen-year-old is still in there.</p>
+        <p class="disagree-punch" lang="zh-Hant">他們看到的是一個還沒學會停下來的人。那個十七歲的小孩還在裡面。</p>
       </div>
     </div>
   </section>
@@ -342,9 +440,11 @@
   <!-- Foot -->
   <section class="band band--cobalt story-foot">
     <div class="band__inner">
-      <p class="foot-line">I truly believe technology should never make us busier; it should make us more capable.</p>
-      <p class="foot-line foot-line--sub">Ten years on, I still catch myself measuring my worth in output (and it is hard not to in an MBA classroom). The difference is that now I have systems that keep me organized and focused, and tell me when to rest. And I am building one that can do the same for other people.</p>
-      <a class="cta-back" href="index.html"><span class="cta-back__arrow" aria-hidden="true">←</span> Back to the name card and contact</a>
+      <p class="foot-line" lang="en">I truly believe technology should never make us busier; it should make us more capable.</p>
+      <p class="foot-line" lang="zh-Hant">我真心相信，科技不該讓我們更忙；它該讓我們更有能力。</p>
+      <p class="foot-line foot-line--sub" lang="en">Ten years on, I still catch myself measuring my worth in output (and it is hard not to in an MBA classroom). The difference is that now I have systems that keep me organized and focused, and tell me when to rest. And I am building one that can do the same for other people.</p>
+      <p class="foot-line foot-line--sub" lang="zh-Hant">十年過去，我還是會抓到自己在用產出衡量價值（在 MBA 教室裡實在很難不這樣）。不同的是，現在我有一套讓我保持條理和專注、並且會告訴我該休息的系統。而我正在做一套能為別人做到同樣事情的系統。</p>
+      <a class="cta-back" href="index.html"><span class="cta-back__arrow" aria-hidden="true">←</span> <span data-i18n="cta.back">Back to the name card and contact</span></a>
     </div>
   </section>
 
@@ -353,8 +453,8 @@
 <!-- Full-size view of the spreadsheet. The thumbnail is unreadable by design;
      this renders it at its natural 2288px so the numbers can actually be read. -->
 <div class="cb-scrim" id="zoom-scrim" hidden>
-  <div class="cb-modal cb-modal--zoom" role="dialog" aria-modal="true" aria-label="Inventory spreadsheet, full size">
-    <button class="cb-close" type="button" id="zoom-close" aria-label="Close">
+  <div class="cb-modal cb-modal--zoom" role="dialog" aria-modal="true" data-i18n-label="zoom.modal.aria" aria-label="Inventory spreadsheet, full size">
+    <button class="cb-close" type="button" id="zoom-close" data-i18n-label="close.aria" aria-label="Close">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
     <div class="zoom-canvas" id="zoom-canvas"></div>
@@ -363,6 +463,81 @@
 </div>
 
 <script>
+// ---------- language ----------
+// Same model as index.html: content prose uses paired lang="" markup and is
+// switched by CSS; this dictionary only carries interface strings, <title>,
+// meta and anything with no element of its own. English is read back off the
+// page rather than duplicated here, so it cannot drift.
+//
+// Language is per page on purpose — arriving from the name card always starts
+// in English. See docs/superpowers/specs/2026-09-20-bilingual-i18n-design.md.
+(function(){
+  var ZH = {
+    'lang.label'      : 'EN',
+    'lang.aria'       : 'Switch to English',
+    'meta.title'      : '楊欣融 Henry Yang 是誰 — 完整的故事',
+    'meta.desc'       : '楊欣融為什麼做生產力科技：從高中的一份試算表，到 Microsoft，再到 Kellogg 的十年，以及系統兩次把他從耗竭裡拉出來。',
+    'close.aria'      : '關閉',
+    'zoom.aria'       : '開啟完整尺寸的庫存試算表',
+    'zoom.modal.aria' : '庫存試算表，完整尺寸',
+    'zoom.hint'       : '⤢ 點開看清楚數字',
+    'pills.aria'      : '朋友與同事用來形容 Henry 的詞',
+    'cta.back'        : '回到名片與聯絡方式'
+  };
+
+  var htmlEl = document.documentElement;
+  var EN = null;
+
+  function snapshotEnglish(){
+    EN = {};
+    var i, el, nodes;
+    nodes = document.querySelectorAll('[data-i18n]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      EN[el.getAttribute('data-i18n')] = el.textContent;
+    }
+    nodes = document.querySelectorAll('[data-i18n-label]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      EN[el.getAttribute('data-i18n-label')] = el.getAttribute('aria-label');
+    }
+    EN['meta.title'] = document.title;
+    var desc = document.querySelector('meta[name="description"]');
+    EN['meta.desc'] = desc ? desc.getAttribute('content') : '';
+  }
+
+  function applyLang(next){
+    if (!EN) snapshotEnglish();
+    var dict = next === 'zh-Hant' ? ZH : EN;
+    htmlEl.lang = next;
+
+    var i, el, key, nodes;
+    nodes = document.querySelectorAll('[data-i18n]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.textContent = dict[key];
+    }
+    nodes = document.querySelectorAll('[data-i18n-label]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      key = el.getAttribute('data-i18n-label');
+      if (dict[key] != null) el.setAttribute('aria-label', dict[key]);
+    }
+
+    if (dict['meta.title'] != null) document.title = dict['meta.title'];
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc && dict['meta.desc'] != null) desc.setAttribute('content', dict['meta.desc']);
+
+    // Chinese runs shorter, so the page gets shorter: recompute the rail.
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  document.getElementById('lang-btn').addEventListener('click', function(){
+    applyLang(htmlEl.lang === 'zh-Hant' ? 'en' : 'zh-Hant');
+  });
+})();
+
 (function(){
   var bar = document.getElementById('progress-bar');
   function update(){

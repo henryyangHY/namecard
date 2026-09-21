@@ -463,8 +463,13 @@ html[lang="zh-Hant"] [lang="en"]     {display:none}
 
    Tracking is reset for every marked block rather than class by class: display
    type runs at -1.45px and mono kickers at +.14em, and both wreck han glyphs.
-   Stating it once means content added later is covered without new rules. */
-html[lang="zh-Hant"] [lang="zh-Hant"]{
+   Stating it once means content added later is covered without new rules.
+
+   The descendant form covers inline runs inside a marked block (.about__fun-tag,
+   .kicker__num and friends carry their own tracking), so those do not need a
+   lang of their own — the block around them already switches them. */
+html[lang="zh-Hant"] [lang="zh-Hant"],
+html[lang="zh-Hant"] [lang="zh-Hant"] *{
   letter-spacing:normal;
   line-break:strict;               /* keeps 。」 off the start of a line */
 }
