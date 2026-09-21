@@ -24,9 +24,17 @@
   <meta name="twitter:description" content="Nobody likes to work. I was obsessed with being busy anyway. The origin story, and how others see me." />
   <meta name="twitter:image" content="https://henryyanghy.github.io/namecard/images/og-story-v3.png" />
 
+  <!-- Language carried from the other page. This runs before first paint so a
+       Chinese reader never sees a frame of English; the dictionary strings are
+       filled in by the main script at the end of the body. -->
+  <script>if(/[?&]lang=zh/i.test(location.search))document.documentElement.lang='zh-Hant';</script>
+
+  <!-- ?lang=zh serves the same file, so point search engines at the bare URL. -->
+  <link rel="canonical" href="https://henryyanghy.github.io/namecard/story.html" />
+
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.7" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=4.3" />
 </head>
 <body>
 
@@ -36,8 +44,8 @@
   <div class="story-shell">
     <header class="story-top">
       <a class="backlink" href="index.html"><span class="backlink__arrow" aria-hidden="true">←</span> Henry Yang</a>
-      <!-- Language is per page by design: this opens in English even if the
-           name card was being read in Chinese. See the bilingual spec. -->
+      <!-- A ?lang=zh on the URL carries the language over from the name card;
+           a bare URL always opens in English. See the bilingual spec. -->
       <button class="cb-pill" type="button" id="lang-btn" data-i18n-label="lang.aria" aria-label="Switch to Chinese">
         <span data-i18n="lang.label">中文</span>
       </button>
@@ -48,7 +56,7 @@
   <section class="band band--ink story-hero">
     <div class="band__inner">
       <p class="kicker" lang="en"><span class="kicker__num">Who is Henry</span></p>
-      <p class="kicker" lang="zh-Hant"><span class="kicker__num">所以&hellip;Henry 到底是誰？</span></p>
+      <p class="kicker" lang="zh-Hant"><span class="kicker__num">Henry 到底是誰？</span></p>
       <h1 class="hook-lead" lang="en">The thing is — nobody actually likes to work.</h1>
       <h1 class="hook-lead" lang="zh-Hant">說實話，沒有人真的喜歡工作。</h1>
       <p class="hook" lang="en">I was obsessed with it anyway. Not with the work itself, but with being <span class="cb-mark">busy</span> at it. Stacked projects, no white space on the calendar, the last train home. For a long time, that was the only evidence I had that I was worth anything.</p>
@@ -119,7 +127,7 @@
         <p lang="en">My parents both worked. They were tired, but they still gave me everything they had. I was too young to have the words to express my gratitude, so I paid them back in the only currency I understood, the one with a clear external standard: Being the kid with perfect grades. In Taiwan, that is not an achievement. That is an identity.</p>
         <p lang="zh-Hant">我生長在一個充滿愛的家庭。我的父母即便在他們雙薪工作繁忙的情況下，在我的成長過程中仍給予了我一切他們能給的愛與支持。而在我年幼，還沒有足夠情緒與語言能力能表達出感激之意的時刻，我選擇了以當時的我所能理解、且具備明確的外部標準的回報方式：當個成績好的乖孩子。在台灣，那不是成就，那是一種身分。</p>
         <p lang="en">Then I got into the best high school in the country and met the boys who slept through class, played ball after school, and beat my scores anyway. I studied harder. I still lost. And a question opened up that I could not close:</p>
-        <p lang="zh-Hant">後來我考上全國最好的高中，遇到一群上課睡覺、放學打球，成績還是贏過我的人。我發現無論我怎麼認真唸書，都考不贏那些上課睡覺放學打球的天才同學們。那是我第一次真正意義上的懷疑人生：</p>
+        <p lang="zh-Hant">後來我考上全國最好的高中，遇到一群上課睡覺、放學打球，成績卻永遠贏過我的天才同學們。那是我第一次真正意義上的懷疑人生：</p>
         <p class="voice" lang="en">If I'm not the smartest, what exactly am I worth?</p>
         <p class="voice" lang="zh-Hant">如果我不是最聰明的，那我的價值還剩下什麼？</p>
         <p lang="en">So I changed the game. I joined the student council and ran everything I could get my hands on — anniversary events, graduation, sports days — at a pitch that was close to obsessive.</p>
@@ -178,7 +186,7 @@
         <p lang="en">That is the state I was in, in that office, at eight at night.</p>
         <p lang="zh-Hant">那就是我當時的狀態 &mdash; 晚上八點，我坐在學生會辦公室裡。</p>
         <p lang="en">The system I built that autumn did the obvious things. It ended the recurring losses. It turned a profit. It saved a program that was one bad year away from being canceled for good.</p>
-        <p lang="zh-Hant">那年秋天我做的庫存系統，幫助我把科技落實成了影響力。它終結了年年虧損的帽 T。它讓學生會當年的活動得以盈利。它甚至救下了一個再差一年就會被永久取消的活動。</p>
+        <p lang="zh-Hant">那年秋天我做的庫存系統，幫助我把科技落實成了影響力。它終結了年年虧損的帽 T，讓學生會當年的活動得以盈利，甚至救下了一個再差一年就會被永久取消的活動。</p>
       </div>
 
       <figure class="fig">
@@ -299,7 +307,7 @@
         <p lang="en">Here is the part that is hardest to admit. I had been selling productivity software at Microsoft for three years. Three years on stages explaining how it gives people their time back — <span class="cb-em">and I was not using any of it</span>.</p>
         <p lang="zh-Hant">更難承認的是，當時的我在 Microsoft 賣生產力軟體賣了三年。三年站在台上把工具解釋得天花亂墜，<span class="cb-em">而我自己一個都沒在用</span>。</p>
         <p lang="en">To me, it was an app, a product, a thing in a deck.</p>
-        <p lang="zh-Hant">就覺得是個 app，是套工具，是個要賣的工具，如此而已。</p>
+        <p lang="zh-Hant">「就覺得是個 app，是套工具，是個要賣的工具，如此而已。」</p>
         <p lang="en">Then I actually tried it: frameworks first, Inbox Zero, and Getting Things Done, then “building” a second brain, then now my own AI agent. Within a week I could see, for the first time, exactly what I was carrying and what I was not. Within months, the specific anxiety of <span class="cb-mark">I am so busy but don't know what I am busy with</span> was simply gone.</p>
         <p lang="zh-Hant">所以我嘗試著真的開始用：先從理解方法論，Inbox Zero 和 Getting Things Done，接著開始建立屬於自己的一個「第二大腦」，到現在是自己的 AI agent。一個星期之內，我第一次清楚看見自己到底做了什麼、又沒做完什麼。幾個月之內，那種「<span class="cb-mark">我好忙碌，但不知道在忙什麼</span>」的焦慮，就這樣消失了。</p>
       </div>
@@ -316,7 +324,7 @@
       <p class="kicker" lang="zh-Hant"><span class="kicker__num">06</span> 所以，這就是原因</p>
       <div class="prose">
         <p lang="en">Like it or not, work is most of life. If I can take a little friction and a little confusion out of someone's work — if I can hand a person, or a team, something they could not do the day before — that is not a small thing. That is giving somebody their evening back.</p>
-        <p lang="zh-Hant">工作是構成我們生活的重要部分。如果我能幫人們在工作中減少一點點的摩擦與不清晰，或是賦能一個人、一群人做到以前做不到的事 &mdash; 那不是一件小事。那是把一個人的晚上還給他。</p>
+        <p lang="zh-Hant">工作是構成我們生活的重要部分。如果我能幫人們在工作中減少一點點的摩擦與不清晰，或是賦能一個人、一群人做到以前做不到的事，那是把一個人、或一群人的晚上還給他們，而我認為這是一件極有意義的事。</p>
       </div>
       <div class="lietruth">
         <div class="lt-card lt-card--lie">
@@ -441,7 +449,7 @@
   <section class="band band--cobalt story-foot">
     <div class="band__inner">
       <p class="foot-line" lang="en">I truly believe technology should never make us busier; it should make us more capable.</p>
-      <p class="foot-line" lang="zh-Hant">我真心相信，科技不該讓我們更忙；它該讓我們更有能力。</p>
+      <p class="foot-line" lang="zh-Hant">科技不該讓我們更忙碌；它應該要讓我們更有能力。</p>
       <p class="foot-line foot-line--sub" lang="en">Ten years on, I still catch myself measuring my worth in output (and it is hard not to in an MBA classroom). The difference is that now I have systems that keep me organized and focused, and tell me when to rest. And I am building one that can do the same for other people.</p>
       <p class="foot-line foot-line--sub" lang="zh-Hant">十年過去，有時我還是發現自己在用產出衡量自己的價值（在 MBA 教室裡實在很難不這樣）。差別是，我現在看得見這個模式，而且我有一套系統，會比我更早發現它、也會告訴我該休息。而我正在做一套能為別人做到同樣事情的系統。</p>
       <a class="cta-back" href="index.html"><span class="cta-back__arrow" aria-hidden="true">←</span> <span data-i18n="cta.back">Back to the name card and contact</span></a>
@@ -469,8 +477,9 @@
 // meta and anything with no element of its own. English is read back off the
 // page rather than duplicated here, so it cannot drift.
 //
-// Language is per page on purpose — arriving from the name card always starts
-// in English. See docs/superpowers/specs/2026-09-20-bilingual-i18n-design.md.
+// The language travels between pages on the URL (?lang=zh), so following a
+// link keeps it; a bare URL still opens in English.
+// See docs/superpowers/specs/2026-09-20-bilingual-i18n-design.md.
 (function(){
   var ZH = {
     'lang.label'      : 'EN',
@@ -506,6 +515,23 @@
     EN['meta.desc'] = desc ? desc.getAttribute('content') : '';
   }
 
+
+  // Carrying the language across pages: the URL is the carrier, so a Chinese
+  // reader who follows a link stays in Chinese, and the link they copy or the
+  // QR they show opens in Chinese too. A bare URL still opens in English.
+  function syncUrl(next){
+    var q = next === 'zh-Hant' ? '?lang=zh' : '';
+    history.replaceState(null, '', location.pathname + q + location.hash);
+  }
+  function syncLinks(next){
+    var q = next === 'zh-Hant' ? '?lang=zh' : '';
+    var links = document.querySelectorAll('a[href^="index.html"],a[href^="story.html"]');
+    for (var i = 0; i < links.length; i++) {
+      var parts = links[i].getAttribute('href').split('#');
+      var path = parts[0].split('?')[0];
+      links[i].setAttribute('href', path + q + (parts[1] ? '#' + parts[1] : ''));
+    }
+  }
   function applyLang(next){
     if (!EN) snapshotEnglish();
     var dict = next === 'zh-Hant' ? ZH : EN;
@@ -529,6 +555,9 @@
     var desc = document.querySelector('meta[name="description"]');
     if (desc && dict['meta.desc'] != null) desc.setAttribute('content', dict['meta.desc']);
 
+    syncUrl(next);
+    syncLinks(next);
+
     // Chinese runs shorter, so the page gets shorter: recompute the rail.
     window.dispatchEvent(new Event('resize'));
   }
@@ -536,6 +565,10 @@
   document.getElementById('lang-btn').addEventListener('click', function(){
     applyLang(htmlEl.lang === 'zh-Hant' ? 'en' : 'zh-Hant');
   });
+
+  // The head script already set <html lang> from ?lang=zh so the CSS swap
+  // happened before first paint; this fills in the strings it cannot reach.
+  if (htmlEl.lang === 'zh-Hant') applyLang('zh-Hant');
 })();
 
 (function(){

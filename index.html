@@ -51,9 +51,17 @@
   }
   </script>
 
+  <!-- Language carried from the other page. This runs before first paint so a
+       Chinese reader never sees a frame of English; the dictionary strings are
+       filled in by the main script at the end of the body. -->
+  <script>if(/[?&]lang=zh/i.test(location.search))document.documentElement.lang='zh-Hant';</script>
+
+  <!-- ?lang=zh serves the same file, so point search engines at the bare URL. -->
+  <link rel="canonical" href="https://henryyanghy.github.io/namecard/" />
+
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.7" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=4.3" />
 </head>
 <body>
 
@@ -88,7 +96,7 @@
               <h1 class="hero__name" lang="en">Henry Yang</h1>
               <h1 class="hero__name" lang="zh-Hant">楊欣融 Henry Yang</h1>
               <p class="moniker" lang="en">The Builder Who Turns<br>Chaos Into <span class="cb-mark">Calm</span></p>
-              <p class="moniker" lang="zh-Hant">化亂為<span class="cb-mark">靜</span>的建造者</p>
+              <p class="moniker" lang="zh-Hant"><span class="cb-mark">化亂為靜</span>的建造者</p>
               <p class="bio__tagline" lang="en">I build the systems that gave me my life back, so other people can have <span class="cb-em">theirs</span>.</p>
               <p class="bio__tagline" lang="zh-Hant">我打造了那些讓我重拾人生的系統，好讓其他人也能找回<span class="cb-em">自己的人生</span>。</p>
             </div>
@@ -131,11 +139,11 @@
               <h2 class="block__head" style="font-size: 18px" lang="en">About Henry</h2>
               <h2 class="block__head" style="font-size: 18px" lang="zh-Hant">關於 Henry</h2>
               <p class="about__belief" lang="en">I've believed the same thing since I was seventeen: technology should make people more capable, not more busy. It's why I left Taiwan for Hong Kong, joined Microsoft, and am now pursuing a dual MBA + MS in Design Innovation at Kellogg. My focus remains unchanged: building intuitive systems that restore balance and give people their time back.</p>
-              <p class="about__belief" lang="zh-Hant">從十七歲到現在，我所相信的事情始終如一：科技應該使人更有能力，而不是讓人更忙碌。這就是為什麼我離開台灣到香港、加入 Microsoft，現在則在 Kellogg 攻讀 MBA 與設計創新碩士雙學位。我的專注始終不變：打造直覺好用的系統，把平衡和時間還給人。</p>
+              <p class="about__belief" lang="zh-Hant">從十七歲到現在，我始終相信：科技應該使人更有能力，而不是讓人更忙碌。這就是為什麼我離開台灣到香港、加入 Microsoft，現在則在美國西北大學的凱洛格管理學院攻讀 MBA 與創新設計雙碩士學位。我的專注始終不變：打造直覺好用的系統，把平衡和時間還給人。</p>
               <p class="about__attrs" lang="en">I'm a Builder. Storyteller. Tech Instructor. Épée fencer. Productivity Tool Obsessive. RPG Gamer. Podcaster. Keynote Speaker. Five Language Communicator.</p>
               <p class="about__attrs" lang="zh-Hant">我是一個喜歡動手做的人。擅長說故事的人。科技講師。重劍擊劍手。生產力工具偏執狂。RPG 玩家。Podcast 主持人。主題演講講者。五語溝通者。</p>
               <p class="about__fun" lang="en"><span class="about__fun-tag">Fun fact</span> My email inbox is at <span class="cb-mark">zero</span>&nbsp;right now. It always is. Not because I'm tidy, but because the system I built helps me stay clear for work that matters.</p>
-              <p class="about__fun" lang="zh-Hant"><span class="about__fun-tag">冷知識</span> 我的收件匣幾乎永遠保持<span class="cb-mark">零</span>封信件（此時此刻也是！）不是因為我愛整潔，而是因為我打造的系統幫助我為重要的工作保持清晰的思緒。</p>
+              <p class="about__fun" lang="zh-Hant"><span class="about__fun-tag">冷知識</span> 我的收件匣幾乎永遠保持<span class="cb-mark">零封信件</span>。<br>不是因為我愛整潔，而是因為我打造的系統幫助我為重要的工作保持清晰的思緒。</p>
             </section>
 
             <section class="block bio__areas">
@@ -155,7 +163,7 @@
 
             <a class="bio__cta story-cta" href="story.html">
               <span class="story-cta__text" lang="en">The deeper story: who Henry is, and how others see him</span>
-              <span class="story-cta__text" lang="zh-Hant">更完整的故事：所以 Henry 是誰？別人又是怎麼看他的？</span>
+              <span class="story-cta__text" lang="zh-Hant">更完整的故事：所以 Henry 到底是誰？</span>
               <span class="story-cta__arrow" aria-hidden="true">→</span>
             </a>
           </div>
@@ -181,7 +189,7 @@
                   <h3 class="proof__title" style="font-size: 15px" lang="en">A builder, not just a talker</h3>
                   <h3 class="proof__title" style="font-size: 15px" lang="zh-Hant">會講，更會做</h3>
                   <p class="proof__text" lang="en">I don't just advocate for productivity tech — <span class="cb-mark">I build it and live by it</span>. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a tech podcast for new grads that reached the top 15 in Hong Kong, every system I teach is one I've battle-tested myself.</p>
-                  <p class="proof__text" lang="zh-Hant">我不只是提倡生產力科技 &mdash; <span class="cb-mark">我親手打造，更每天身體力行。</span>從個人 AI agent、第二大腦工作流，到自己寫的 Vibe Coding 控制器 app，再到一檔給新鮮人的科技 Podcast（在香港衝到前 15 名），我教的每一套系統，都是我親身實戰驗證過的。</p>
+                  <p class="proof__text" lang="zh-Hant">我不只提倡生產力科技，<span class="cb-mark">我更親手打造，並身體力行</span>。從個人 AI agent、第二大腦工作流，到自己寫的 Vibe Coding 控制器 app，再到一檔給新鮮人的科技 Podcast（在香港衝到前 15 名），我教的每一套系統，都是我親身實戰驗證過的。</p>
                 </div>
               </div>
             </section>
@@ -432,6 +440,23 @@
     EN['meta.desc'] = desc ? desc.getAttribute('content') : '';
   }
 
+
+  // Carrying the language across pages: the URL is the carrier, so a Chinese
+  // reader who follows a link stays in Chinese, and the link they copy or the
+  // QR they show opens in Chinese too. A bare URL still opens in English.
+  function syncUrl(next){
+    var q = next === 'zh-Hant' ? '?lang=zh' : '';
+    history.replaceState(null, '', location.pathname + q + location.hash);
+  }
+  function syncLinks(next){
+    var q = next === 'zh-Hant' ? '?lang=zh' : '';
+    var links = document.querySelectorAll('a[href^="index.html"],a[href^="story.html"]');
+    for (var i = 0; i < links.length; i++) {
+      var parts = links[i].getAttribute('href').split('#');
+      var path = parts[0].split('?')[0];
+      links[i].setAttribute('href', path + q + (parts[1] ? '#' + parts[1] : ''));
+    }
+  }
   function applyLang(next){
     if (!EN) snapshotEnglish();
     var dict = next === 'zh-Hant' ? ZH : EN;
@@ -454,6 +479,10 @@
     if (dict['meta.title'] != null) document.title = dict['meta.title'];
     var desc = document.querySelector('meta[name="description"]');
     if (desc && dict['meta.desc'] != null) desc.setAttribute('content', dict['meta.desc']);
+
+    syncUrl(next);
+    syncLinks(next);
+    qrRendered = false;   // the QR encodes the current URL, which just changed
 
     // The Now list is built in JS, so it does not follow the CSS swap.
     // Re-render from the copy already in memory rather than re-fetching.
@@ -670,6 +699,10 @@
 
     openFromHash();
   }
+
+  // The head script already set <html lang> from ?lang=zh so the CSS swap
+  // happened before first paint; this fills in the strings it cannot reach.
+  if (lang() === 'zh-Hant') applyLang('zh-Hant');
 
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') {

@@ -122,7 +122,7 @@ All JS is vanilla and inline in the page it belongs to (no external scripts).
 - **Year** → update `.rail__year` in `index.html`
 
 ### Styling
-- All styles live in `assets/css/v2.css` (currently `?v=3.6`)
+- All styles live in `assets/css/v2.css` (currently `?v=4.3`)
 - **After editing `v2.css`, bump the `?v=` on the `<link>` in `index.html`,
   `story.html` AND `og.html`.** GitHub Pages sends no-revalidate caching headers,
   so returning visitors otherwise render the new markup against a stale cached
@@ -180,8 +180,15 @@ and copy — nothing else needs touching.
 ### Bilingual content (English / 繁體中文)
 
 Both pages carry a `中` / `EN` pill that switches the whole page in place. No
-second URL, no reload, no extra request. Design spec:
+second copy of the page, no reload, no extra request. Design spec:
 `docs/superpowers/specs/2026-09-20-bilingual-i18n-design.md`.
+
+The language travels between the two pages on the URL: switching to Chinese
+adds `?lang=zh` and rewrites the internal links, an inline script in `<head>`
+reads it back before first paint, and a bare URL always opens in English. That
+also makes the Chinese view a link you can share, and the QR encodes whichever
+language is on screen. Both pages carry a `<link rel="canonical">` to the bare
+URL so the parameter does not read as a duplicate page.
 
 `<html lang>` is the only state. Two rules in `v2.css` do the switching:
 

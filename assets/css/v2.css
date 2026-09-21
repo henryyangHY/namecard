@@ -125,7 +125,7 @@ a:hover{color:var(--primary-deep)}
 .about__belief{margin:0 0 14px;font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.62;color:var(--body)}
 .about__attrs{margin:0 0 14px;font-family:var(--font-body);font-weight:500;font-size:15px;line-height:1.55;color:var(--ink)}
 .about__fun{margin:4px 0 0;padding:14px 16px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--canvas-tint);box-shadow:var(--shadow-rest);font-family:var(--font-body);font-weight:400;font-size:15px;line-height:1.55;color:var(--body)}
-.about__fun-tag{display:inline-block;margin:0 8px 3px 0;padding:3px 9px;border:1.5px solid var(--ink);border-radius:var(--radius-full);background:var(--accent);color:var(--on-accent);font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;transform:rotate(-1.5deg)}
+.about__fun-tag{display:inline-block;vertical-align:middle;margin:0 8px 3px 0;padding:3px 9px;border:1.5px solid var(--ink);border-radius:var(--radius-full);background:var(--accent);color:var(--on-accent);font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;transform:rotate(-1.5deg)}
 .ai-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
 .ai-list li{position:relative;padding-left:22px;font-family:var(--font-body);font-size:15px;line-height:1.45;color:var(--body)}
 .ai-list li::before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;background:var(--primary);border:1.5px solid var(--ink);transform:rotate(45deg)}
@@ -484,22 +484,78 @@ html[lang="zh-Hant"] h3[lang="zh-Hant"]{line-height:1.45}
 html[lang="zh-Hant"] .moniker[lang="zh-Hant"],
 html[lang="zh-Hant"] .hook-lead[lang="zh-Hant"],
 html[lang="zh-Hant"] .ch-title[lang="zh-Hant"]{line-height:1.32}
+
+/* These two cap their measure in ch, which is sized off "0": a han glyph is
+   about twice that, so 16ch holds only ~8 characters and both sentences broke
+   across two lines. Chinese needs the full column instead. */
+html[lang="zh-Hant"] .hook-lead[lang="zh-Hant"]{
+  max-width:none;
+  font-size:clamp(27px,4.6vw,44px);
+}
+html[lang="zh-Hant"] .foot-line[lang="zh-Hant"]:not(.foot-line--sub){
+  max-width:none;
+  font-size:clamp(17px,2.55vw,26px);
+}
+
+/* Same trap one level down: these keep growing with the viewport while the
+   article column stops at 780px, so past ~890px the text outgrows its own
+   measure and breaks to two lines. Measured single-line widths at the 700px
+   column: .beat needs <=23.3px, .pull <=38.9px. */
+html[lang="zh-Hant"] .beat[lang="zh-Hant"]{font-size:clamp(19px,2.7vw,22.5px)}
+html[lang="zh-Hant"] .pull[lang="zh-Hant"]{max-width:none;font-size:clamp(26px,4.8vw,38px)}
 html[lang="zh-Hant"] .project__line[lang="zh-Hant"],
 html[lang="zh-Hant"] .story-cta__text[lang="zh-Hant"]{line-height:1.7}
 
 /* Swapped through the dictionary, so it carries no lang of its own. */
 html[lang="zh-Hant"] .projects__count{letter-spacing:.04em}
 
+/* The 17/16/15 scale reads as one voice in Latin, but at CJK sizes the steps
+   are plainly visible and the About block looked bigger than the column
+   beside it. Chinese body copy runs at a single size instead. */
+html[lang="zh-Hant"] .about__belief[lang="zh-Hant"],
+html[lang="zh-Hant"] .about__fun[lang="zh-Hant"],
+html[lang="zh-Hant"] .about__attrs[lang="zh-Hant"],
+html[lang="zh-Hant"] .proof__text[lang="zh-Hant"],
+html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16px}
+/* The body row sized each column to its own content, so the two sides only
+   lined up by luck — true for the English copy, not for the Chinese. Stretch
+   the row and let the story CTA sit on the bottom edge, so the card closes
+   level in any language and stays level when the copy changes. */
+@media (min-width:860px){
+  .bio__row--body{align-items:stretch}
+  .bio__row--body .story-cta{margin-top:auto}
+}
+
+@media (min-width:860px){
+  html[lang="zh-Hant"] .about__belief[lang="zh-Hant"],
+  html[lang="zh-Hant"] .about__fun[lang="zh-Hant"],
+  html[lang="zh-Hant"] .about__attrs[lang="zh-Hant"],
+  html[lang="zh-Hant"] .proof__text[lang="zh-Hant"],
+  html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16.5px}
+}
+
 /* A quotation stays in the speaker's own words in both languages; the
    Chinese reading is a gloss underneath, never a replacement. */
 .quote-gloss{
-  margin:8px 0 0;
+  margin:8px 0 16px;              /* matched to the gap above, which collapses
+                                     to the quote's own 16px bottom margin */
   font-family:var(--font-body);
   font-size:13px;
   line-height:1.8;
   color:var(--muted);
 }
 .band--ink .quote-gloss{color:var(--on-band-dim)}
+/* The name card's testimonial sits on --surface-band, where --muted is far
+   too dark to read. */
+.testimonial .quote-gloss{color:var(--on-band-dim)}
+
+/* "楊欣融 Henry Yang" is longer than "Henry Yang" and wrapped to two lines
+   at the display size the English name uses. */
+html[lang="zh-Hant"] .hero__name[lang="zh-Hant"]{
+  /* Sized so it stays on one line in the two-column band (~880-1100px),
+     where the intro cell is narrowest relative to the viewport. */
+  font-size:clamp(24px,3.4vw,40px);
+}
 
 /* The rail has ~54px of slack at 375px, and the language pill needs ~58px.
    The rule is decorative (aria-hidden), so it yields on narrow screens. */
