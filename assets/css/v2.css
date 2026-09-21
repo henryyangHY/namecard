@@ -436,3 +436,66 @@ a:hover{color:var(--primary-deep)}
   .fig-row{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+
+/* ===================== bilingual (zh-Hant) =====================
+   <html lang> is the single source of truth. Only elements that carry
+   their own lang are switched; anything unmarked shows in both, so new
+   content can ship English-first without gaps appearing in the zh view.
+   Must stay at the end of the file: several rules below tie on
+   specificity with the base rules they override and win on order. */
+
+html[lang="en"]      [lang="zh-Hant"]{display:none}
+html[lang="zh-Hant"] [lang="en"]     {display:none}
+
+/* Chinese text keeps the brand faces for Latin runs and falls through to
+   the system CJK stack for han glyphs — no webfont, no extra bytes.
+   Never add a CJK webfont here: the smallest usable one is ~3MB. */
+[lang="zh-Hant"]{
+  --font-display:'Bricolage Grotesque','PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;
+  --font-body:'Instrument Sans','PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif;
+  --font-mono:'JetBrains Mono','PingFang TC','Noto Sans TC',ui-monospace,monospace;
+}
+
+/* line-height and letter-spacing are hand-tuned per rule in this sheet rather
+   than tokenised, so Chinese needs its own pass. These selectors sit at (0,2,0)
+   or (0,2,1) to clear both plain classes and the .prose p / .pd__pair .pd__label
+   style of descendant selector, and rely on source order for exact ties.
+
+   Tracking is reset for every marked block rather than class by class: display
+   type runs at -1.45px and mono kickers at +.14em, and both wreck han glyphs.
+   Stating it once means content added later is covered without new rules. */
+html[lang="zh-Hant"] [lang="zh-Hant"]{
+  letter-spacing:normal;
+  line-break:strict;               /* keeps 。」 off the start of a line */
+}
+
+/* Leading, which does have to be split: han body copy wants more than Latin,
+   display headings want less. Anything not listed keeps its designed value. */
+html[lang="zh-Hant"] p[lang="zh-Hant"],
+html[lang="zh-Hant"] li[lang="zh-Hant"]{line-height:1.85}
+html[lang="zh-Hant"] h1[lang="zh-Hant"],
+html[lang="zh-Hant"] h2[lang="zh-Hant"],
+html[lang="zh-Hant"] h3[lang="zh-Hant"]{line-height:1.45}
+html[lang="zh-Hant"] .moniker[lang="zh-Hant"],
+html[lang="zh-Hant"] .hook-lead[lang="zh-Hant"],
+html[lang="zh-Hant"] .ch-title[lang="zh-Hant"]{line-height:1.32}
+html[lang="zh-Hant"] .project__line[lang="zh-Hant"],
+html[lang="zh-Hant"] .story-cta__text[lang="zh-Hant"]{line-height:1.7}
+
+/* Swapped through the dictionary, so it carries no lang of its own. */
+html[lang="zh-Hant"] .projects__count{letter-spacing:.04em}
+
+/* A quotation stays in the speaker's own words in both languages; the
+   Chinese reading is a gloss underneath, never a replacement. */
+.quote-gloss{
+  margin:8px 0 0;
+  font-family:var(--font-body);
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+}
+.band--ink .quote-gloss{color:var(--on-band-dim)}
+
+/* The rail has ~54px of slack at 375px, and the language pill needs ~58px.
+   The rule is decorative (aria-hidden), so it yields on narrow screens. */
+@media (max-width:420px){.rail__rule{display:none}}

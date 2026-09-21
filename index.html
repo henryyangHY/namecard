@@ -53,7 +53,7 @@
 
   <!-- ?v= is a cache buster: bump it whenever v2.css changes, or returning
        visitors keep rendering new markup against a stale cached stylesheet. -->
-  <link rel="stylesheet" href="assets/css/v2.css?v=3.6" />
+  <link rel="stylesheet" href="assets/css/v2.css?v=3.7" />
 </head>
 <body>
 
@@ -64,11 +64,18 @@
       <header class="rail">
         <span class="rail__brand"><span class="rail__dot" aria-hidden="true"></span><span class="rail__mono">HY</span></span>
         <span class="rail__rule" aria-hidden="true"></span>
-        <button class="cb-pill" type="button" id="now-btn" aria-label="See what Henry is up to now">
+        <button class="cb-pill" type="button" id="now-btn" data-i18n-label="now.aria" aria-label="See what Henry is up to now">
           <span class="cb-pill__live" aria-hidden="true"></span><span>Now</span>
         </button>
-        <button class="cb-pill" type="button" id="qr-btn" aria-label="Show QR code to share this page">
+        <button class="cb-pill" type="button" id="qr-btn" data-i18n-label="qr.aria" aria-label="Show QR code to share this page">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 18h3M18 14h3"></path></svg><span>QR</span>
+        </button>
+        <!-- Label shows the language you would GET, not the one you are in.
+             It goes through the dictionary rather than paired markup: this is
+             the one place an English page has to render han characters, and
+             the paired-DOM rule would hide them. -->
+        <button class="cb-pill" type="button" id="lang-btn" data-i18n-label="lang.aria" aria-label="Switch to Chinese">
+          <span data-i18n="lang.label">中文</span>
         </button>
         <span class="rail__year">2026</span>
       </header>
@@ -78,9 +85,12 @@
         <div class="bio__row bio__row--intro">
           <div class="bio__cell bio__cell--intro">
             <div class="bio__id">
-              <h1 class="hero__name">Henry Yang</h1>
-              <p class="moniker">The Builder Who Turns<br>Chaos Into <span class="cb-mark">Calm</span></p>
-              <p class="bio__tagline">I build the systems that gave me my life back, so other people can have <span class="cb-em">theirs</span>.</p>
+              <h1 class="hero__name" lang="en">Henry Yang</h1>
+              <h1 class="hero__name" lang="zh-Hant">楊欣融 Henry Yang</h1>
+              <p class="moniker" lang="en">The Builder Who Turns<br>Chaos Into <span class="cb-mark">Calm</span></p>
+              <p class="moniker" lang="zh-Hant">把混亂<br>打造成<span class="cb-mark">平靜</span></p>
+              <p class="bio__tagline" lang="en">I build the systems that gave me my life back, so other people can have <span class="cb-em">theirs</span>.</p>
+              <p class="bio__tagline" lang="zh-Hant">我打造那些讓我拿回生活的系統，好讓別人也能拿回<span class="cb-em">他們的</span>。</p>
             </div>
 
             <nav class="bio__contact" aria-label="Contact links">
@@ -108,9 +118,9 @@
           </div>
 
           <div class="bio__cell bio__cell--media">
-            <button class="bio__photo avatar" type="button" id="avatar-btn" aria-label="Save Henry's contact card to your phone">
+            <button class="bio__photo avatar" type="button" id="avatar-btn" data-i18n-label="avatar.aria" aria-label="Save Henry's contact card to your phone">
               <span class="avatar__frame"><img src="images/avatar.jpg" alt="Henry Yang" width="200" height="200"></span>
-              <span class="avatar__tape" aria-hidden="true">Tap the photo to save contact</span>
+              <span class="avatar__tape" aria-hidden="true" data-i18n="avatar.tape">Tap the photo to save contact</span>
             </button>
           </div>
         </div>
@@ -118,52 +128,74 @@
         <div class="bio__row bio__row--body">
           <div class="bio__cell bio__cell--facets">
             <section class="block bio__about">
-              <h2 class="block__head" style="font-size: 18px">About Henry</h2>
-              <p class="about__belief">I've believed the same thing since I was seventeen: technology should make people more capable, not more busy. It's why I left Taiwan for Hong Kong, joined Microsoft, and am now pursuing a dual MBA + MS in Design Innovation at Kellogg. My focus remains unchanged: building intuitive systems that restore balance and give people their time back.</p>
-              <p class="about__attrs">I'm a Builder. Storyteller. Tech Instructor. Épée fencer. Productivity Tool Obsessive. RPG Gamer. Podcaster. Keynote Speaker. Five Language Communicator.</p>
-              <p class="about__fun"><span class="about__fun-tag">Fun fact</span> My email inbox is at <span class="cb-mark">zero</span>&nbsp;right now. It always is. Not because I'm tidy, but because the system I built helps me stay clear for work that matters.</p>
+              <h2 class="block__head" style="font-size: 18px" lang="en">About Henry</h2>
+              <h2 class="block__head" style="font-size: 18px" lang="zh-Hant">關於 Henry</h2>
+              <p class="about__belief" lang="en">I've believed the same thing since I was seventeen: technology should make people more capable, not more busy. It's why I left Taiwan for Hong Kong, joined Microsoft, and am now pursuing a dual MBA + MS in Design Innovation at Kellogg. My focus remains unchanged: building intuitive systems that restore balance and give people their time back.</p>
+              <p class="about__belief" lang="zh-Hant">從十七歲到現在，我相信的事情沒變過：科技應該讓人更有能力，而不是更忙。這是我離開台灣去香港、進 Microsoft，現在在 Kellogg 讀 MBA 與設計創新雙學位的原因。焦點始終如一：打造直覺好用的系統，把平衡和時間還給人。</p>
+              <p class="about__attrs" lang="en">I'm a Builder. Storyteller. Tech Instructor. Épée fencer. Productivity Tool Obsessive. RPG Gamer. Podcaster. Keynote Speaker. Five Language Communicator.</p>
+              <p class="about__attrs" lang="zh-Hant">建造者。說故事的人。技術講師。重劍擊劍手。生產力工具偏執狂。RPG 玩家。Podcaster。Keynote 講者。能用五種語言溝通。</p>
+              <p class="about__fun" lang="en"><span class="about__fun-tag" lang="en">Fun fact</span> My email inbox is at <span class="cb-mark">zero</span>&nbsp;right now. It always is. Not because I'm tidy, but because the system I built helps me stay clear for work that matters.</p>
+              <p class="about__fun" lang="zh-Hant"><span class="about__fun-tag" lang="zh-Hant">冷知識</span> 我的收件匣現在是<span class="cb-mark">零</span>封。它一直都是。不是因為我愛整潔，而是因為我建的系統讓我能把腦袋留給真正重要的事。</p>
             </section>
 
             <section class="block bio__areas">
-              <h2 class="block__head" style="font-size: 18px">Areas of interest</h2>
+              <h2 class="block__head" style="font-size: 18px" lang="en">Areas of interest</h2>
+              <h2 class="block__head" style="font-size: 18px" lang="zh-Hant">關注的領域</h2>
               <ul class="ai-list">
-                <li>Innovation where needs meet tech</li>
-                <li>Building tools that lower cognitive load</li>
-                <li>Human centered AI adoption</li>
-                <li>3D Printing &amp; Gadgets</li>
+                <li lang="en">Innovation where needs meet tech</li>
+                <li lang="zh-Hant">需求與科技交會處的創新</li>
+                <li lang="en">Building tools that lower cognitive load</li>
+                <li lang="zh-Hant">打造降低認知負荷的工具</li>
+                <li lang="en">Human centered AI adoption</li>
+                <li lang="zh-Hant">以人為本的 AI 導入</li>
+                <li lang="en">3D Printing &amp; Gadgets</li>
+                <li lang="zh-Hant">3D 列印與各種小工具</li>
               </ul>
             </section>
 
             <a class="bio__cta story-cta" href="story.html">
-              <span class="story-cta__text">The deeper story: who Henry is, and how others see him</span>
+              <span class="story-cta__text" lang="en">The deeper story: who Henry is, and how others see him</span>
+              <span class="story-cta__text" lang="zh-Hant">更完整的故事：Henry 是誰，以及別人怎麼看他</span>
               <span class="story-cta__arrow" aria-hidden="true">→</span>
             </a>
           </div>
 
           <div class="bio__cell bio__cell--proof">
             <section class="block bio__proofs">
-              <h2 class="block__head block__head--accent" style="font-size: 18px">Making technology feel human</h2>
+              <h2 class="block__head block__head--accent" style="font-size: 18px" lang="en">Making technology feel human</h2>
+              <h2 class="block__head block__head--accent" style="font-size: 18px" lang="zh-Hant">讓科技貼近人</h2>
               <div class="proofs">
                 <div class="proof">
-                  <h3 class="proof__title" style="font-size: 15px">Storyteller who reads every room</h3>
-                  <p class="proof__text">At the 2026 Microsoft AI Tour, I shared the keynote stage with Judson Althoff, Microsoft's CEO of Commercial Business, across Shanghai and Hong Kong: three languages, 6,000+ in the room, 400k+ views. I meet every audience in their own language, because a system nobody understands helps no one.</p>
+                  <h3 class="proof__title" style="font-size: 15px" lang="en">Storyteller who reads every room</h3>
+                  <h3 class="proof__title" style="font-size: 15px" lang="zh-Hant">能讀懂每一個場子的說書人</h3>
+                  <p class="proof__text" lang="en">At the 2026 Microsoft AI Tour, I shared the keynote stage with Judson Althoff, Microsoft's CEO of Commercial Business, across Shanghai and Hong Kong: three languages, 6,000+ in the room, 400k+ views. I meet every audience in their own language, because a system nobody understands helps no one.</p>
+                  <p class="proof__text" lang="zh-Hant">2026 Microsoft AI Tour，我在上海與香港和 Microsoft 商業事業群執行長 Judson Althoff 同台 keynote：三種語言、現場 6,000+ 人、400k+ 觀看。我用每一群聽眾自己的語言跟他們說話，因為沒有人聽得懂的系統，幫不了任何人。</p>
                 </div>
                 <div class="proof">
-                  <h3 class="proof__title" style="font-size: 15px">The tool raised me, then hired me</h3>
-                  <p class="proof__text">The kid who fixed his high school's inventory chaos with a shared Excel spreadsheet grew up to specialize in the productivity tools themselves: Excel, Teams, Microsoft 365, Copilot. Ten years, one obsession.</p>
+                  <h3 class="proof__title" style="font-size: 15px" lang="en">The tool raised me, then hired me</h3>
+                  <h3 class="proof__title" style="font-size: 15px" lang="zh-Hant">是工具把我帶大的，後來它雇用了我</h3>
+                  <p class="proof__text" lang="en">The kid who fixed his high school's inventory chaos with a shared Excel spreadsheet grew up to specialize in the productivity tools themselves: Excel, Teams, Microsoft 365, Copilot. Ten years, one obsession.</p>
+                  <p class="proof__text" lang="zh-Hant">那個用一份共用 Excel 收拾掉高中庫存混亂的小孩，長大後專門做生產力工具本身：Excel、Teams、Microsoft 365、Copilot。十年，同一個執念。</p>
                 </div>
                 <div class="proof">
-                  <h3 class="proof__title" style="font-size: 15px">A builder, not just a talker</h3>
-                  <p class="proof__text">I don't just advocate for productivity tech — <span class="cb-mark">I build it and live by it</span>. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a tech podcast for new grads that reached the top 15 in Hong Kong, every system I teach is one I've battle-tested myself.</p>
+                  <h3 class="proof__title" style="font-size: 15px" lang="en">A builder, not just a talker</h3>
+                  <h3 class="proof__title" style="font-size: 15px" lang="zh-Hant">做的人，不是只會講的人</h3>
+                  <p class="proof__text" lang="en">I don't just advocate for productivity tech — <span class="cb-mark">I build it and live by it</span>. From personal AI agents and second-brain workflows to a custom Vibe Coding controller app and a tech podcast for new grads that reached the top 15 in Hong Kong, every system I teach is one I've battle-tested myself.</p>
+                  <p class="proof__text" lang="zh-Hant">我不只是提倡生產力科技 —— <span class="cb-mark">我自己做，也自己用</span>。從個人 AI agent、第二大腦工作流，到自己寫的 Vibe Coding 控制器 app，再到一檔給新鮮人的科技 Podcast（在香港衝到前 15 名），我教的每一套系統，都是我自己先操過一輪的。</p>
                 </div>
               </div>
             </section>
 
+            <!-- Someone else's words stay in their own words in both languages.
+                 The Chinese reading sits underneath as a gloss, marked as a
+                 translation rather than standing in for what he said. -->
             <blockquote class="bio__testimonial testimonial">
               <p class="testimonial__quote" style="font-size: 15px">Henry delivers more than content. He listens, adapts, and makes others feel included in the conversation.</p>
+              <p class="quote-gloss" lang="zh-Hant">「Henry 給的不只是內容。他會聽、會調整，讓每個人都覺得自己在這場對話裡。」</p>
               <footer class="testimonial__foot">
                 <span class="testimonial__avatar" aria-hidden="true">DD</span>
-                <cite class="testimonial__cite" style="font-size: 12px">Douglas Dawson · VP of Cloud + AI Communication, Microsoft</cite>
+                <cite class="testimonial__cite" style="font-size: 12px" lang="en">Douglas Dawson · VP of Cloud + AI Communication, Microsoft</cite>
+                <cite class="testimonial__cite" style="font-size: 12px" lang="zh-Hant">Douglas Dawson · Microsoft 雲端與 AI 溝通副總裁</cite>
               </footer>
             </blockquote>
           </div>
@@ -173,10 +205,12 @@
         <details class="projects" id="projects">
           <summary class="projects__summary">
             <span class="projects__head">
-              <span class="projects__kicker">Projects</span>
-              <span class="projects__title">The recent projects I&rsquo;m doing</span>
+              <span class="projects__kicker" lang="en">Projects</span>
+              <span class="projects__kicker" lang="zh-Hant">專案</span>
+              <span class="projects__title" lang="en">The recent projects I&rsquo;m doing</span>
+              <span class="projects__title" lang="zh-Hant">最近在做的事</span>
             </span>
-            <span class="projects__count">2 items</span>
+            <span class="projects__count" data-i18n="projects.count">2 items</span>
             <span class="projects__toggle" aria-hidden="true"></span>
           </summary>
 
@@ -185,24 +219,32 @@
             <article class="project" id="p-workshop">
               <button class="project__open" type="button">
                 <span class="project__thumb"><img src="images/projects/workshop/01-room.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%"></span>
-                <span class="project__verb">I teach</span>
-                <span class="project__name"><em>I teach:</em> AI productivity, and how to take notes so knowledge compounds</span>
-                <span class="project__line">Two runs at Kellogg &mdash; 30+, then nearly 70 people. Zettelkasten, Markdown, AI.</span>
-                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue">Open &#8599;</span></span>
+                <span class="project__verb" lang="en">I teach</span>
+                <span class="project__verb" lang="zh-Hant">我在教</span>
+                <span class="project__name" lang="en"><em>I teach:</em> AI productivity, and how to take notes so knowledge compounds</span>
+                <span class="project__name" lang="zh-Hant"><em>我在教：</em>AI 生產力，以及怎麼記筆記讓知識累積成複利</span>
+                <span class="project__line" lang="en">Two runs at Kellogg &mdash; 30+, then nearly 70 people. Zettelkasten, Markdown, AI.</span>
+                <span class="project__line" lang="zh-Hant">在 Kellogg 辦了兩場 &mdash; 30+ 人，然後將近 70 人。Zettelkasten、Markdown、AI。</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue" data-i18n="cue.open">Open &#8599;</span></span>
               </button>
 
               <div class="project__detail" hidden>
                 <header class="pd__head">
-                  <span class="project__verb">I teach</span>
-                  <h2 class="pd__title"><em>I teach:</em> AI productivity and how to take notes to make knowledge compound</h2>
-                  <p class="pd__meta">Kellogg MMM MasterClass &middot; Sep 15, 2026 &middot; nearly 70 people &middot; second run</p>
+                  <span class="project__verb" lang="en">I teach</span>
+                  <span class="project__verb" lang="zh-Hant">我在教</span>
+                  <h2 class="pd__title" lang="en"><em>I teach:</em> AI productivity and how to take notes to make knowledge compound</h2>
+                  <h2 class="pd__title" lang="zh-Hant"><em>我在教：</em>AI 生產力，以及怎麼記筆記讓知識累積成複利</h2>
+                  <p class="pd__meta" lang="en">Kellogg MMM MasterClass &middot; Sep 15, 2026 &middot; nearly 70 people &middot; second run</p>
+                  <p class="pd__meta" lang="zh-Hant">Kellogg MMM MasterClass &middot; 2026 年 9 月 15 日 &middot; 將近 70 人 &middot; 第二場</p>
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
-                  <p>How to take notes that help you think &mdash; and connect ideas across every subject.</p>
+                  <p lang="en">How to take notes that help you think &mdash; and connect ideas across every subject.</p>
+                  <p lang="zh-Hant">怎麼記下能幫你思考的筆記 &mdash; 並且讓不同領域的想法互相連起來。</p>
                 </div>
                 <div>
-                  <p class="pd__label">From the room</p>
+                  <p class="pd__label" lang="en">From the room</p>
+                  <p class="pd__label" lang="zh-Hant">現場</p>
                   <div class="pd__shots">
                     <figure class="pd__shot"><img src="images/projects/workshop/01-room.jpg" alt="The lecture hall at the start of the session, title slide on both screens" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%"></figure>
                     <figure class="pd__shot"><img src="images/projects/workshop/02-audience.jpg" alt="The room seen from the podium, laptops open across the tiers" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 80%"></figure>
@@ -210,14 +252,15 @@
                   </div>
                 </div>
                 <div>
-                  <p class="pd__label">The session</p>
+                  <p class="pd__label" lang="en">The session</p>
+                  <p class="pd__label" lang="zh-Hant">這堂課</p>
                   <div class="pd__player" data-video="6ReXxS6mL-M">
                     <img src="images/projects/workshop/01-room.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%">
-                    <button class="pd__play" type="button" aria-label="Play the session recording">
+                    <button class="pd__play" type="button" data-i18n-label="pd.play.session" aria-label="Play the session recording">
                       <span><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M9 6.5l9 5.5-9 5.5z" fill="currentColor"></path></svg></span>
                     </button>
                   </div>
-                  <p class="pd__caption"><a href="https://www.youtube.com/watch?v=6ReXxS6mL-M" target="_blank" rel="noopener">Watch on YouTube &#8599;</a></p>
+                  <p class="pd__caption"><a href="https://www.youtube.com/watch?v=6ReXxS6mL-M" target="_blank" rel="noopener" data-i18n="pd.youtube">Watch on YouTube &#8599;</a></p>
                 </div>
               </div>
             </article>
@@ -225,34 +268,43 @@
             <article class="project" id="p-claudegamepad">
               <button class="project__open" type="button">
                 <span class="project__thumb"><video class="project__loop" src="images/projects/claudegamepad/thumb-loop.mp4" poster="images/projects/claudegamepad/thumb-cover.jpg" width="960" height="540" muted loop playsinline preload="none" aria-hidden="true"></video></span>
-                <span class="project__verb">I built</span>
-                <span class="project__name"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</span>
-                <span class="project__line">A native macOS menu bar app that puts Claude Code on a controller.</span>
-                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue">Open &#8599;</span></span>
+                <span class="project__verb" lang="en">I built</span>
+                <span class="project__verb" lang="zh-Hant">我做了</span>
+                <span class="project__name" lang="en"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</span>
+                <span class="project__name" lang="zh-Hant"><em>我做了：</em>ClaudeGamepad &mdash; 用遊戲手把 vibe coding</span>
+                <span class="project__line" lang="en">A native macOS menu bar app that puts Claude Code on a controller.</span>
+                <span class="project__line" lang="zh-Hant">一個原生 macOS 選單列 app，把 Claude Code 搬到手把上。</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue" data-i18n="cue.open">Open &#8599;</span></span>
               </button>
 
               <div class="project__detail" hidden>
                 <header class="pd__head">
-                  <span class="project__verb">I built</span>
-                  <h2 class="pd__title"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</h2>
-                  <p class="pd__meta">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; Open Source</p>
+                  <span class="project__verb" lang="en">I built</span>
+                  <span class="project__verb" lang="zh-Hant">我做了</span>
+                  <h2 class="pd__title" lang="en"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</h2>
+                  <h2 class="pd__title" lang="zh-Hant"><em>我做了：</em>ClaudeGamepad &mdash; 用遊戲手把 vibe coding</h2>
+                  <p class="pd__meta" lang="en">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; Open Source</p>
+                  <p class="pd__meta" lang="zh-Hant">macOS 選單列 app &middot; 2026 年 5 月 &middot; Swift + AppKit &middot; 開源</p>
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
-                  <p>A native macOS menu bar app that lets you control Claude Code with a game controller. Lean back, plug in, and vibe code &mdash; hands off the keyboard, eyes still on the terminal.</p>
-                  <p>Native Swift + AppKit. No Electron, no Python. Xbox, PS5 and MFi controllers on macOS&nbsp;14+.</p>
+                  <p lang="en">A native macOS menu bar app that lets you control Claude Code with a game controller. Lean back, plug in, and vibe code &mdash; hands off the keyboard, eyes still on the terminal.</p>
+                  <p lang="zh-Hant">一個原生 macOS 選單列 app，讓你用遊戲手把控制 Claude Code。往後靠、接上手把、開始 vibe coding &mdash; 手離開鍵盤，眼睛還在 terminal 上。</p>
+                  <p lang="en">Native Swift + AppKit. No Electron, no Python. Xbox, PS5 and MFi controllers on macOS&nbsp;14+.</p>
+                  <p lang="zh-Hant">原生 Swift + AppKit。沒有 Electron，沒有 Python。支援 macOS&nbsp;14+ 的 Xbox、PS5 與 MFi 手把。</p>
                 </div>
                 <!-- Photo left, demo right: both portrait, so they share one row. -->
                 <div class="pd__pair">
                   <figure class="pd__shot"><img src="images/projects/claudegamepad/01-desk.jpg" alt="ClaudeGamepad open beside the terminal, controller in hand, quick-prompt overlay on screen" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:center 48%"></figure>
-                  <p class="pd__label">The demo</p>
+                  <p class="pd__label" lang="en">The demo</p>
+                  <p class="pd__label" lang="zh-Hant">Demo</p>
                   <div class="pd__player" data-video="BqHP_jRhW2g" data-title="ClaudeGamepad demo">
                     <img src="images/projects/claudegamepad/demo-cover.jpg" alt="" width="1200" height="1600" loading="lazy" decoding="async">
-                    <button class="pd__play" type="button" aria-label="Play the demo">
+                    <button class="pd__play" type="button" data-i18n-label="pd.play.demo" aria-label="Play the demo">
                       <span><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M9 6.5l9 5.5-9 5.5z" fill="currentColor"></path></svg></span>
                     </button>
                   </div>
-                  <p class="pd__caption"><a href="https://www.youtube.com/shorts/BqHP_jRhW2g" target="_blank" rel="noopener">Watch on YouTube &#8599;</a></p>
+                  <p class="pd__caption"><a href="https://www.youtube.com/shorts/BqHP_jRhW2g" target="_blank" rel="noopener" data-i18n="pd.youtube">Watch on YouTube &#8599;</a></p>
                 </div>
               </div>
             </article>
@@ -269,11 +321,11 @@
 
   <!-- QR Code Modal -->
   <div class="cb-scrim" id="qr-scrim" hidden>
-    <div class="cb-modal cb-modal--qr" role="dialog" aria-modal="true" aria-label="QR code">
-      <button class="cb-close" type="button" id="qr-close" aria-label="Close">
+    <div class="cb-modal cb-modal--qr" role="dialog" aria-modal="true" data-i18n-label="qr.modal.aria" aria-label="QR code">
+      <button class="cb-close" type="button" id="qr-close" data-i18n-label="close.aria" aria-label="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
       </button>
-      <div class="qr-label">Scan to visit</div>
+      <div class="qr-label" data-i18n="qr.scan">Scan to visit</div>
       <div class="qr-box" id="qr-box"></div>
       <div class="qr-url" id="qr-url"></div>
     </div>
@@ -281,25 +333,25 @@
 
   <!-- Now Modal -->
   <div class="cb-scrim" id="now-scrim" hidden>
-    <div class="cb-modal cb-modal--now" role="dialog" aria-modal="true" aria-label="What I'm doing now">
-      <button class="cb-close" type="button" id="now-close" aria-label="Close">
+    <div class="cb-modal cb-modal--now" role="dialog" aria-modal="true" data-i18n-label="now.modal.aria" aria-label="What I'm doing now">
+      <button class="cb-close" type="button" id="now-close" data-i18n-label="close.aria" aria-label="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
       </button>
       <header class="now-head">
-        <div class="now-title-row"><span class="now-live" aria-hidden="true"></span><h2 class="now-title">Now · Henry</h2></div>
-        <p class="now-sub">What I'm up to · last updated <span id="now-updated">—</span></p>
+        <div class="now-title-row"><span class="now-live" aria-hidden="true"></span><h2 class="now-title" data-i18n="now.title">Now · Henry</h2></div>
+        <p class="now-sub"><span data-i18n="now.sub">What I'm up to · last updated</span> <span id="now-updated">—</span></p>
       </header>
       <ol class="now-list" id="now-list">
-        <li class="now-loading">Loading…</li>
+        <li class="now-loading" data-i18n="now.loading">Loading…</li>
       </ol>
-      <footer class="now-foot">Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a></footer>
+      <footer class="now-foot"><span data-i18n="now.foot">Inspired by</span> <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a></footer>
     </div>
   </div>
 
   <!-- Project Modal -->
   <div class="cb-scrim" id="project-scrim" hidden>
     <div class="cb-modal cb-modal--project" role="dialog" aria-modal="true" aria-labelledby="project-title">
-      <button class="cb-close" type="button" id="project-close" aria-label="Close">
+      <button class="cb-close" type="button" id="project-close" data-i18n-label="close.aria" aria-label="Close">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"></path></svg>
       </button>
       <div id="project-body"></div>
@@ -309,6 +361,109 @@
 
 <script>
 (function(){
+
+  // ---------- language ----------
+  // English lives where it is used: in the markup, or inline at the call site.
+  // Chinese is an overlay on top of it, and lives only in this one object.
+  // That way English can never drift out of sync with a duplicate copy, and
+  // adding a language string is always "add one line here".
+  //
+  // Content prose does NOT belong here — it uses paired lang="" markup, so the
+  // two languages sit next to each other in the HTML. This dictionary is only
+  // for interface strings, which repeat, and for text that has no element of
+  // its own (<title>, meta, and strings built in JS).
+  var ZH = {
+    'lang.label'     : 'EN',
+    'lang.aria'      : 'Switch to English',
+    'meta.title'     : '楊欣融 Henry Yang',
+    'meta.desc'      : '楊欣融 Henry Yang。把混亂打造成平靜的人。我打造那些讓我拿回生活的系統，好讓別人也能拿回他們的。ex-Microsoft，Kellogg MMM 28 屆。',
+    'now.aria'       : '看看 Henry 最近在做什麼',
+    'qr.aria'        : '顯示 QR code 以分享本頁',
+    'qr.modal.aria'  : 'QR code',
+    'qr.scan'        : '掃描開啟本頁',
+    'close.aria'     : '關閉',
+    'avatar.aria'    : '把 Henry 的聯絡資訊存到手機',
+    'avatar.tape'    : '點照片即可儲存聯絡資訊',
+    'now.modal.aria' : 'Henry 最近在做的事',
+    'now.title'      : 'Now · Henry',
+    'now.sub'        : '最近在做的事 · 更新於',
+    'now.loading'    : '載入中…',
+    'now.empty'      : '目前還沒有內容。',
+    'now.error'      : '載入失敗，請稍後再試。',
+    'now.foot'       : '靈感來自',
+    'toast.vcard'    : '✓ 聯絡資訊已下載 — 開啟後即可存入手機。',
+    'tag.building'   : '打造中',
+    'tag.learning'   : '學習中',
+    'tag.reading'    : '閱讀中',
+    'tag.thinking'   : '思考中',
+    'tag.shipping'   : '發布中',
+    'tag.life'       : '生活',
+    'projects.count' : '2 個項目',
+    'cue.open'       : '展開 ↗',
+    'pd.youtube'     : '到 YouTube 觀看 ↗',
+    'pd.play.session': '播放課程錄影',
+    'pd.play.demo'   : '播放 demo'
+  };
+
+  var htmlEl = document.documentElement;
+  var EN = null;   // snapshotted from the page the first time we switch away
+
+  function lang(){ return htmlEl.lang === 'zh-Hant' ? 'zh-Hant' : 'en'; }
+
+  // Look up a JS-generated string. The English stays inline at the call site
+  // so you can read the code without cross-referencing the dictionary.
+  function t(key, en){ return (lang() === 'zh-Hant' && ZH[key]) ? ZH[key] : en; }
+
+  function snapshotEnglish(){
+    EN = {};
+    var i, el, nodes;
+    nodes = document.querySelectorAll('[data-i18n]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      EN[el.getAttribute('data-i18n')] = el.textContent;
+    }
+    nodes = document.querySelectorAll('[data-i18n-label]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      EN[el.getAttribute('data-i18n-label')] = el.getAttribute('aria-label');
+    }
+    EN['meta.title'] = document.title;
+    var desc = document.querySelector('meta[name="description"]');
+    EN['meta.desc'] = desc ? desc.getAttribute('content') : '';
+  }
+
+  function applyLang(next){
+    if (!EN) snapshotEnglish();
+    var dict = next === 'zh-Hant' ? ZH : EN;
+    htmlEl.lang = next;
+
+    var i, el, key, nodes;
+    nodes = document.querySelectorAll('[data-i18n]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.textContent = dict[key];
+    }
+    nodes = document.querySelectorAll('[data-i18n-label]');
+    for (i = 0; i < nodes.length; i++) {
+      el = nodes[i];
+      key = el.getAttribute('data-i18n-label');
+      if (dict[key] != null) el.setAttribute('aria-label', dict[key]);
+    }
+
+    if (dict['meta.title'] != null) document.title = dict['meta.title'];
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc && dict['meta.desc'] != null) desc.setAttribute('content', dict['meta.desc']);
+
+    // The Now list is built in JS, so it does not follow the CSS swap.
+    // Re-render from the copy already in memory rather than re-fetching.
+    if (nowData) renderNow(nowData);
+  }
+
+  document.getElementById('lang-btn').addEventListener('click', function(){
+    applyLang(lang() === 'zh-Hant' ? 'en' : 'zh-Hant');
+  });
+
   var toast = document.getElementById('toast');
   var vcard = document.getElementById('vcard-link');
   var toastTimer;
@@ -320,7 +475,7 @@
   }
   document.getElementById('avatar-btn').addEventListener('click', function(){
     vcard.click();
-    showToast('✓ Contact downloaded — open it to save Henry to your phone.');
+    showToast(t('toast.vcard', '✓ Contact downloaded — open it to save Henry to your phone.'));
   });
 
   // ---------- QR modal ----------
@@ -359,12 +514,41 @@
   var nowList = document.getElementById('now-list');
   var nowUpdated = document.getElementById('now-updated');
   var nowLoaded = false;
+  var nowData = null;   // the fetched payload, so a language switch can re-render
 
   function fmtDate(iso){
     var d = new Date(iso + 'T00:00:00');
     if (isNaN(d)) return iso;
+    if (lang() === 'zh-Hant') return (d.getMonth() + 1) + '月' + d.getDate() + '日';
     var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     return months[d.getMonth()] + ' ' + d.getDate();
+  }
+
+  function fmtTag(tag){
+    var key = (tag || 'thinking').toLowerCase();
+    return t('tag.' + key, key.toUpperCase());
+  }
+
+  // An entry shows text_zh in the Chinese view when it has one, and falls back
+  // to the English text when it does not — so a new entry can go up in English
+  // without leaving a hole. See NOW_PROTOCOL.md.
+  function entryText(e){
+    return (lang() === 'zh-Hant' && e.text_zh) ? e.text_zh : e.text;
+  }
+
+  function renderNow(data){
+    nowUpdated.textContent = fmtDate(data.updated);
+    var entries = (data.entries || []).slice(0, 5);
+    if (entries.length === 0) {
+      nowList.innerHTML = '<li class="now-loading">' + t('now.empty', 'Nothing here yet.') + '</li>';
+      return;
+    }
+    nowList.innerHTML = entries.map(function(e){
+      return '<li class="now-entry">'
+        + '<div class="now-meta"><span class="now-date">' + fmtDate(e.date) + '</span>'
+        + '<span class="now-tag">' + fmtTag(e.tag) + '</span></div>'
+        + '<p class="now-text">' + entryText(e) + '</p></li>';
+    }).join('');
   }
 
   function loadNow(){
@@ -372,23 +556,13 @@
     fetch('now.json?_=' + Date.now(), { cache: 'no-store' })
       .then(function(res){ if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
       .then(function(data){
-        nowUpdated.textContent = fmtDate(data.updated);
-        var entries = (data.entries || []).slice(0, 5);
-        if (entries.length === 0) {
-          nowList.innerHTML = '<li class="now-loading">Nothing here yet.</li>';
-        } else {
-          nowList.innerHTML = entries.map(function(e){
-            return '<li class="now-entry">'
-              + '<div class="now-meta"><span class="now-date">' + fmtDate(e.date) + '</span>'
-              + '<span class="now-tag">' + (e.tag || 'thinking').toUpperCase() + '</span></div>'
-              + '<p class="now-text">' + e.text + '</p></li>';
-          }).join('');
-        }
+        nowData = data;           // kept so a language switch can re-render
+        renderNow(data);
         nowLoaded = true;
       })
       .catch(function(err){
         console.error(err);
-        nowList.innerHTML = '<li class="now-loading">Could not load. Try again later.</li>';
+        nowList.innerHTML = '<li class="now-loading">' + t('now.error', 'Could not load. Try again later.') + '</li>';
       });
   }
 
