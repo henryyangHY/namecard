@@ -224,6 +224,57 @@
 
           <div class="projects__grid" id="projects-grid">
 
+            <article class="project" id="p-paper-bridge">
+              <button class="project__open" type="button">
+                <span class="project__thumb"><img src="images/projects/paper-bridge/01-desk.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 35%"></span>
+                <span class="project__verb" lang="en">I built</span>
+                <span class="project__verb" lang="zh-Hant">我在做</span>
+                <span class="project__name" lang="en"><em>I built:</em> paper-bridge &mdash; from Post-its to Heptabase and back</span>
+                <span class="project__name" lang="zh-Hant"><em>我在做：</em>paper-bridge &mdash; 從 Post-it 到 Heptabase，再印回紙上</span>
+                <span class="project__line" lang="en">An agent skill that turns photos of my Post-its into Heptabase notes, and my Heptabase whiteboards into print-ready PDFs.</span>
+                <span class="project__line" lang="zh-Hant">一個 agent skill：把 Post-it 照片變成 Heptabase 筆記，也把白板印成可以帶進教室的 PDF。</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue" data-i18n="cue.open">Open &#8599;</span></span>
+              </button>
+
+              <div class="project__detail" hidden>
+                <header class="pd__head">
+                  <span class="project__verb" lang="en">I built</span>
+                  <span class="project__verb" lang="zh-Hant">我在做</span>
+                  <h2 class="pd__title" lang="en"><em>I built:</em> paper-bridge &mdash; from Post-its to Heptabase and back</h2>
+                  <h2 class="pd__title" lang="zh-Hant"><em>我在做：</em>paper-bridge &mdash; 從 Post-it 到 Heptabase，再印回紙上</h2>
+                  <p class="pd__meta" lang="en">Agent Skill for Claude Code &middot; Sep 2026 &middot; Python + Heptabase CLI</p>
+                  <p class="pd__meta" lang="zh-Hant">Claude Code agent skill &middot; 2026 年 9 月 &middot; Python + Heptabase CLI</p>
+                </header>
+                <div class="pd__rule"></div>
+                <div class="pd__body">
+                  <p lang="en">Many of my Kellogg classes are laptop-free. My notes end up on Post-its, while my thinking lives in Heptabase. The Post-its rarely made it back into the system, and the readings I prepared in Heptabase stayed on my screen, because the app doesn't have a good print export.</p>
+                  <p lang="zh-Hant">Kellogg 很多課不能用電腦。我的課堂筆記寫在 Post-it 上，但整理思考的地方在 Heptabase。Post-it 很少真的回到系統裡；課前在 Heptabase 準備好的 reading，也因為沒有好的列印匯出，帶不進教室。</p>
+                  <p lang="en">paper-bridge closes the gap both ways. After class, I lay my Post-its out on the desk and take one photo. The agent transcribes them, asks me only about the words it isn't sure of, expands each idea into a permanent note, redraws my sketches as diagrams, and rebuilds the desk layout on the right whiteboard. Before class, it turns a whiteboard into a two-up PDF where every card starts on a fresh page.</p>
+                  <p lang="zh-Hant">paper-bridge 把兩個方向都接起來。下課後，我把 Post-it 排在桌上拍一張照。agent 轉錄內容，只問我它沒把握的字，把每個想法擴寫成永久筆記，把手繪圖重畫成圖表，再照桌面的排法放到對的白板上。上課前，它把白板印成一張紙兩頁的 PDF，每張卡片都從新的一頁開始。</p>
+                  <p lang="en">Three decisions shaped it. I check the work only where errors compound: after transcription, and before anything is written. The model reads and writes; tested code handles layout, pagination and every write. And before writing any code, I ran the whole flow by hand on real class notes.</p>
+                  <p lang="zh-Hant">三個決定定下了它的樣子。我只在錯誤會被放大的地方把關：轉錄完之後，以及寫入之前。讀和寫交給模型，排版、分頁和每一次寫入交給有測試的程式。寫任何程式之前，我先用真的課堂筆記手動跑完整個流程。</p>
+                  <p lang="en">Real use broke it twice. Printing a final-exam cheat sheet, one run dropped a list item and the next came out almost blank, because its check looked at a preview of the page, not the PDF. Now the preview is rendered from the PDF itself, so the check sees exactly what I print.</p>
+                  <p lang="zh-Hant">真的用了之後，它壞了兩次。印期末考 cheat sheet 時，一次漏掉清單的一項，另一次整份 PDF 幾乎空白，因為檢查看的是網頁預覽，不是 PDF。現在預覽直接由 PDF 產生，檢查看到的就是我會印出來的東西。</p>
+                </div>
+                <div>
+                  <p class="pd__label" lang="en">Paper to board</p>
+                  <p class="pd__label" lang="zh-Hant">紙本到白板</p>
+                  <div class="pd__shots pd__shots--two">
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/01-desk.jpg" alt="Post-it notes from a marketing class laid out on a desk, with arrows drawn between them" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 35%"></figure>
+                    <!-- MOCKUP ONLY: replace with Henry's Heptabase screenshot (02-board.jpg) before shipping -->
+                    <figure class="pd__shot" style="display:flex;align-items:center;justify-content:center;font:600 11px/1.4 var(--font-mono);letter-spacing:.08em;color:var(--ink);opacity:.6;text-align:center;padding:12px">HEPTABASE BOARD<br>SCREENSHOT (TODO)</figure>
+                  </div>
+                </div>
+                <div>
+                  <p class="pd__label" lang="en">Board to paper</p>
+                  <p class="pd__label" lang="zh-Hant">白板到紙本</p>
+                  <div class="pd__shots pd__shots--one">
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/03-print.jpg" alt="A printed two-up page: an Issue tree note with its diagram on the left, a note on share of wallet on the right" width="1600" height="1236" loading="lazy" decoding="async" style="object-position:center 4%"></figure>
+                  </div>
+                </div>
+              </div>
+            </article>
+
             <article class="project" id="p-workshop">
               <button class="project__open" type="button">
                 <span class="project__thumb"><img src="images/projects/workshop/01-room.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 58%"></span>
