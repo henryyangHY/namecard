@@ -247,14 +247,38 @@
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
-                  <p lang="en">Many of my Kellogg classes are laptop-free. My notes end up on Post-its, while my thinking lives in Heptabase. The Post-its rarely made it back into the system, and the readings I prepared in Heptabase stayed on my screen, because the app doesn't have a good print export.</p>
-                  <p lang="zh-Hant">Kellogg 很多課不能用電腦。我的課堂筆記寫在 Post-it 上，但整理思考的地方在 Heptabase。Post-it 很少真的回到系統裡；課前在 Heptabase 準備好的 reading，也因為沒有好的列印匯出，帶不進教室。</p>
-                  <p lang="en">paper-bridge closes the gap both ways. After class, I lay my Post-its out on the desk and take one photo. The agent transcribes them, asks me only about the words it isn't sure of, expands each idea into a permanent note, redraws my sketches as diagrams, and rebuilds the desk layout on the right whiteboard. Before class, it turns a whiteboard into a two-up PDF where every card starts on a fresh page.</p>
-                  <p lang="zh-Hant">paper-bridge 把兩個方向都接起來。下課後，我把 Post-it 排在桌上拍一張照。agent 轉錄內容，只問我它沒把握的字，把每個想法擴寫成永久筆記，把手繪圖重畫成圖表，再照桌面的排法放到對的白板上。上課前，它把白板印成一張紙兩頁的 PDF，每張卡片都從新的一頁開始。</p>
-                  <p lang="en">Three decisions shaped it. I check the work only where errors compound: after transcription, and before anything is written. The model reads and writes; tested code handles layout, pagination and every write. And before writing any code, I ran the whole flow by hand on real class notes.</p>
-                  <p lang="zh-Hant">三個決定定下了它的樣子。我只在錯誤會被放大的地方把關：轉錄完之後，以及寫入之前。讀和寫交給模型，排版、分頁和每一次寫入交給有測試的程式。寫任何程式之前，我先用真的課堂筆記手動跑完整個流程。</p>
-                  <p lang="en">Real use broke it twice. Printing a final-exam cheat sheet, one run dropped a list item and the next came out almost blank, because its check looked at a preview of the page, not the PDF. Now the preview is rendered from the PDF itself, so the check sees exactly what I print.</p>
-                  <p lang="zh-Hant">真的用了之後，它壞了兩次。印期末考 cheat sheet 時，一次漏掉清單的一項，另一次整份 PDF 幾乎空白，因為檢查看的是網頁預覽，不是 PDF。現在預覽直接由 PDF 產生，檢查看到的就是我會印出來的東西。</p>
+                  <p lang="en">Many of my Kellogg classes restrict laptops and other devices.</p>
+                  <p lang="zh-Hant">Kellogg 的很多課是有電腦或科技設備限制的。</p>
+                  <p lang="en">I take notes with the <span class="cb-mark">Zettelkasten</span> method, so in class I got used to writing them on Post-its, while the place I actually organize my thinking is a digital tool, Heptabase. Over time I noticed that whether I wrote on handouts or Post-its, I rarely found time after class to bring those notes back into my digital system. And the reading notes I prepared digitally before class were hard to bring into the room, because Heptabase's print export is limited.</p>
+                  <p lang="zh-Hant">因為我習慣使用<span class="cb-mark">卡片盒筆記法</span>來做筆記，課堂上就養成了把筆記寫在 Post-it 上的習慣，但我實際上整理思考的地方卻在數位工具 Heptabase 上。久而久之我發現，不管我是寫在講義還是 Post-it 上，下課後真的很少有時間把它們帶回數位系統裡。同時，課前透過數位工具整理好的閱讀筆記，也因為 Heptabase 本身的列印輸出功能不夠完整，導致每次想把卡片具體印出來帶進教室都很困難。</p>
+                  <p lang="en">So I built Paper Bridge, an AI skill that connects both directions: from paper to digital whiteboard, and from digital whiteboard back to paper:</p>
+                  <p lang="zh-Hant">於是我做了一個叫 Paper Bridge 的 AI skill，把「實體紙本到電子白板」以及「電子白板到實體紙本」這兩個方向接起來：</p>
+                  <ul lang="en">
+                    <li><p>Before class: I preview the material and organize it into cards the way I think. Then I just ask the AI to export the whiteboard for class, and it turns every card into a PDF in the layout I like.</p></li>
+                    <li><p>After class: I lay out all my Post-its on the desk, take a photo and hand it to the AI agent. It transcribes them, expands the simpler ideas into permanent notes, redraws my hand-drawn diagrams as digital ones, and places everything on the right whiteboard, following the layout on my desk.</p></li>
+                  </ul>
+                  <ul lang="zh-Hant">
+                    <li><p>上課前：我會預習課堂內容並照自己的思考方式整理成卡片。接著只要告訴 AI 把白板輸出成上課用的卡片，它就能完整將所有卡片依照我喜歡的排版格式匯出成 PDF。</p></li>
+                    <li><p>上課後：我會把課堂上整理的所有 Post-it 排在桌上拍張照丟給 AI agent，它就會自動轉錄內容，並針對部分簡單的想法擴寫成永久筆記、將手繪圖表重製成電子圖表，再按照桌面的排法相應排在對的白板上。</p></li>
+                  </ul>
+                  <p lang="en">That closes the loop between physical and digital, in both directions.</p>
+                  <p lang="zh-Hant">由此就完成了現實與虛擬、實體與數位的雙向連接。</p>
+                  <p lang="en">Two things turned out to be especially interesting:</p>
+                  <p lang="zh-Hant">我覺得特別有趣的地方有兩個：</p>
+                  <ol lang="en">
+                    <li><p>I can focus on understanding and new ideas, not on format.</p><p>Sometimes an idea comes fast and all I have is a Post-it and a pen, and some ideas are faster, more precise and more inspiring to write by hand. I no longer worry about the medium, so I can stay focused on thinking.</p></li>
+                    <li><p>I capture sparks of insight and develop them.</p><p>Ideas often pop up in class, but afterwards there is rarely time to follow up on each note or look for references, so many interesting ideas get buried. With this skill, even a rough idea goes to the AI, which checks with me what I meant and then adds the most relevant examples, sparking more ideas.</p></li>
+                  </ol>
+                  <ol lang="zh-Hant">
+                    <li><p>製作筆記時能更 focus 在理解與創造新想法，不需拘泥於形式。</p><p>有時很快有了想法但手邊只有 Post-it 或筆，或是某些想法用筆寫下來更快、更準、更具啟發性時，我不需要擔心受限於媒介。這讓我能更專注在思考上。</p></li>
+                    <li><p>捕捉並深化靈光乍現的想法。</p><p>上課時常會冒出靈感，但事後往往沒時間照著筆記一一跟進或找相關參考資料，許多有趣的點子就這樣很可惜的被埋沒了！做了這個 Skill 後，即便只是很粗糙的想法，丟給 AI 並向我確認意思後，它就能幫我補充最相關的例子，進一步激發更多創意與想像。</p></li>
+                  </ol>
+                  <p lang="en">I also built several human-in-the-loop steps into the skill. When it transcribes handwritten cards and writes them to the digital whiteboard, I deliberately made it check with me on anything it didn't understand, including unclear arrows between notes, so I can fill in the gaps.</p>
+                  <p lang="zh-Hant">在設計這個 skill 時，我也考慮了許多 human-in-the-loop 的環節。例如在轉錄手寫卡片並寫入電子白板時，我很有意識地讓它必須跟我確認理解不清楚的地方，或是釐清不明白的箭頭關聯性，再由我補充。</p>
+                  <p lang="en">This is an important lesson I learned building AI agent skills: <strong class="cb-em">the cost of aligning a human and an AI is far lower than the cost of fixing the AI's mistakes afterwards.</strong> From now on, whenever I design an AI agent or skill, building an alignment step in before it acts, and keeping a human in the loop, is essential. This project made that very real for me.</p>
+                  <p lang="zh-Hant">這是我在開發 AI agent skill 時學到的重要一課：<strong class="cb-em">人類與 AI 之間的 alignment 成本，遠低於 AI 做錯後重新修正的成本。</strong>往後設計任何 AI agent 與 skill 相關功能時，在讓它執行任務前先設計 alignment 環節、確保 human-in-the-loop 至關重要，我在這個專案中非常實際地感受到了這點。</p>
+                  <p lang="en">Finally, this project does more than solve my own pain point. It's a way to put the <span class="cb-mark">RDB (Research, Design, Build)</span> process I learned in MMM to work. The solution fixed my classroom problem, and along the way I learned much more about everything an AI PM building productivity tools needs to think about. It has been a really fun learning experience.</p>
+                  <p lang="zh-Hant">最後，這項專案不單只是解決我個人的痛點，更是一個去 leverage MMM 學到的<span class="cb-mark">RDB（Research, Design, Build）</span>過程。做出的 solution 不僅解決了上課問題，我也在過程中學習到更多身為 AI PM、做生產力工具的人所需要思考的方方面面，是一個很有趣的學習體驗。</p>
                 </div>
                 <div>
                   <p class="pd__label" lang="en">Paper to board</p>
