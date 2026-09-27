@@ -122,7 +122,7 @@ All JS is vanilla and inline in the page it belongs to (no external scripts).
 - **Year** → update `.rail__year` in `index.html`
 
 ### Styling
-- All styles live in `assets/css/v2.css` (currently `?v=4.3`)
+- All styles live in `assets/css/v2.css` (currently `?v=4.4`)
 - **After editing `v2.css`, bump the `?v=` on the `<link>` in `index.html`,
   `story.html` AND `og.html`.** GitHub Pages sends no-revalidate caching headers,
   so returning visitors otherwise render the new markup against a stale cached
