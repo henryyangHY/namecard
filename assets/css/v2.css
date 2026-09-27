@@ -491,7 +491,12 @@ html[lang="zh-Hant"] li[lang="zh-Hant"]{line-height:1.85}
    Body copy only, named by class: justify on a balanced display line would
    spread two short lines across the whole column. This relies on the plain
    text-wrap set on .prose p: under pretty, justify would push Safari's early
-   breaks into the letterspacing. */
+   breaks into the letterspacing.
+   The same trap applies to .nobr runs inside a highlight: when a run drops to
+   the next line, the line above is justified across its gap. Keep runs to
+   about five characters. .about__fun is left ragged because 零封信件 has
+   to stay whole, and justifying the short line in front of it stretched that
+   line by 72px on a 440px iPhone. */
 html[lang="zh-Hant"] .prose p[lang="zh-Hant"],
 html[lang="zh-Hant"] .hook[lang="zh-Hant"],
 html[lang="zh-Hant"] .pull-note[lang="zh-Hant"],
@@ -502,9 +507,11 @@ html[lang="zh-Hant"] .mirror-list li[lang="zh-Hant"],
 html[lang="zh-Hant"] .disagree-quotes li[lang="zh-Hant"],
 html[lang="zh-Hant"] .about__belief[lang="zh-Hant"],
 html[lang="zh-Hant"] .about__attrs[lang="zh-Hant"],
-html[lang="zh-Hant"] .about__fun[lang="zh-Hant"],
 html[lang="zh-Hant"] .proof__text[lang="zh-Hant"],
 html[lang="zh-Hant"] .pd__body p[lang="zh-Hant"]{text-align:justify}
+/* Quoted lines break by hand at the comma (.nobr runs), so their first line
+   is short on purpose; justified, it would be spread across the column. */
+html[lang="zh-Hant"] .prose p.voice[lang="zh-Hant"]{text-align:start}
 html[lang="zh-Hant"] h1[lang="zh-Hant"],
 html[lang="zh-Hant"] h2[lang="zh-Hant"],
 html[lang="zh-Hant"] h3[lang="zh-Hant"]{line-height:1.45}
