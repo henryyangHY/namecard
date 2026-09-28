@@ -176,6 +176,15 @@ and copy — nothing else needs touching.
 - Two portrait frames (photo + player) go in one `.pd__pair` row; it stacks
   below 560px.
 - `index.html#p-<slug>` opens the section and that project directly.
+- Order is newest first. With an odd number of projects the first card spans
+  the row as a wide card (CSS `:first-child:nth-last-child(odd)`), so every
+  row of two stays full; nothing to do by hand.
+- Update the count when adding a project: `.projects__count` ("N items") in the
+  markup and `'projects.count'` in the ZH dictionary.
+- **Planned, not built:** once there are more than 6 projects, show the first 6
+  and add a "Read more" button under the grid that expands the rest (a second
+  level of expansion inside the already collapsed section). Henry's call,
+  2026-09-27.
 
 ### Bilingual content (English / 繁體中文)
 
