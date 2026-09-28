@@ -232,6 +232,15 @@ a:hover{color:var(--primary-deep)}
 .project__year{color:var(--muted)}
 .project__cue{color:var(--primary)}
 .project__open:hover .project__cue{color:var(--primary-deep)}
+/* Odd number of projects: the newest (first) card spans the row as a wide card, so every row of two stays full */
+@media (min-width:700px){
+.projects__grid>.project:first-child:nth-last-child(odd){grid-column:1/-1}
+.projects__grid>.project:first-child:nth-last-child(odd) .project__open{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:24px;row-gap:13px;align-content:start}
+.projects__grid>.project:first-child:nth-last-child(odd) .project__thumb{grid-column:1;grid-row:1/span 6;align-self:stretch;aspect-ratio:auto;min-height:100%}
+.projects__grid>.project:first-child:nth-last-child(odd) .project__open>:not(.project__thumb){grid-column:2}
+.projects__grid>.project:first-child:nth-last-child(odd) .project__verb{justify-self:start}
+.projects__grid>.project:first-child:nth-last-child(odd) .project__meta{align-self:end}
+}
 
 .cb-modal--project{max-width:800px;padding:0;display:flex;flex-direction:column;max-height:calc(100vh - 96px)}
 #project-body{display:flex;flex-direction:column;gap:18px;min-height:0;padding:26px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;border-radius:calc(var(--radius-lg) - 2px)}
