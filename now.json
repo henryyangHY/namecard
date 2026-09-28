@@ -1,6 +1,12 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-09-28",
   "entries": [
+    {
+      "date": "2026-09-28",
+      "tag": "shipping",
+      "text": "Shipped paper-bridge, an AI agent skill moving my class notes between paper and Heptabase.",
+      "text_zh": "做好了 paper-bridge：一個讓課堂筆記在紙本和 Heptabase 之間來回的 AI agent skill。"
+    },
     {
       "date": "2026-09-15",
       "tag": "building",
