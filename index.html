@@ -218,11 +218,88 @@
               <span class="projects__title" lang="en">The recent projects I&rsquo;m doing</span>
               <span class="projects__title" lang="zh-Hant">最近在做的事</span>
             </span>
-            <span class="projects__count" data-i18n="projects.count">2 items</span>
+            <span class="projects__count" data-i18n="projects.count">3 items</span>
             <span class="projects__toggle" aria-hidden="true"></span>
           </summary>
 
           <div class="projects__grid" id="projects-grid">
+
+            <article class="project" id="p-paper-bridge">
+              <button class="project__open" type="button">
+                <span class="project__thumb"><img src="images/projects/paper-bridge/01-desk.jpg" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 35%"></span>
+                <span class="project__verb" lang="en">I built</span>
+                <span class="project__verb" lang="zh-Hant">我在做</span>
+                <span class="project__name" lang="en"><em>I built:</em> An AI agent skill that bridges my digital and analog notes for classes</span>
+                <span class="project__name" lang="zh-Hant"><em>我在做：</em>一個 AI agent skill，串接我上課的數位筆記與紙本筆記</span>
+                <span class="project__line" lang="en">paper-bridge turns photos of my Post-its into Heptabase notes, and my Heptabase whiteboards into print-ready PDFs.</span>
+                <span class="project__line" lang="zh-Hant">paper-bridge 把 Post-it 照片變成 Heptabase 筆記，也把白板印成可以帶進教室的 PDF。</span>
+                <span class="project__meta"><span class="project__year">2026</span><span class="project__cue" data-i18n="cue.open">Open &#8599;</span></span>
+              </button>
+
+              <div class="project__detail" hidden>
+                <header class="pd__head">
+                  <span class="project__verb" lang="en">I built</span>
+                  <span class="project__verb" lang="zh-Hant">我在做</span>
+                  <h2 class="pd__title" lang="en"><em>I built:</em> An AI agent skill that bridges my digital and analog notes for classes</h2>
+                  <h2 class="pd__title" lang="zh-Hant"><em>我在做：</em>一個 AI agent skill，串接我上課的數位筆記與紙本筆記</h2>
+                  <p class="pd__meta" lang="en">Agent Skill for Claude Code &middot; Sep 2026</p>
+                  <p class="pd__meta" lang="zh-Hant">Claude Code agent skill &middot; 2026 年 9 月</p>
+                </header>
+                <div class="pd__rule"></div>
+                <div class="pd__body">
+                  <p lang="en">Many of my Kellogg classes restrict laptops and other devices.</p>
+                  <p lang="zh-Hant">Kellogg 的很多課是有電腦或科技設備限制的。</p>
+                  <p lang="en">I take notes with the <span class="cb-mark">Zettelkasten</span> method, so in class I got used to writing them on Post-its, while the place I actually organize my thinking is a digital tool, Heptabase. Over time I noticed that whether I wrote on handouts or Post-its, I rarely found time after class to bring those notes back into my digital system. And the reading notes I prepared digitally before class were hard to bring into the room, because Heptabase's print export is limited.</p>
+                  <p lang="zh-Hant">因為我習慣使用<span class="cb-mark">卡片盒筆記法</span>來做筆記，課堂上就養成了把筆記寫在 Post-it 上的習慣，但我實際上整理思考的地方卻在數位工具 Heptabase 上。久而久之我發現，不管我是寫在講義還是 Post-it 上，下課後真的很少有時間把它們帶回數位系統裡。同時，課前透過數位工具整理好的閱讀筆記，也因為 Heptabase 本身的列印輸出功能不夠完整，導致每次想把卡片具體印出來帶進教室都很困難。</p>
+                  <p lang="en">So I built Paper Bridge, an AI skill that connects both directions: from paper to digital whiteboard, and from digital whiteboard back to paper:</p>
+                  <p lang="zh-Hant">於是我做了一個叫 Paper Bridge 的 AI skill，把「實體紙本到電子白板」以及「電子白板到實體紙本」這兩個方向接起來：</p>
+                  <ul lang="en">
+                    <li><p>Before class: I preview the material and organize it into cards the way I think. Then I just ask the AI to export the whiteboard for class, and it turns every card into a PDF in the layout I like.</p></li>
+                    <li><p>After class: I lay out all my Post-its on the desk, take a photo and hand it to the AI agent. It transcribes them, expands the simpler ideas into permanent notes, redraws my hand-drawn diagrams as digital ones, and places everything on the right whiteboard, following the layout on my desk.</p></li>
+                  </ul>
+                  <ul lang="zh-Hant">
+                    <li><p>上課前：我會預習課堂內容並照自己的思考方式整理成卡片。接著只要告訴 AI 把白板輸出成上課用的卡片，它就能完整將所有卡片依照我喜歡的排版格式匯出成 PDF。</p></li>
+                    <li><p>上課後：我會把課堂上整理的所有 Post-it 排在桌上拍張照丟給 AI agent，它就會自動轉錄內容，並針對部分簡單的想法擴寫成永久筆記、將手繪圖表重製成電子圖表，再按照桌面的排法相應排在對的白板上。</p></li>
+                  </ul>
+                  <p lang="en">That closes the loop between physical and digital, in both directions.</p>
+                  <p lang="zh-Hant">由此就完成了現實與虛擬、實體與數位的雙向連接。</p>
+                </div>
+                <div>
+                  <p class="pd__label" lang="en">Paper to board</p>
+                  <p class="pd__label" lang="zh-Hant">紙本到白板</p>
+                  <div class="pd__shots pd__shots--two">
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/01-desk.jpg" alt="Post-it notes from a marketing class laid out on a desk, with arrows drawn between them" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 35%"></figure>
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/02-board.jpg" alt="The same notes rebuilt on a Heptabase whiteboard: expanded cards with diagrams, linked by arrows" width="1448" height="928" loading="lazy" decoding="async" style="object-position:center 45%"></figure>
+                  </div>
+                </div>
+                <div>
+                  <p class="pd__label" lang="en">Board to paper</p>
+                  <p class="pd__label" lang="zh-Hant">白板到紙本</p>
+                  <div class="pd__shots pd__shots--two">
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/03-board.jpg" alt="A Heptabase whiteboard of strategy reading notes, grouped into three sections of cards" width="1455" height="898" loading="lazy" decoding="async" style="object-position:center 0%"></figure>
+                    <figure class="pd__shot"><img src="images/projects/paper-bridge/04-printed.jpg" alt="The same cards printed two to a page, spread out on a desk next to a keyboard" width="1600" height="1200" loading="lazy" decoding="async" style="object-position:center 55%"></figure>
+                  </div>
+                </div>
+                <div class="pd__body">
+                  <p lang="en">Two things turned out to be especially interesting:</p>
+                  <p lang="zh-Hant">我覺得特別有趣的地方有兩個：</p>
+                  <ol lang="en">
+                    <li><p>I can focus on understanding and new ideas, not on format.</p><p>Sometimes an idea comes fast and all I have is a Post-it and a pen, and some ideas are faster, more precise and more inspiring to write by hand. I no longer worry about the medium, so I can stay focused on thinking.</p></li>
+                    <li><p>I capture sparks of insight and develop them.</p><p>Ideas often pop up in class, but afterwards there is rarely time to follow up on each note or look for references, so many interesting ideas get buried. With this skill, even a rough idea goes to the AI, which checks with me what I meant and then adds the most relevant examples, sparking more ideas.</p></li>
+                  </ol>
+                  <ol lang="zh-Hant">
+                    <li><p>製作筆記時能更 focus 在理解與創造新想法，不需拘泥於形式。</p><p>有時很快有了想法但手邊只有 Post-it 或筆，或是某些想法用筆寫下來更快、更準、更具啟發性時，我不需要擔心受限於媒介。這讓我能更專注在思考上。</p></li>
+                    <li><p>捕捉並深化靈光乍現的想法。</p><p>上課時常會冒出靈感，但事後往往沒時間照著筆記一一跟進或找相關參考資料，許多有趣的點子就這樣很可惜的被埋沒了！做了這個 Skill 後，即便只是很粗糙的想法，丟給 AI 並向我確認意思後，它就能幫我補充最相關的例子，進一步激發更多創意與想像。</p></li>
+                  </ol>
+                  <p lang="en">I also built several human-in-the-loop steps into the skill. When it transcribes handwritten cards and writes them to the digital whiteboard, I deliberately made it check with me on anything it didn't understand, including unclear arrows between notes, so I can fill in the gaps.</p>
+                  <p lang="zh-Hant">在設計這個 skill 時，我也考慮了許多 human-in-the-loop 的環節。例如在轉錄手寫卡片並寫入電子白板時，我很有意識地讓它必須跟我確認理解不清楚的地方，或是釐清不明白的箭頭關聯性，再由我補充。</p>
+                  <p lang="en">This is an important lesson I learned building AI agent skills: <strong class="cb-em">the cost of aligning a human and an AI is far lower than the cost of fixing the AI's mistakes afterwards.</strong> From now on, whenever I design an AI agent or skill, building an alignment step in before it acts, and keeping a human in the loop, is essential. This project made that very real for me.</p>
+                  <p lang="zh-Hant">這是我在開發 AI agent skill 時學到的重要一課：<strong class="cb-em">人類與 AI 之間的 alignment 成本，遠低於 AI 做錯後重新修正的成本。</strong>往後設計任何 AI agent 與 skill 相關功能時，在讓它執行任務前先設計 alignment 環節、確保 human-in-the-loop 至關重要，我在這個專案中非常實際地感受到了這點。</p>
+                  <p lang="en">Finally, this project does more than solve my own pain point. It's a way to put the <span class="cb-mark">RDB (Research, Design, Build)</span> process I learned in MMM to work. The solution fixed my classroom problem, and along the way I learned much more about everything an AI PM building productivity tools needs to think about. It has been a really fun learning experience.</p>
+                  <p lang="zh-Hant">最後，這項專案不單只是解決我個人的痛點，更是一個去 leverage MMM 學到的<span class="cb-mark">RDB（Research, Design, Build）</span>過程。做出的 solution 不僅解決了上課問題，我也在過程中學習到更多身為 AI PM、做生產力工具的人所需要思考的方方面面，是一個很有趣的學習體驗。</p>
+                </div>
+              </div>
+            </article>
 
             <article class="project" id="p-workshop">
               <button class="project__open" type="button">
@@ -242,8 +319,8 @@
                   <span class="project__verb" lang="zh-Hant">我在教</span>
                   <h2 class="pd__title" lang="en"><em>I teach:</em> AI productivity and how to take notes to make knowledge compound</h2>
                   <h2 class="pd__title" lang="zh-Hant"><em>我在教：</em>AI 生產力，以及怎麼記筆記讓知識複利</h2>
-                  <p class="pd__meta" lang="en">Kellogg MMM MasterClass &middot; Sep 15, 2026 &middot; nearly 70 people &middot; second run</p>
-                  <p class="pd__meta" lang="zh-Hant">Kellogg MMM MasterClass &middot; 2026 年 9 月 15 日 &middot; 第二場 &middot; 將近 70 人</p>
+                  <p class="pd__meta" lang="en">Self-organized workshop for Kellogg students &middot; Sep 15, 2026</p>
+                  <p class="pd__meta" lang="zh-Hant">我為 Kellogg 同學自辦的工作坊 &middot; 2026 年 9 月 15 日</p>
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
@@ -291,8 +368,8 @@
                   <span class="project__verb" lang="zh-Hant">我在做</span>
                   <h2 class="pd__title" lang="en"><em>I built:</em> ClaudeGamepad &mdash; vibe coding with a game controller</h2>
                   <h2 class="pd__title" lang="zh-Hant"><em>我在做：</em>ClaudeGamepad &mdash; 用遊戲手把 vibe coding</h2>
-                  <p class="pd__meta" lang="en">macOS menu bar app &middot; May 2026 &middot; Swift + AppKit &middot; Open Source</p>
-                  <p class="pd__meta" lang="zh-Hant">macOS 選單列 app &middot; 2026 年 5 月 &middot; Swift + AppKit &middot; 開源</p>
+                  <p class="pd__meta" lang="en">Open Source macOS Menu Bar App &middot; May 2026</p>
+                  <p class="pd__meta" lang="zh-Hant">開源 macOS 選單列 App &middot; 2026 年 5 月</p>
                 </header>
                 <div class="pd__rule"></div>
                 <div class="pd__body">
@@ -406,7 +483,7 @@
     'tag.thinking'   : '思考中',
     'tag.shipping'   : '發布中',
     'tag.life'       : '生活',
-    'projects.count' : '2 個項目',
+    'projects.count' : '3 個項目',
     'cue.open'       : '展開 ↗',
     'pd.youtube'     : '到 YouTube 觀看 ↗',
     'pd.play.session': '播放課程錄影',
