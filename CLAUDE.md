@@ -31,7 +31,6 @@ namecard/
     ├── henry-yang.vcf      # vCard downloaded when visitor taps avatar
     ├── og-v3.png           # Share image for index.html (1200×630, rendered)
     ├── og-story-v3.png     # Share image for story.html (1200×630, rendered)
-    ├── og.png              # Legacy share image (old dark theme, unreferenced)
     ├── favicon-32.png
     ├── favicon-192.png
     └── apple-touch-icon.png
