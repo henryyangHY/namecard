@@ -586,6 +586,11 @@ html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16px}
   html[lang="zh-Hant"] .about__attrs[lang="zh-Hant"],
   html[lang="zh-Hant"] .proof__text[lang="zh-Hant"],
   html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16.5px}
+  /* Same rule as English: side by side, the right column runs one step
+     smaller, or it ends 80-110px below the left and opens gaps there. */
+  html[lang="zh-Hant"] .proof__text[lang="zh-Hant"]{font-size:16px}
+  html[lang="zh-Hant"] .proof__title[lang="zh-Hant"]{line-height:1.3}
+  html[lang="zh-Hant"] .testimonial__quote{font-size:17px}
 }
 
 /* A quotation stays in the speaker's own words in both languages; the
