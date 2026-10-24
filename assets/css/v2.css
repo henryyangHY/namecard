@@ -600,11 +600,18 @@ html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16px}
 .testimonial .quote-gloss{color:var(--on-band-dim)}
 
 /* "楊欣融 Henry Yang" is longer than "Henry Yang" and wrapped to two lines
-   at the display size the English name uses. */
+   at the display size the English name uses.
+   Measured: the line is 8.5-8.7em wide (Bricolage's optical size makes it
+   wider when small), and the sizes below leave >=5% of the cell free at every
+   width from 320 to 1500px, as headroom for system CJK faces (PingFang /
+   Noto / JhengHei) that run a little wider.
+   One column: the cell is 278px up to 379px, then ~0.85 x viewport - 39px.
+   Two columns (>=860px): 333px at 860, ~406px from 1050 on. */
 html[lang="zh-Hant"] .hero__name[lang="zh-Hant"]{
-  /* Sized so it stays on one line in the two-column band (~880-1100px),
-     where the intro cell is narrowest relative to the viewport. */
-  font-size:clamp(24px,3.4vw,40px);
+  font-size:clamp(30px,calc(9.3vw - 5px),56px);
+}
+@media (min-width:860px){
+  html[lang="zh-Hant"] .hero__name[lang="zh-Hant"]{font-size:clamp(36px,calc(4.7vw - 4px),45px)}
 }
 
 /* The rail has ~54px of slack at 375px, and the language pill needs ~58px.
