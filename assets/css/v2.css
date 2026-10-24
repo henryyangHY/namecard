@@ -94,9 +94,9 @@ a:hover{color:var(--primary-deep)}
 .bio__contact{display:grid;grid-template-columns:1fr;gap:10px}
 .bio__photo{align-self:center;width:100%;max-width:clamp(240px,38vw,360px);margin:0 auto}
 
-.hero__name{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.6vw,52px);line-height:1;letter-spacing:var(--ls-display-lg);color:var(--ink)}
-.moniker{margin:15px 0 0;font-family:var(--font-display);font-weight:700;font-size:clamp(19px,2.7vw,27px);line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
-.bio__tagline{margin:16px 0 0;font-family:var(--font-body);font-weight:400;font-size:clamp(16px,2vw,18px);line-height:1.5;color:var(--body);max-width:42ch}
+.hero__name{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(40px,6.2vw,74px);line-height:1;letter-spacing:-2.2px;color:var(--ink)}
+.moniker{margin:18px 0 0;font-family:var(--font-display);font-weight:700;font-size:clamp(19px,2.7vw,27px);line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
+.bio__tagline{margin:16px 0 0;font-family:var(--font-body);font-weight:400;font-size:clamp(17px,2vw,19px);line-height:1.5;color:var(--ink);max-width:42ch}
 .cb-mark{background:var(--primary);color:var(--on-primary);font-weight:700;padding:.06em .22em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .cb-em{color:var(--accent);font-weight:500}
 /* A phrase that must not break inside. Wrap each half of a sentence in one
@@ -125,12 +125,13 @@ a:hover{color:var(--primary-deep)}
 
 .block__head{margin:0 0 15px;padding-bottom:10px;border-bottom:2px solid var(--ink);font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
 .block__head--accent{border-bottom:2px solid var(--primary)}
-.about__belief{margin:0 0 14px;font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.62;color:var(--body)}
-.about__attrs{margin:0 0 14px;font-family:var(--font-body);font-weight:500;font-size:15px;line-height:1.55;color:var(--ink)}
-.about__fun{margin:4px 0 0;padding:14px 16px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--canvas-tint);box-shadow:var(--shadow-rest);font-family:var(--font-body);font-weight:400;font-size:15px;line-height:1.55;color:var(--body)}
+.about__belief{margin:0 0 14px;font-family:var(--font-body);font-weight:400;font-size:17px;line-height:1.62;color:var(--body)}
+.about__attrs{margin:0 0 14px;font-family:var(--font-body);font-weight:500;font-size:16.5px;line-height:1.55;color:var(--ink)}
+/* Static block: no border or shadow (those mean "you can press this"), an ochre edge instead. */
+.about__fun{margin:4px 0 0;padding:14px 16px;border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;background:var(--canvas-tint);font-family:var(--font-body);font-weight:400;font-size:17px;line-height:1.62;color:var(--body)}
 .about__fun-tag{display:inline-block;vertical-align:middle;margin:0 8px 3px 0;padding:3px 9px;border:1.5px solid var(--ink);border-radius:var(--radius-full);background:var(--accent);color:var(--on-accent);font-family:var(--font-mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;transform:rotate(-1.5deg)}
 .ai-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
-.ai-list li{position:relative;padding-left:22px;font-family:var(--font-body);font-size:15px;line-height:1.45;color:var(--body)}
+.ai-list li{position:relative;padding-left:22px;font-family:var(--font-body);font-size:17px;line-height:1.62;color:var(--body)}
 .ai-list li::before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;background:var(--primary);border:1.5px solid var(--ink);transform:rotate(45deg)}
 
 .story-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border:2px solid var(--ink);border-radius:var(--radius-sm);background:var(--surface-band);color:var(--canvas);box-shadow:var(--shadow-rest);transition:transform var(--dur-interaction) var(--ease-physical),box-shadow var(--dur-interaction) var(--ease-physical)}
@@ -141,15 +142,16 @@ a:hover{color:var(--primary-deep)}
 .story-cta:hover .story-cta__arrow{transform:translateX(3px)}
 
 .proofs{display:flex;flex-direction:column;gap:16px}
-.proof__title{margin:0 0 7px;font-family:var(--font-mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--primary)}
-.proof__text{margin:0;font-family:var(--font-body);font-weight:400;font-size:15px;line-height:1.6;color:var(--body)}
+/* Mono is for labels; a title you read is set in the display face. */
+.proof__title{margin:0 0 6px;font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:-.3px;line-height:1.25;color:var(--ink)}
+.proof__text{margin:0;font-family:var(--font-body);font-weight:400;font-size:17px;line-height:1.62;color:var(--body)}
 
-.testimonial{margin:0;padding:24px 24px 20px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--surface-band);box-shadow:var(--shadow-rest)}
-.testimonial__quote{position:relative;margin:0 0 16px;font-family:var(--font-body);font-weight:500;font-size:17px;line-height:1.55;color:var(--canvas)}
+.testimonial{margin:0;padding:24px 24px 20px;border:2px solid var(--ink);border-radius:var(--radius-lg);background:var(--surface-band)}
+.testimonial__quote{position:relative;margin:0 0 16px;font-family:var(--font-display);font-weight:600;font-size:21px;line-height:1.35;letter-spacing:-.2px;color:var(--canvas)}
 .testimonial__quote::before{content:"\201C";display:block;font-family:var(--font-display);font-weight:800;font-size:54px;line-height:.55;color:var(--primary-lift);margin:0 0 6px}
 .testimonial__foot{display:flex;align-items:center;gap:11px}
 .testimonial__avatar{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;border:2px solid var(--canvas);border-radius:var(--radius-full);background:var(--accent);color:var(--on-accent);font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.01em}
-.testimonial__cite{font-family:var(--font-mono);font-size:10.5px;font-style:normal;letter-spacing:.06em;text-transform:uppercase;line-height:1.4;color:var(--on-band-dim)}
+.testimonial__cite{font-family:var(--font-body);font-size:13.5px;font-style:normal;line-height:1.4;color:var(--on-band-dim)}
 
 .cb-scrim{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:rgba(21,32,58,.55)}
 .cb-scrim[hidden]{display:none}
@@ -191,9 +193,6 @@ a:hover{color:var(--primary-deep)}
 @media (min-width:860px){
   .bio__row{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(34px,5vw,64px);align-items:start}
   .bio__cell--intro{justify-content:space-between}
-  .about__belief,.about__fun{font-size:17px;line-height:1.66}
-  .about__attrs{font-size:16px;line-height:1.58}
-  .proof__text{font-size:16px;line-height:1.62}
   .block__head{font-size:13px}
 }
 @media (max-width:859px){
@@ -568,12 +567,13 @@ html[lang="zh-Hant"] .about__attrs[lang="zh-Hant"],
 html[lang="zh-Hant"] .proof__text[lang="zh-Hant"],
 html[lang="zh-Hant"] .ai-list li[lang="zh-Hant"]{font-size:16px}
 /* The body row sized each column to its own content, so the two sides only
-   lined up by luck — true for the English copy, not for the Chinese. Stretch
-   the row and let the story CTA sit on the bottom edge, so the card closes
-   level in any language and stays level when the copy changes. */
+   lined up by luck. Stretch the row so the card closes level in any language,
+   and spread the shorter column's slack between its blocks (space-between)
+   rather than pooling it in one hole: in English the right column runs
+   90-150px longer, so the gap used to collect above the story link. */
 @media (min-width:860px){
   .bio__row--body{align-items:stretch}
-  .bio__row--body .story-cta{margin-top:auto}
+  .bio__row--body .bio__cell{justify-content:space-between}
 }
 
 @media (min-width:860px){
